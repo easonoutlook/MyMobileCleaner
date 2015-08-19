@@ -2,20 +2,11 @@
 //  MCDevice.m
 //  MyMobileCleaner
 //
-//  Created by user on 8/18/15.
+//  Created by GoKu on 8/18/15.
 //  Copyright (c) 2015 GoKuStudio. All rights reserved.
 //
 
 #import "MCDevice.h"
-
-@implementation MCDeviceDiskUsage
-
-- (NSString *)description
-{
-    return [NSString stringWithFormat:@"total: %@, used: %@, free: %@, reserved: %@", self.totalDiskCapacity, self.totalDiskUsed, self.totalDiskFree, self.totalDiskReserved];
-}
-
-@end
 
 @interface MCDevice ()
 
@@ -168,12 +159,12 @@
     CFNumberRef valueAmountDataAvailable = SDMMD_AMDeviceCopyValue(self.rawDevice, CFSTR(kDiskUsageDomain), CFSTR(kAmountDataAvailable));
 
     /*
-     kTotalDiskCapacity = kTotalSystemCapacity + kTotalDataCapacity
-     kTotalDataAvailable = kAmountDataReserved + kAmountDataAvailable
-     total for user     = kTotalDiskCapacity
-     used for user      = (kTotalSystemCapacity - kTotalSystemAvailable) + (kTotalDataCapacity - kTotalDataAvailable)
-     free for user      = kAmountDataAvailable
-     reserved for user  = total - used - free = kTotalSystemAvailable + kAmountDataReserved
+    kTotalDiskCapacity = kTotalSystemCapacity + kTotalDataCapacity
+    kTotalDataAvailable = kAmountDataReserved + kAmountDataAvailable
+    total for user     = kTotalDiskCapacity
+    used for user      = (kTotalSystemCapacity - kTotalSystemAvailable) + (kTotalDataCapacity - kTotalDataAvailable)
+    free for user      = kAmountDataAvailable
+    reserved for user  = total - used - free = kTotalSystemAvailable + kAmountDataReserved
     */
 
     if (valueTotalDiskCapacity == NULL ||
@@ -185,6 +176,14 @@
         valueAmountDataAvailable == NULL) {
 
         NSLog(@"[%s] failed: Copy Value Error", __FUNCTION__);
+        CFSafeRelease(valueTotalDiskCapacity);
+        CFSafeRelease(valueTotalSystemCapacity);
+        CFSafeRelease(valueTotalSystemAvailable);
+        CFSafeRelease(valueTotalDataCapacity);
+        CFSafeRelease(valueTotalDataAvailable);
+        CFSafeRelease(valueAmountDataReserved);
+        CFSafeRelease(valueAmountDataAvailable);
+
         return nil;
     }
 
@@ -197,7 +196,8 @@
     return disk;
 }
 
-- (void)scanCrashLogWithCompleteBlock:(void(^)(NSArray *logDirContents))completeBlock
+- (void)scanCrashLogSuccessBlock:(void(^)(NSArray *crashLogs))successBlock
+                    failureBlock:(void(^)())failureBlock
 {
     kern_return_t sdm_return;
 
@@ -205,6 +205,10 @@
         sdm_return = SDMMD_AMDeviceConnect(self.rawDevice);
         if (!(SDM_MD_CallSuccessful(sdm_return))) {
             NSLog(@"[%s] failed: No Connection", __FUNCTION__);
+
+            if (failureBlock) {
+                failureBlock();
+            }
             return;
         }
     }
@@ -212,6 +216,10 @@
     if (!self.isInSession) {
         if (![self startSession]) {
             NSLog(@"[%s] failed: No Session", __FUNCTION__);
+
+            if (failureBlock) {
+                failureBlock();
+            }
             return;
         }
     }
@@ -227,45 +235,176 @@
         SDMMD_AFCConnectionRef sdm_crash_report_conn = SDMMD_AFCConnectionCreate(sdm_afc_conn);
 
         if (sdm_crash_report_conn) {
-            SDMMD_AFCOperationRef read_dir = SDMMD_AFCOperationCreateReadDirectory(CFSTR(""));
-            sdm_return = SDMMD_AFCProcessOperation(sdm_crash_report_conn, &read_dir);
+            SDMMD_AFCOperationRef operation_read_dir = SDMMD_AFCOperationCreateReadDirectory(CFSTR(""));
+            sdm_return = SDMMD_AFCProcessOperation(sdm_crash_report_conn, &operation_read_dir);
             if (SDM_MD_CallSuccessful(sdm_return)) {
-                CFArrayRef dirArray = SDMMD_AFCOperationGetPacketResponse(read_dir);
-                NSArray *dirContents = (__bridge_transfer NSArray *)dirArray;
+                NSArray *dirContents = (__bridge_transfer NSArray *)(SDMMD_AFCOperationGetPacketResponse(operation_read_dir));
 
-                NSMutableArray *logDirContents = [NSMutableArray array];
-                for (NSString *item in dirContents) {
-                    if ((item.length == 0) || [item isEqualToString:@"."] || [item isEqualToString:@".."]) {
+                NSMutableArray *crashLogs = [NSMutableArray array];
+                for (NSString *path in dirContents) {
+                    if ((path.length == 0) || [path isEqualToString:@"."] || [path isEqualToString:@".."]) {
                         continue;
                     }
-                    [logDirContents addObject:item];
+
+                    MCDeviceCrashLogItem *item = [[MCDeviceCrashLogItem alloc] init];
+                    item.path = path;
+
+                    SDMMD_AFCOperationRef operation_get_info = SDMMD_AFCOperationCreateGetFileInfo((__bridge CFStringRef)path);
+                    sdm_return = SDMMD_AFCProcessOperation(sdm_crash_report_conn, &operation_get_info);
+                    if (SDM_MD_CallSuccessful(sdm_return)) {
+                        NSDictionary *info = (__bridge_transfer NSDictionary *)(SDMMD_AFCOperationGetPacketResponse(operation_get_info));
+                        item.isDir = [info[@kAFC_File_Info_st_ifmt] isEqualToString:@"S_IFDIR"];
+                        item.size = [self sizeOfItemWithFullPath:path AFCConnection:sdm_crash_report_conn];
+                    }
+
+                    [crashLogs addObject:item];
                 }
 
-                if (completeBlock) {
-                    completeBlock(logDirContents);
+                CFSafeRelease(sdm_crash_report_conn);
+
+                if (successBlock) {
+                    successBlock(crashLogs);
                 }
+
+                return;
             }
+
+            CFSafeRelease(sdm_crash_report_conn);
 
         } else {
             NSLog(@"[%s] failed: No AFC Connection", __FUNCTION__);
         }
 
-        CFSafeRelease(sdm_crash_report_conn);
+    } else {
+        NSLog(@"[%s] failed: No Service", __FUNCTION__);
+    }
+
+    if (failureBlock) {
+        failureBlock();
+    }
+}
+
+- (void)cleanCrashLog:(NSArray *)crashLogs
+         successBlock:(void(^)())successBlock
+         failureBlock:(void(^)())failureBlock
+{
+    if (crashLogs.count == 0) {
+        if (failureBlock) {
+            failureBlock();
+        }
+        return;
+    }
+    
+    kern_return_t sdm_return;
+
+    if (![self isConnectedDevice]) {
+        sdm_return = SDMMD_AMDeviceConnect(self.rawDevice);
+        if (!(SDM_MD_CallSuccessful(sdm_return))) {
+            NSLog(@"[%s] failed: No Connection", __FUNCTION__);
+
+            if (failureBlock) {
+                failureBlock();
+            }
+            return;
+        }
+    }
+
+    if (!self.isInSession) {
+        if (![self startSession]) {
+            NSLog(@"[%s] failed: No Session", __FUNCTION__);
+
+            if (failureBlock) {
+                failureBlock();
+            }
+            return;
+        }
+    }
+
+    SDMMD_AMConnectionRef sdm_afc_conn;
+    if (SDMMD_AMDeviceGetInterfaceType(self.rawDevice) == kAMDInterfaceConnectionTypeIndirect) {
+        sdm_return = SDMMD_AMDeviceSecureStartService(self.rawDevice, CFSTR(AMSVC_CRASH_REPORT_COPY_MOB), NULL, &sdm_afc_conn);
+    } else {
+        sdm_return = SDMMD_AMDeviceStartService(self.rawDevice, CFSTR(AMSVC_CRASH_REPORT_COPY_MOB), NULL, &sdm_afc_conn);
+    }
+
+    if (SDM_MD_CallSuccessful(sdm_return)) {
+        SDMMD_AFCConnectionRef sdm_crash_report_conn = SDMMD_AFCConnectionCreate(sdm_afc_conn);
+
+        if (sdm_crash_report_conn) {
+            SDMMD_AFCOperationRef operation_remove_file = NULL;
+
+            for (MCDeviceCrashLogItem *item in crashLogs) {
+                NSString *path = item.path;
+
+                if (item.isDir) {
+                    operation_remove_file = SDMMD_AFCOperationCreateRemovePathAndContents((__bridge CFStringRef)path);
+                } else {
+                    operation_remove_file = SDMMD_AFCOperationCreateRemovePath((__bridge CFStringRef)path);
+                }
+
+                sdm_return = SDMMD_AFCProcessOperation(sdm_crash_report_conn, &operation_remove_file);
+                if (SDM_MD_CallSuccessful(sdm_return)) {
+                    NSLog(@"success to clean: %@", path);
+                } else {
+                    NSLog(@"failed to clean: %@", path);
+                }
+            }
+
+            CFSafeRelease(sdm_crash_report_conn);
+
+            if (successBlock) {
+                successBlock();
+            }
+
+            return;
+
+        } else {
+            NSLog(@"[%s] failed: No AFC Connection", __FUNCTION__);
+        }
 
     } else {
         NSLog(@"[%s] failed: No Service", __FUNCTION__);
     }
+    
+    if (failureBlock) {
+        failureBlock();
+    }
 }
 
-- (void)cleanCrashLog:(NSArray *)logDirContents
-    withCompleteBlock:(void(^)())completeBlock
+#pragma mark - inner
+
+- (NSNumber *)sizeOfItemWithFullPath:(NSString *)path AFCConnection:(SDMMD_AFCConnectionRef)afc_conn
 {
+    NSUInteger totalSize = 0;
 
-}
+    SDMMD_AFCOperationRef operation_get_info = SDMMD_AFCOperationCreateGetFileInfo((__bridge CFStringRef)path);
+    kern_return_t sdm_return = SDMMD_AFCProcessOperation(afc_conn, &operation_get_info);
 
-- (void)takeScreenShot
-{
+    if (SDM_MD_CallSuccessful(sdm_return)) {
+        NSDictionary *info = (__bridge_transfer NSDictionary *)(SDMMD_AFCOperationGetPacketResponse(operation_get_info));
 
+        totalSize += [(NSString *)(info[@kAFC_File_Info_st_size]) integerValue];
+
+        BOOL isDir = [info[@kAFC_File_Info_st_ifmt] isEqualToString:@"S_IFDIR"];
+        if (isDir) {
+            SDMMD_AFCOperationRef operation_read_dir = SDMMD_AFCOperationCreateReadDirectory((__bridge CFStringRef)path);
+            sdm_return = SDMMD_AFCProcessOperation(afc_conn, &operation_read_dir);
+
+            if (SDM_MD_CallSuccessful(sdm_return)) {
+                NSArray *dirContents = (__bridge_transfer NSArray *)(SDMMD_AFCOperationGetPacketResponse(operation_read_dir));
+                for (NSString *subPath in dirContents) {
+                    if ((subPath.length == 0) || [subPath isEqualToString:@"."] || [subPath isEqualToString:@".."]) {
+                        continue;
+                    }
+
+                    NSString *newPath = [path stringByAppendingPathComponent:subPath];
+                    totalSize += [[self sizeOfItemWithFullPath:newPath AFCConnection:afc_conn] unsignedIntegerValue];
+                }
+            }
+        }
+    }
+
+    return @(totalSize);
 }
 
 @end

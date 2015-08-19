@@ -2,21 +2,13 @@
 //  MCDevice.h
 //  MyMobileCleaner
 //
-//  Created by user on 8/18/15.
+//  Created by GoKu on 8/18/15.
 //  Copyright (c) 2015 GoKuStudio. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "SDMMobileDevice.h"
-
-@interface MCDeviceDiskUsage : NSObject
-
-@property (nonatomic, strong) NSNumber *totalDiskCapacity;
-@property (nonatomic, strong) NSNumber *totalDiskUsed;
-@property (nonatomic, strong) NSNumber *totalDiskFree;
-@property (nonatomic, strong) NSNumber *totalDiskReserved;
-
-@end
+#import "MCDeviceInfoHub.h"
 
 @interface MCDevice : NSObject
 
@@ -35,10 +27,10 @@
 - (BOOL)unPairDevice;
 
 - (MCDeviceDiskUsage *)diskUsage;
-- (void)scanCrashLogWithCompleteBlock:(void(^)(NSArray *logDirContents))completeBlock; // array of dic {name + size}
-- (void)cleanCrashLog:(NSArray *)logDirContents // array of dic {name + size}
-    withCompleteBlock:(void(^)())completeBlock;
-
-- (void)takeScreenShot;
+- (void)scanCrashLogSuccessBlock:(void(^)(NSArray *crashLogs))successBlock // array of MCDeviceCrashLogItem
+                    failureBlock:(void(^)())failureBlock;
+- (void)cleanCrashLog:(NSArray *)crashLogs // array of MCDeviceCrashLogItem
+         successBlock:(void(^)())successBlock
+         failureBlock:(void(^)())failureBlock;
 
 @end

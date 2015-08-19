@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  MyMobileCleaner
 //
-//  Created by user on 8/18/15.
+//  Created by GoKu on 8/18/15.
 //  Copyright (c) 2015 GoKuStudio. All rights reserved.
 //
 
@@ -29,9 +29,28 @@
 {
     NSLog(@"%@", [[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage]);
 
-    [[MCDeviceController sharedInstance].selectedConnectedDevice scanCrashLogWithCompleteBlock:^(NSArray *logDirContents) {
-        NSLog(@"%@", logDirContents);
-    }];
+    __block NSArray *myCrashLogs = nil;
+
+    [[MCDeviceController sharedInstance].selectedConnectedDevice
+     scanCrashLogSuccessBlock:^(NSArray *crashLogs) {
+         NSUInteger totalSize = 0;
+
+         for (MCDeviceCrashLogItem *item in crashLogs) {
+             totalSize += [item.size unsignedIntegerValue];
+         }
+
+         NSByteCountFormatter *formatter = [[NSByteCountFormatter alloc] init];
+         formatter.countStyle = NSByteCountFormatterCountStyleFile;
+         formatter.adaptive = NO;
+         formatter.zeroPadsFractionDigits = YES;
+         
+         NSLog(@"crash log: %@", [formatter stringFromByteCount:totalSize]);
+
+         myCrashLogs = crashLogs;
+     }
+     failureBlock:^{
+         NSLog(@"failed to scan crash log");
+     }];
 }
 
 - (void)deviceDidDisconnect

@@ -2,7 +2,7 @@
 //  MCDeviceController.m
 //  MyMobileCleaner
 //
-//  Created by user on 8/18/15.
+//  Created by GoKu on 8/18/15.
 //  Copyright (c) 2015 GoKuStudio. All rights reserved.
 //
 
@@ -107,7 +107,7 @@
             self.selectedConnectedDevice = [[MCDevice alloc] initWithRawDevice:(__bridge SDMMD_AMDeviceRef)(self.allConnectedDevices.firstObject)];
             self.selectedConnectedDeviceUDID = self.selectedConnectedDevice.udid;
 
-            NSLog(@"connect to a new device: UDID<%@>", self.selectedConnectedDeviceUDID);
+            NSLog(@"connect to a new device: {UDID: %@}", self.selectedConnectedDeviceUDID);
 
             [self.listener deviceDidConnect];
 
@@ -155,7 +155,7 @@
             NSLog(@"selected device is still connected, so ignore others disconnected.");
 
         } else {
-            NSLog(@"disconnect with device: UDID<%@>", self.selectedConnectedDeviceUDID);
+            NSLog(@"disconnect with device: {UDID: %@}", self.selectedConnectedDeviceUDID);
 
             [self.selectedConnectedDevice disconnectByUser];
             self.selectedConnectedDevice = nil;

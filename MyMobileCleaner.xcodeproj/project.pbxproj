@@ -16,6 +16,7 @@
 		84F03ABF1B82D9F400FFFA28 /* SDMMobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F03ABB1B82D85200FFFA28 /* SDMMobileDevice.framework */; };
 		84F03AC31B82DABF00FFFA28 /* MCDeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F03AC21B82DABF00FFFA28 /* MCDeviceController.m */; };
 		84F03AC71B83204600FFFA28 /* MCDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F03AC61B83204600FFFA28 /* MCDevice.m */; };
+		E57FAD6E1B84B33100ABF2D0 /* MCDeviceInfoHub.m in Sources */ = {isa = PBXBuildFile; fileRef = E57FAD6D1B84B33100ABF2D0 /* MCDeviceInfoHub.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		84F03AC21B82DABF00FFFA28 /* MCDeviceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCDeviceController.m; path = Core/MCDeviceController.m; sourceTree = "<group>"; };
 		84F03AC51B83204600FFFA28 /* MCDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCDevice.h; path = Core/MCDevice.h; sourceTree = "<group>"; };
 		84F03AC61B83204600FFFA28 /* MCDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCDevice.m; path = Core/MCDevice.m; sourceTree = "<group>"; };
+		E57FAD6C1B84B33100ABF2D0 /* MCDeviceInfoHub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCDeviceInfoHub.h; path = Core/MCDeviceInfoHub.h; sourceTree = "<group>"; };
+		E57FAD6D1B84B33100ABF2D0 /* MCDeviceInfoHub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCDeviceInfoHub.m; path = Core/MCDeviceInfoHub.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +155,8 @@
 				84F03AC21B82DABF00FFFA28 /* MCDeviceController.m */,
 				84F03AC51B83204600FFFA28 /* MCDevice.h */,
 				84F03AC61B83204600FFFA28 /* MCDevice.m */,
+				E57FAD6C1B84B33100ABF2D0 /* MCDeviceInfoHub.h */,
+				E57FAD6D1B84B33100ABF2D0 /* MCDeviceInfoHub.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 			files = (
 				84F03A9F1B82D79200FFFA28 /* main.m in Sources */,
 				84F03AC71B83204600FFFA28 /* MCDevice.m in Sources */,
+				E57FAD6E1B84B33100ABF2D0 /* MCDeviceInfoHub.m in Sources */,
 				84F03AC31B82DABF00FFFA28 /* MCDeviceController.m in Sources */,
 				84F03A9D1B82D79200FFFA28 /* AppDelegate.m in Sources */,
 			);
@@ -461,6 +467,7 @@
 				84F03AB51B82D79200FFFA28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84F03AB61B82D79200FFFA28 /* Build configuration list for PBXNativeTarget "MyMobileCleanerTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +476,7 @@
 				84F03AB81B82D79200FFFA28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
