@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84BEE1631B85C3D6000F3DC1 /* MCMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BEE1611B85C3D6000F3DC1 /* MCMainWindowController.m */; };
+		84BEE1641B85C3D6000F3DC1 /* MCMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BEE1621B85C3D6000F3DC1 /* MCMainWindowController.xib */; };
 		84F03A9D1B82D79200FFFA28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F03A9C1B82D79200FFFA28 /* AppDelegate.m */; };
 		84F03A9F1B82D79200FFFA28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F03A9E1B82D79200FFFA28 /* main.m */; };
 		84F03AA11B82D79200FFFA28 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84F03AA01B82D79200FFFA28 /* Images.xcassets */; };
@@ -44,6 +46,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		84BEE1601B85C3D6000F3DC1 /* MCMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCMainWindowController.h; path = ViewController/MCMainWindowController.h; sourceTree = "<group>"; };
+		84BEE1611B85C3D6000F3DC1 /* MCMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCMainWindowController.m; path = ViewController/MCMainWindowController.m; sourceTree = "<group>"; };
+		84BEE1621B85C3D6000F3DC1 /* MCMainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MCMainWindowController.xib; path = ViewController/MCMainWindowController.xib; sourceTree = "<group>"; };
 		84F03A961B82D79200FFFA28 /* MyMobileCleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMobileCleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F03A9A1B82D79200FFFA28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84F03A9B1B82D79200FFFA28 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -82,6 +87,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84BEE15F1B85C379000F3DC1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84BEE1601B85C3D6000F3DC1 /* MCMainWindowController.h */,
+				84BEE1611B85C3D6000F3DC1 /* MCMainWindowController.m */,
+				84BEE1621B85C3D6000F3DC1 /* MCMainWindowController.xib */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		84F03A8D1B82D79200FFFA28 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +121,7 @@
 			children = (
 				84F03A9B1B82D79200FFFA28 /* AppDelegate.h */,
 				84F03A9C1B82D79200FFFA28 /* AppDelegate.m */,
+				84BEE15F1B85C379000F3DC1 /* ViewController */,
 				84F03AC01B82DAA200FFFA28 /* Core */,
 				84F03A991B82D79200FFFA28 /* Supporting Files */,
 			);
@@ -243,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84F03AA11B82D79200FFFA28 /* Images.xcassets in Resources */,
+				84BEE1641B85C3D6000F3DC1 /* MCMainWindowController.xib in Resources */,
 				84F03AA41B82D79200FFFA28 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,6 +280,7 @@
 			files = (
 				84F03A9F1B82D79200FFFA28 /* main.m in Sources */,
 				84F03AC71B83204600FFFA28 /* MCDevice.m in Sources */,
+				84BEE1631B85C3D6000F3DC1 /* MCMainWindowController.m in Sources */,
 				E57FAD6E1B84B33100ABF2D0 /* MCDeviceInfoHub.m in Sources */,
 				84F03AC31B82DABF00FFFA28 /* MCDeviceController.m in Sources */,
 				84F03A9D1B82D79200FFFA28 /* AppDelegate.m in Sources */,
