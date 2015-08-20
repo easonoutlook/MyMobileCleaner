@@ -8,8 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 #import "MCDeviceController.h"
+#import "MCStageViewController.h"
 
-@interface MCMainWindowController : NSWindowController <NSWindowDelegate, MCDeviceControllerDelegate>
+@interface MCMainWindowController : NSWindowController <NSWindowDelegate, MCStageViewControllerManager, MCDeviceControllerDelegate>
 
 - (void)goToWork;
 

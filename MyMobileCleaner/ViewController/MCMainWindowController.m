@@ -10,6 +10,9 @@
 
 @interface MCMainWindowController ()
 
+@property (nonatomic, assign) MCStageViewControllerUIStage currentUIStage;
+@property (nonatomic, strong) MCStageViewController *currentUIStageViewController;
+
 @end
 
 @implementation MCMainWindowController
@@ -22,6 +25,11 @@
     return self;
 }
 
+- (void)goToWork
+{
+    [[MCDeviceController sharedInstance] monitorWithListener:self];
+}
+
 - (void)windowDidLoad {
     [super windowDidLoad];
     
@@ -29,16 +37,38 @@
 
     self.window.titlebarAppearsTransparent = YES;
     self.window.movableByWindowBackground = YES;
-}
 
-- (void)goToWork
-{
-    [[MCDeviceController sharedInstance] monitorWithListener:self];
+    self.currentUIStage = kMCStageViewControllerUIStageNoConnection;
+    [self updateStage:self.currentUIStage animate:NO completion:nil];
 }
 
 - (void)windowWillClose:(NSNotification *)notification
 {
-    [[NSApplication sharedApplication] terminate:self];
+    [[MCDeviceController sharedInstance] stopMonitor];
+
+    // without delay, [windowWillClose:] will call 2 times. no idea.
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[NSApplication sharedApplication] terminate:self];
+    });
+}
+
+- (void)updateStage:(MCStageViewControllerUIStage)newStage
+            animate:(BOOL)animate
+         completion:(void(^)(MCStageViewController *))completion
+{
+
+}
+
+#pragma mark - MCStageViewControllerManager
+
+- (void)gotoNextStage
+{
+
+}
+
+- (void)gotoPreviousStage
+{
+
 }
 
 #pragma mark - MCDeviceControllerDelegate
@@ -87,19 +117,19 @@
          NSLog(@"=> failed to scan crash log");
      }];
 
-    // clean crash log
-    //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    //        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-    //            [[MCDeviceController sharedInstance].selectedConnectedDevice cleanCrashLog:myCrashLogs
-    //                                                                          successBlock:^{
-    //                                                                              NSLog(@"100%% => success to clean all scanned crash log");
-    //                                                                          } updateBlock:^(NSUInteger currentItemIndex) {
-    //                                                                              NSLog(@"%.1f%% -> cleaned crash log: %@", 100.0*(currentItemIndex+1)/myCrashLogs.count, ((MCDeviceCrashLogItem *)(myCrashLogs[currentItemIndex])).path);
-    //                                                                          } failureBlock:^{
-    //                                                                              NSLog(@"=> failed to clean all scanned crash log");
-    //                                                                          }];
-    //        });
-    //    });
+//     clean crash log
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+//                [[MCDeviceController sharedInstance].selectedConnectedDevice cleanCrashLog:myCrashLogs
+//                                                                              successBlock:^{
+//                                                                                  NSLog(@"100%% => success to clean all scanned crash log");
+//                                                                              } updateBlock:^(NSUInteger currentItemIndex) {
+//                                                                                  NSLog(@"%.1f%% -> cleaned crash log: %@", 100.0*(currentItemIndex+1)/myCrashLogs.count, ((MCDeviceCrashLogItem *)(myCrashLogs[currentItemIndex])).path);
+//                                                                              } failureBlock:^{
+//                                                                                  NSLog(@"=> failed to clean all scanned crash log");
+//                                                                              }];
+//            });
+//        });
 }
 
 - (void)deviceDidDisconnect
