@@ -22,6 +22,7 @@
 - (BOOL)isPairedDevice;
 - (BOOL)toPairDevice;
 - (BOOL)unPairDevice;
+- (void)waitingForPairWithCompleteBlock:(void(^)())completeBlock;
 
 - (MCDeviceDiskUsage *)diskUsage;
 

@@ -28,6 +28,13 @@
 - (void)deviceDidConnectButUnPaired
 {
     NSLog(@"unpaired device: %@", [MCDeviceController sharedInstance].selectedConnectedDevice.deviceName);
+
+    [[MCDeviceController sharedInstance].selectedConnectedDevice waitingForPairWithCompleteBlock:^{
+        NSLog(@"success to pair device: %@ [%@]", [MCDeviceController sharedInstance].selectedConnectedDevice.deviceName, [MCDeviceController sharedInstance].selectedConnectedDevice.deviceType);
+    }];
+
+    // try to pair
+    [[MCDeviceController sharedInstance].selectedConnectedDevice toPairDevice];
 }
 
 - (void)deviceDidConnectAndPaired

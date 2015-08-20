@@ -17,6 +17,8 @@
 @property (nonatomic, readwrite, strong) NSString *deviceName;
 @property (nonatomic, readwrite, strong) NSString *deviceType;
 
+@property (nonatomic, assign) BOOL needWaitingForPair;
+
 @end
 
 @implementation MCDevice
@@ -82,32 +84,6 @@
     return self;
 }
 
-- (CFTypeRef)copyDeviceValueOfKey:(NSString *)key inDomain:(NSString *)domain
-{
-    CFTypeRef sdm_value = NULL;
-
-    if (![self isConnectedDevice]) {
-        kern_return_t sdm_return = SDMMD_AMDeviceConnect(self.rawDevice);
-        if (!(SDM_MD_CallSuccessful(sdm_return))) {
-            NSLog(@"[%s] failed: No Connection", __FUNCTION__);
-            return sdm_value;
-        }
-    }
-
-    if (!self.isInSession) {
-        if (![self startSession]) {
-            NSLog(@"[%s] failed: No Session", __FUNCTION__);
-            return sdm_value;
-        }
-    }
-
-    sdm_value = SDMMD_AMDeviceCopyValue(self.rawDevice, (__bridge CFStringRef)domain, (__bridge CFStringRef)key);
-    if (sdm_value == NULL) {
-        NSLog(@"[%s] failed: Copy Value Error", __FUNCTION__);
-    }
-    return sdm_value;
-}
-
 - (BOOL)isConnectedDevice
 {
     return SDMMD_AMDeviceIsAttached(self.rawDevice) ? YES : NO;
@@ -128,6 +104,45 @@
 {
     sdmmd_return_t sdm_return = SDMMD_AMDeviceUnpair(self.rawDevice);
     return SDM_MD_CallSuccessful(sdm_return) ? YES : NO;
+}
+
+- (void)waitingForPairWithCompleteBlock:(void(^)())completeBlock
+{
+    self.needWaitingForPair = YES;
+
+    __weak typeof(self) weakSelf = self;
+    // by using weak self, after self is dealloc due to disconnection of user, the following while loop will stop. ^_^
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        while (weakSelf.needWaitingForPair) {
+            NSLog(@"waiting for device to pair: %@", weakSelf.deviceName);
+
+            if ([weakSelf isPairedDevice]) {
+
+                // update device info after paired
+                [weakSelf startSession];
+
+                if (weakSelf.isInSession) {
+                    CFTypeRef deviceType = SDMMD_AMDeviceCopyValue(weakSelf.rawDevice, NULL, CFSTR(kProductType));
+                    weakSelf.deviceType = [NSString stringWithUTF8String:SDMMD_ResolveModelToName(deviceType)];
+                    CFSafeRelease(deviceType);
+                }
+
+                if (completeBlock) {
+                    completeBlock();
+                }
+                
+                weakSelf.needWaitingForPair = NO;
+
+                break;
+
+            } else {
+                sleep(1);
+            }
+        }
+
+        NSLog(@"no need to wait for device to pair");
+    });
 }
 
 - (MCDeviceDiskUsage *)diskUsage
@@ -381,6 +396,32 @@
     if (failureBlock) {
         failureBlock();
     }
+}
+
+- (CFTypeRef)copyDeviceValueOfKey:(NSString *)key inDomain:(NSString *)domain
+{
+    CFTypeRef sdm_value = NULL;
+
+    if (![self isConnectedDevice]) {
+        kern_return_t sdm_return = SDMMD_AMDeviceConnect(self.rawDevice);
+        if (!(SDM_MD_CallSuccessful(sdm_return))) {
+            NSLog(@"[%s] failed: No Connection", __FUNCTION__);
+            return sdm_value;
+        }
+    }
+
+    if (!self.isInSession) {
+        if (![self startSession]) {
+            NSLog(@"[%s] failed: No Session", __FUNCTION__);
+            return sdm_value;
+        }
+    }
+
+    sdm_value = SDMMD_AMDeviceCopyValue(self.rawDevice, (__bridge CFStringRef)domain, (__bridge CFStringRef)key);
+    if (sdm_value == NULL) {
+        NSLog(@"[%s] failed: Copy Value Error", __FUNCTION__);
+    }
+    return sdm_value;
 }
 
 #pragma mark - inner
