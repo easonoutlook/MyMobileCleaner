@@ -30,6 +30,7 @@
     NSLog(@"%@", [[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage]);
 
     __block NSArray *myCrashLogs = nil;
+    __block NSUInteger myCurrentScannedItemCount = 0;
 
     [[MCDeviceController sharedInstance].selectedConnectedDevice
      scanCrashLogSuccessBlock:^(NSArray *crashLogs) {
@@ -44,13 +45,29 @@
          formatter.adaptive = NO;
          formatter.zeroPadsFractionDigits = YES;
          
-         NSLog(@"crash log: %@", [formatter stringFromByteCount:totalSize]);
+         NSLog(@"100%% => all scanned crash log: %@", [formatter stringFromByteCount:totalSize]);
 
          myCrashLogs = crashLogs;
      }
+     updateBlock:^(NSUInteger totalItemCount, MCDeviceCrashLogItem *currentScannedItem) {
+         NSLog(@"%.1f%% -> scanned crash log: %@", 100.0*(++myCurrentScannedItemCount)/totalItemCount, currentScannedItem.path);
+     }
      failureBlock:^{
-         NSLog(@"failed to scan crash log");
+         NSLog(@"=> failed to scan crash log");
      }];
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            [[MCDeviceController sharedInstance].selectedConnectedDevice cleanCrashLog:myCrashLogs
+                                                                          successBlock:^{
+                                                                              NSLog(@"100%% => success to clean all scanned crash log");
+                                                                          } updateBlock:^(NSUInteger currentItemIndex) {
+                                                                              NSLog(@"%.1f%% -> cleaned crash log: %@", 100.0*(currentItemIndex+1)/myCrashLogs.count, ((MCDeviceCrashLogItem *)(myCrashLogs[currentItemIndex])).path);
+                                                                          } failureBlock:^{
+                                                                              NSLog(@"=> failed to clean all scanned crash log");
+                                                                          }];
+        });
+    });
 }
 
 - (void)deviceDidDisconnect

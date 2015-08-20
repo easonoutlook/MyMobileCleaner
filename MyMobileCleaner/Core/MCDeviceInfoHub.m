@@ -17,7 +17,7 @@
     formatter.adaptive = NO;
     formatter.zeroPadsFractionDigits = YES;
 
-    return [NSString stringWithFormat:@"disk usage: {\n\ttotal:\t\t%@\n\tused:\t\t%@\n\tfree:\t\t%@\n\treserved:\t%@\n}",
+    return [NSString stringWithFormat:@"\ndisk usage {\n\ttotal:\t\t%@\n\tused:\t\t%@\n\tfree:\t\t%@\n\treserved:\t%@\n}",
             [formatter stringFromByteCount:[self.totalDiskCapacity unsignedIntegerValue]],
             [formatter stringFromByteCount:[self.totalDiskUsed unsignedIntegerValue]],
             [formatter stringFromByteCount:[self.totalDiskFree unsignedIntegerValue]],

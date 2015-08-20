@@ -197,8 +197,11 @@
 }
 
 - (void)scanCrashLogSuccessBlock:(void(^)(NSArray *crashLogs))successBlock
+                     updateBlock:(void(^)(NSUInteger totalItemCount, MCDeviceCrashLogItem *currentScannedItem))updateBlock
                     failureBlock:(void(^)())failureBlock
 {
+    NSLog(@"===== start to scan crash log =====");
+
     kern_return_t sdm_return;
 
     if (![self isConnectedDevice]) {
@@ -257,6 +260,9 @@
                         item.size = [self sizeOfItemWithFullPath:path AFCConnection:sdm_crash_report_conn];
                     }
 
+                    if (updateBlock) {
+                        updateBlock(dirContents.count-2, item);
+                    }
                     [crashLogs addObject:item];
                 }
 
@@ -286,8 +292,11 @@
 
 - (void)cleanCrashLog:(NSArray *)crashLogs
          successBlock:(void(^)())successBlock
+          updateBlock:(void(^)(NSUInteger currentItemIndex))updateBlock
          failureBlock:(void(^)())failureBlock
 {
+    NSLog(@"===== start to clean crash log =====");
+
     if (crashLogs.count == 0) {
         if (failureBlock) {
             failureBlock();
@@ -333,7 +342,9 @@
         if (sdm_crash_report_conn) {
             SDMMD_AFCOperationRef operation_remove_file = NULL;
 
-            for (MCDeviceCrashLogItem *item in crashLogs) {
+            for (NSUInteger i = 0; i < crashLogs.count; ++i) {
+                MCDeviceCrashLogItem *item = crashLogs[i];
+
                 NSString *path = item.path;
 
                 if (item.isDir) {
@@ -344,9 +355,13 @@
 
                 sdm_return = SDMMD_AFCProcessOperation(sdm_crash_report_conn, &operation_remove_file);
                 if (SDM_MD_CallSuccessful(sdm_return)) {
-                    NSLog(@"success to clean: %@", path);
+//                    NSLog(@"success to clean: %@", path);
                 } else {
-                    NSLog(@"failed to clean: %@", path);
+//                    NSLog(@"failed to clean: %@", path);
+                }
+
+                if (updateBlock) {
+                    updateBlock(i);
                 }
             }
 

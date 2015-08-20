@@ -19,18 +19,22 @@
 - (instancetype)initWithRawDevice:(SDMMD_AMDeviceRef)rawDevice;
 - (void)disconnectByUser;
 
-- (CFTypeRef)copyDeviceValueOfKey:(NSString *)key inDomain:(NSString *)domain;
-
 - (BOOL)isConnectedDevice;
 - (BOOL)isPairedDevice;
 - (BOOL)pairDevice;
 - (BOOL)unPairDevice;
 
 - (MCDeviceDiskUsage *)diskUsage;
+
 - (void)scanCrashLogSuccessBlock:(void(^)(NSArray *crashLogs))successBlock // array of MCDeviceCrashLogItem
+                     updateBlock:(void(^)(NSUInteger totalItemCount, MCDeviceCrashLogItem *currentScannedItem))updateBlock
                     failureBlock:(void(^)())failureBlock;
 - (void)cleanCrashLog:(NSArray *)crashLogs // array of MCDeviceCrashLogItem
          successBlock:(void(^)())successBlock
+          updateBlock:(void(^)(NSUInteger currentItemIndex))updateBlock
          failureBlock:(void(^)())failureBlock;
+
+// not recommend to use this api, unless you know how to parse the returned value.
+- (CFTypeRef)copyDeviceValueOfKey:(NSString *)key inDomain:(NSString *)domain;
 
 @end
