@@ -15,7 +15,7 @@
 @property (nonatomic) SDMMD_AMDeviceRef rawDevice;
 @property (nonatomic, readwrite, strong) NSString *udid;
 @property (nonatomic, readwrite, strong) NSString *deviceName;
-@property (nonatomic, readwrite, strong) NSString *deviceMode;
+@property (nonatomic, readwrite, strong) NSString *deviceType;
 
 @end
 
@@ -61,21 +61,23 @@
         [self startConnection];
         [self startSession];
 
+        // udid
         CFStringRef deviceUDID = SDMMD_AMDeviceCopyUDID(_rawDevice);
         if (deviceUDID == NULL) {
             deviceUDID = SDMMD_AMDeviceCopyValue(_rawDevice, NULL, CFSTR(kUniqueDeviceID));
         }
         _udid = (__bridge_transfer NSString *)deviceUDID;
 
+        // name
         CFStringRef deviceName = SDMMD_AMDeviceCopyValue(_rawDevice, NULL, CFSTR(kDeviceName));
         _deviceName = (__bridge_transfer NSString *)deviceName;
 
-        CFTypeRef deviceModel = CFSTR("");
+        // type
         if (_isInSession) {
-            deviceModel = SDMMD_AMDeviceCopyValue(_rawDevice, NULL, CFSTR(kProductType));
+            CFTypeRef deviceType = SDMMD_AMDeviceCopyValue(_rawDevice, NULL, CFSTR(kProductType));
+            _deviceType = [NSString stringWithUTF8String:SDMMD_ResolveModelToName(deviceType)];
+            CFSafeRelease(deviceType);
         }
-        _deviceMode = [NSString stringWithUTF8String:SDMMD_ResolveModelToName(deviceModel)];
-        CFSafeRelease(deviceModel);
     }
     return self;
 }
@@ -116,7 +118,7 @@
     return SDMMD_AMDeviceIsPaired(self.rawDevice) ? YES : NO;
 }
 
-- (BOOL)pairDevice
+- (BOOL)toPairDevice
 {
     sdmmd_return_t sdm_return = SDMMD_AMDevicePair(self.rawDevice);
     return SDM_MD_CallSuccessful(sdm_return) ? YES : NO;

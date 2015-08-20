@@ -14,13 +14,13 @@
 
 @property (nonatomic, readonly, strong) NSString *udid;
 @property (nonatomic, readonly, strong) NSString *deviceName;
-@property (nonatomic, readonly, strong) NSString *deviceMode; // need device paired
+@property (nonatomic, readonly, strong) NSString *deviceType; // need device paired
 
 - (instancetype)initWithRawDevice:(SDMMD_AMDeviceRef)rawDevice;
 
 - (BOOL)isConnectedDevice;
 - (BOOL)isPairedDevice;
-- (BOOL)pairDevice;
+- (BOOL)toPairDevice;
 - (BOOL)unPairDevice;
 
 - (MCDeviceDiskUsage *)diskUsage;
