@@ -102,7 +102,7 @@
          }
 
          NSByteCountFormatter *formatter = [[NSByteCountFormatter alloc] init];
-         formatter.countStyle = NSByteCountFormatterCountStyleFile;
+         formatter.countStyle = NSByteCountFormatterCountStyleBinary;
          formatter.adaptive = NO;
          formatter.zeroPadsFractionDigits = YES;
 
