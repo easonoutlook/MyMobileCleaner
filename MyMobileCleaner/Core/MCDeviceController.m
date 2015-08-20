@@ -39,7 +39,7 @@
     return sharedInstance;
 }
 
-#pragma mark - run & stop
+#pragma mark - monitor
 
 - (void)monitorWithListener:(id<MCDeviceControllerDelegate>)listener
 {

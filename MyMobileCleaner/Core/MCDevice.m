@@ -52,7 +52,7 @@
     return _isInSession;
 }
 
-#pragma mark - api
+#pragma mark - connection
 
 - (instancetype)initWithRawDevice:(SDMMD_AMDeviceRef)rawDevice
 {
@@ -144,6 +144,8 @@
         NSLog(@"no need to wait for device to pair");
     });
 }
+
+#pragma mark - function
 
 - (MCDeviceDiskUsage *)diskUsage
 {
