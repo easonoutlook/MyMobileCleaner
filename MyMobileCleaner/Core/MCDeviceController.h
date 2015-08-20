@@ -12,7 +12,8 @@
 
 @protocol MCDeviceControllerDelegate <NSObject>
 
-- (void)deviceDidConnect;
+- (void)deviceDidConnectAndPaired;
+- (void)deviceDidConnectButUnPaired;
 - (void)deviceDidDisconnect;
 
 @end

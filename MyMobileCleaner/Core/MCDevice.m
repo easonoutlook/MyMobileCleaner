@@ -23,11 +23,11 @@
 
 - (void)dealloc
 {
-    if (self.isInSession) {
-        SDMMD_AMDeviceStopSession(self.rawDevice);
-    }
-
     if ([self isConnectedDevice]) {
+        if (self.isInSession) {
+            SDMMD_AMDeviceStopSession(self.rawDevice);
+        }
+
         SDMMD_AMDeviceDisconnect(self.rawDevice);
     }
 }
@@ -78,11 +78,6 @@
         CFSafeRelease(deviceModel);
     }
     return self;
-}
-
-- (void)disconnectByUser
-{
-    self.isInSession = NO;
 }
 
 - (CFTypeRef)copyDeviceValueOfKey:(NSString *)key inDomain:(NSString *)domain

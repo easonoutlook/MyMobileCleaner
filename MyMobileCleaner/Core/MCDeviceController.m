@@ -109,7 +109,12 @@
 
             NSLog(@"connect to a new device: {UDID: %@}", self.selectedConnectedDeviceUDID);
 
-            [self.listener deviceDidConnect];
+            if ([self.selectedConnectedDevice isPairedDevice]) {
+                [self.listener deviceDidConnectAndPaired];
+
+            } else {
+                [self.listener deviceDidConnectButUnPaired];
+            }
 
         } else {
             NSLog(@"already connecting to a device, so ignore others connected.");
@@ -157,7 +162,6 @@
         } else {
             NSLog(@"disconnect with device: {UDID: %@}", self.selectedConnectedDeviceUDID);
 
-            [self.selectedConnectedDevice disconnectByUser];
             self.selectedConnectedDevice = nil;
             self.selectedConnectedDeviceUDID = nil;
 

@@ -25,13 +25,19 @@
     // Insert code here to tear down your application
 }
 
-- (void)deviceDidConnect
+- (void)deviceDidConnectButUnPaired
+{
+    NSLog(@"unpaired device: %@", [MCDeviceController sharedInstance].selectedConnectedDevice.deviceName);
+}
+
+- (void)deviceDidConnectAndPaired
 {
     NSLog(@"%@", [[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage]);
 
     __block NSArray *myCrashLogs = nil;
     __block NSUInteger myCurrentScannedItemCount = 0;
 
+    // scan crash log
     [[MCDeviceController sharedInstance].selectedConnectedDevice
      scanCrashLogSuccessBlock:^(NSArray *crashLogs) {
          NSUInteger totalSize = 0;
@@ -56,18 +62,19 @@
          NSLog(@"=> failed to scan crash log");
      }];
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-            [[MCDeviceController sharedInstance].selectedConnectedDevice cleanCrashLog:myCrashLogs
-                                                                          successBlock:^{
-                                                                              NSLog(@"100%% => success to clean all scanned crash log");
-                                                                          } updateBlock:^(NSUInteger currentItemIndex) {
-                                                                              NSLog(@"%.1f%% -> cleaned crash log: %@", 100.0*(currentItemIndex+1)/myCrashLogs.count, ((MCDeviceCrashLogItem *)(myCrashLogs[currentItemIndex])).path);
-                                                                          } failureBlock:^{
-                                                                              NSLog(@"=> failed to clean all scanned crash log");
-                                                                          }];
-        });
-    });
+    // clean crash log
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+//            [[MCDeviceController sharedInstance].selectedConnectedDevice cleanCrashLog:myCrashLogs
+//                                                                          successBlock:^{
+//                                                                              NSLog(@"100%% => success to clean all scanned crash log");
+//                                                                          } updateBlock:^(NSUInteger currentItemIndex) {
+//                                                                              NSLog(@"%.1f%% -> cleaned crash log: %@", 100.0*(currentItemIndex+1)/myCrashLogs.count, ((MCDeviceCrashLogItem *)(myCrashLogs[currentItemIndex])).path);
+//                                                                          } failureBlock:^{
+//                                                                              NSLog(@"=> failed to clean all scanned crash log");
+//                                                                          }];
+//        });
+//    });
 }
 
 - (void)deviceDidDisconnect
