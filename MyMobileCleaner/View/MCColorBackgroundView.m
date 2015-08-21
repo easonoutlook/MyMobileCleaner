@@ -17,12 +17,12 @@
     [NSGraphicsContext saveGraphicsState];
 
     NSBezierPath *path = [NSBezierPath bezierPathWithRoundedRect:dirtyRect
-                                                         xRadius:self.sdCornerRadius
-                                                         yRadius:self.sdCornerRadius];
-    path.lineWidth = self.sdBorderWidth;
+                                                         xRadius:self.cbvCornerRadius
+                                                         yRadius:self.cbvCornerRadius];
+    path.lineWidth = self.cbvBorderWidth;
 
-    NSColor *backgroundColor = self.sdBackgroundColor ? : kDefaultBackgroundColor;
-    NSColor *borderColor = self.sdBorderColor ? : kDefaultBorderColor;
+    NSColor *backgroundColor = self.cbvBackgroundColor ? : kDefaultBackgroundColor;
+    NSColor *borderColor = self.cbvBorderColor ? : kDefaultBorderColor;
 
     [backgroundColor setFill];
     [borderColor setStroke];

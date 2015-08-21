@@ -35,8 +35,11 @@
 
 - (void)theWindowDidDeminiaturize:(NSNotification *)notification
 {
+    // force window to redraw shadow, or else there's no shadow after window comes back from dock.
     [self invalidateShadow];
 }
+
+#pragma mark - must override
 
 - (BOOL)canBecomeKeyWindow
 {
@@ -46,6 +49,26 @@
 - (BOOL)canBecomeMainWindow
 {
     return YES;
+}
+
+- (BOOL)acceptsFirstResponder
+{
+    return YES;
+}
+
+- (void)performClose:(id)sender
+{
+    [self close];
+}
+
+- (void)performMiniaturize:(id)sender
+{
+    [self miniaturize:sender];
+}
+
+- (void)performZoom:(id)sender
+{
+    [self zoom:sender];
 }
 
 @end

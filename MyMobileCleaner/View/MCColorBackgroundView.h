@@ -11,9 +11,9 @@
 IB_DESIGNABLE
 @interface MCColorBackgroundView : NSView
 
-@property (nonatomic, strong) IBInspectable NSColor *sdBackgroundColor;
-@property (nonatomic, strong) IBInspectable NSColor *sdBorderColor;
-@property (nonatomic, assign) IBInspectable CGFloat sdBorderWidth;
-@property (nonatomic, assign) IBInspectable CGFloat sdCornerRadius;
+@property (nonatomic, strong) IBInspectable NSColor *cbvBackgroundColor;
+@property (nonatomic, strong) IBInspectable NSColor *cbvBorderColor;
+@property (nonatomic, assign) IBInspectable CGFloat cbvBorderWidth;
+@property (nonatomic, assign) IBInspectable CGFloat cbvCornerRadius;
 
 @end

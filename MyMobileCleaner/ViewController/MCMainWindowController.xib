@@ -42,13 +42,13 @@
                     <constraint firstAttribute="bottom" secondItem="0rw-yj-frg" secondAttribute="bottom" id="xNI-Mk-aoQ"/>
                 </constraints>
                 <userDefinedRuntimeAttributes>
-                    <userDefinedRuntimeAttribute type="number" keyPath="sdCornerRadius">
+                    <userDefinedRuntimeAttribute type="number" keyPath="cbvCornerRadius">
                         <real key="value" value="6"/>
                     </userDefinedRuntimeAttribute>
-                    <userDefinedRuntimeAttribute type="number" keyPath="sdBorderWidth">
+                    <userDefinedRuntimeAttribute type="number" keyPath="cbvBorderColor">
                         <real key="value" value="1"/>
                     </userDefinedRuntimeAttribute>
-                    <userDefinedRuntimeAttribute type="color" keyPath="sdBorderColor">
+                    <userDefinedRuntimeAttribute type="color" keyPath="cbvBorderColor">
                         <color key="value" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </userDefinedRuntimeAttribute>
                 </userDefinedRuntimeAttributes>

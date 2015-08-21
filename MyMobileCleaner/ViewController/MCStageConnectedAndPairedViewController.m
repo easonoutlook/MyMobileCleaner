@@ -36,7 +36,7 @@
 
 - (NSColor *)toneColor
 {
-    return self.colorBackground.sdBackgroundColor ? : [NSColor clearColor];
+    return self.colorBackground.cbvBackgroundColor ? : [NSColor clearColor];
 }
 
 @end
