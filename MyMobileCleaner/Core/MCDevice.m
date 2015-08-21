@@ -312,8 +312,8 @@
     NSLog(@"===== start to clean crash log =====");
 
     if (crashLogs.count == 0) {
-        if (failureBlock) {
-            failureBlock();
+        if (successBlock) {
+            successBlock();
         }
         return;
     }
