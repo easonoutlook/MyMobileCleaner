@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
@@ -16,7 +16,7 @@
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" animationBehavior="default" id="F0z-JX-Cv5" customClass="MCCustomWindow">
             <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
             <rect key="contentRect" x="196" y="240" width="400" height="400"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <value key="minSize" type="size" width="400" height="400"/>
             <view key="contentView" id="se5-gp-TjO" customClass="MCColorBackgroundView">
                 <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
@@ -26,10 +26,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                     </customView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="M4c-IF-Mqd" customClass="MCCustomWindowButtonBar">
-                        <rect key="frame" x="16" y="362" width="40" height="22"/>
+                        <rect key="frame" x="16" y="344" width="20" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="7HN-zH-lVs"/>
-                            <constraint firstAttribute="height" constant="22" id="RLt-mB-nlh"/>
+                            <constraint firstAttribute="width" constant="20" id="7HN-zH-lVs"/>
+                            <constraint firstAttribute="height" constant="40" id="RLt-mB-nlh"/>
                         </constraints>
                     </customView>
                 </subviews>

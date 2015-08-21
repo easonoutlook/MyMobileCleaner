@@ -79,7 +79,7 @@
                                                                            attribute:NSLayoutAttributeLeading
                                                                           multiplier:1
                                                                             constant:16]]];
-    [self.windowButtonBar refreshButtonsWithBackgroundColor:color];
+    [self.windowButtonBar layoutButtonsVertical:YES withBackgroundColor:color];
 }
 
 - (void)windowWillClose:(NSNotification *)notification

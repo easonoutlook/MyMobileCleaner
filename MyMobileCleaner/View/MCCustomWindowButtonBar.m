@@ -54,7 +54,8 @@
     [self mouseExited:nil];
 }
 
-- (void)refreshButtonsWithBackgroundColor:(NSColor *)color
+- (void)layoutButtonsVertical:(BOOL)vertical
+          withBackgroundColor:(NSColor *)color
 {
     self.bgColor = color ? : [NSColor clearColor];
     
@@ -66,9 +67,16 @@
     self.miniButton = [NSWindow standardWindowButton:NSWindowMiniaturizeButton forStyleMask:self.window.styleMask];
     self.resizeButton = [NSWindow standardWindowButton:NSWindowZoomButton forStyleMask:self.window.styleMask];
 
-    [self.closeButton setFrameOrigin:NSMakePoint(0, self.bounds.origin.y+self.bounds.size.height/2-self.closeButton.bounds.size.height/2)];
-    [self.miniButton setFrameOrigin:NSMakePoint(20, self.bounds.origin.y+self.bounds.size.height/2-self.closeButton.bounds.size.height/2)];
-    [self.resizeButton setFrameOrigin:NSMakePoint(40, self.bounds.origin.y+self.bounds.size.height/2-self.closeButton.bounds.size.height/2)];
+    if (vertical) {
+        [self.closeButton setFrameOrigin:NSMakePoint(0, self.bounds.origin.y+self.bounds.size.height-self.closeButton.bounds.size.height)];
+        [self.miniButton setFrameOrigin:NSMakePoint(0, self.bounds.origin.y+self.bounds.size.height-self.closeButton.bounds.size.height-20)];
+        [self.resizeButton setFrameOrigin:NSMakePoint(0, self.bounds.origin.y+self.bounds.size.height-self.closeButton.bounds.size.height-40)];
+
+    } else {
+        [self.closeButton setFrameOrigin:NSMakePoint(0, self.bounds.origin.y+self.bounds.size.height/2-self.closeButton.bounds.size.height/2)];
+        [self.miniButton setFrameOrigin:NSMakePoint(20, self.bounds.origin.y+self.bounds.size.height/2-self.closeButton.bounds.size.height/2)];
+        [self.resizeButton setFrameOrigin:NSMakePoint(40, self.bounds.origin.y+self.bounds.size.height/2-self.closeButton.bounds.size.height/2)];
+    }
 
     [self addSubview:self.closeButton];
     [self addSubview:self.miniButton];
