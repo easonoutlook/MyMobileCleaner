@@ -2,7 +2,7 @@
 //  MCStageScanningViewController.h
 //  MyMobileCleaner
 //
-//  Created by user on 8/21/15.
+//  Created by GoKu on 8/21/15.
 //  Copyright (c) 2015 GoKuStudio. All rights reserved.
 //
 

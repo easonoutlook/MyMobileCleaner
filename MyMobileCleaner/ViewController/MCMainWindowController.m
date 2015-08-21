@@ -7,6 +7,7 @@
 //
 
 #import "MCMainWindowController.h"
+#import "MCCustomWindowButtonBar.h"
 #import "MCStageNoConnectionViewController.h"
 #import "MCStageConnectedButUnPairedViewController.h"
 #import "MCStageConnectedAndPairedViewController.h"
@@ -16,6 +17,8 @@
 #import "MCStageCleanDoneViewController.h"
 
 @interface MCMainWindowController ()
+
+@property (weak) IBOutlet MCCustomWindowButtonBar *windowButtonBar;
 
 @property (weak) IBOutlet NSView *cavas;
 
@@ -56,6 +59,27 @@
 
     self.currentUIStage = -1;
     [self updateStage:kMCStageViewControllerUIStageNoConnection animate:NO completion:nil];
+}
+
+- (void)refreshWindowButtonBarWithBackgroundColor:(NSColor *)color
+{
+    [self.windowButtonBar removeFromSuperviewWithoutNeedingDisplay];
+    [self.window.contentView addSubview:self.windowButtonBar];
+    [self.window.contentView addConstraints:@[[NSLayoutConstraint constraintWithItem:self.windowButtonBar
+                                                                           attribute:NSLayoutAttributeTop
+                                                                           relatedBy:NSLayoutRelationEqual
+                                                                              toItem:self.window.contentView
+                                                                           attribute:NSLayoutAttributeTop
+                                                                          multiplier:1
+                                                                            constant:16],
+                                              [NSLayoutConstraint constraintWithItem:self.windowButtonBar
+                                                                           attribute:NSLayoutAttributeLeading
+                                                                           relatedBy:NSLayoutRelationEqual
+                                                                              toItem:self.window.contentView
+                                                                           attribute:NSLayoutAttributeLeading
+                                                                          multiplier:1
+                                                                            constant:16]]];
+    [self.windowButtonBar refreshButtonsWithBackgroundColor:color];
 }
 
 - (void)windowWillClose:(NSNotification *)notification
@@ -161,6 +185,8 @@
                                                                constant:0]]];
 
     [self.currentUIStageViewController stageViewDidAppear];
+
+    [self refreshWindowButtonBarWithBackgroundColor:self.currentUIStageViewController.toneColor];
 }
 
 #pragma mark - MCStageViewControllerManager

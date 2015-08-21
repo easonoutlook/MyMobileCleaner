@@ -8,29 +8,50 @@
             <connections>
                 <outlet property="cavas" destination="0rw-yj-frg" id="5Yr-8z-5FB"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
+                <outlet property="windowButtonBar" destination="M4c-IF-Mqd" id="hhd-3x-tFg"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" animationBehavior="default" id="F0z-JX-Cv5">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
+        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" animationBehavior="default" id="F0z-JX-Cv5" customClass="MCCustomWindow">
+            <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
             <rect key="contentRect" x="196" y="240" width="400" height="400"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <value key="minSize" type="size" width="400" height="400"/>
-            <view key="contentView" id="se5-gp-TjO">
+            <view key="contentView" id="se5-gp-TjO" customClass="MCColorBackgroundView">
                 <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="0rw-yj-frg" userLabel="cavas">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                     </customView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="M4c-IF-Mqd" customClass="MCCustomWindowButtonBar">
+                        <rect key="frame" x="16" y="362" width="40" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="7HN-zH-lVs"/>
+                            <constraint firstAttribute="height" constant="22" id="RLt-mB-nlh"/>
+                        </constraints>
+                    </customView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="M4c-IF-Mqd" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="16" id="0ev-Yj-yrM"/>
                     <constraint firstItem="0rw-yj-frg" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="9xh-WJ-0jN"/>
                     <constraint firstItem="0rw-yj-frg" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="AZJ-Sp-Ppc"/>
                     <constraint firstAttribute="trailing" secondItem="0rw-yj-frg" secondAttribute="trailing" id="UqZ-pD-JKg"/>
+                    <constraint firstItem="M4c-IF-Mqd" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="16" id="l74-O7-xzx"/>
                     <constraint firstAttribute="bottom" secondItem="0rw-yj-frg" secondAttribute="bottom" id="xNI-Mk-aoQ"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="sdCornerRadius">
+                        <real key="value" value="6"/>
+                    </userDefinedRuntimeAttribute>
+                    <userDefinedRuntimeAttribute type="number" keyPath="sdBorderWidth">
+                        <real key="value" value="1"/>
+                    </userDefinedRuntimeAttribute>
+                    <userDefinedRuntimeAttribute type="color" keyPath="sdBorderColor">
+                        <color key="value" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>

@@ -2,12 +2,13 @@
 //  MCStageViewController.h
 //  MyMobileCleaner
 //
-//  Created by user on 8/20/15.
+//  Created by GoKu on 8/20/15.
 //  Copyright (c) 2015 GoKuStudio. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
 #import "MCDeviceController.h"
+#import "MCColorBackgroundView.h"
 
 typedef NS_ENUM(NSUInteger, MCStageViewControllerUIStage) {
     kMCStageViewControllerUIStageNoConnection = 0,
@@ -27,6 +28,8 @@ typedef NS_ENUM(NSUInteger, MCStageViewControllerUIStage) {
 @end
 
 @interface MCStageViewController : NSViewController
+
+@property (nonatomic, readonly, strong) NSColor *toneColor;
 
 @property (nonatomic, weak) id<MCStageViewControllerManager> manager;
 

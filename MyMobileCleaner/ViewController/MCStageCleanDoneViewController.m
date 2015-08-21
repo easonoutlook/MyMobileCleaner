@@ -2,13 +2,15 @@
 //  MCStageCleanDoneViewController.m
 //  MyMobileCleaner
 //
-//  Created by user on 8/21/15.
+//  Created by GoKu on 8/21/15.
 //  Copyright (c) 2015 GoKuStudio. All rights reserved.
 //
 
 #import "MCStageCleanDoneViewController.h"
 
 @interface MCStageCleanDoneViewController ()
+
+@property (weak) IBOutlet MCColorBackgroundView *colorBackground;
 
 @end
 
@@ -26,6 +28,11 @@
 - (void)stageViewDidAppear
 {
     NSLog(@"100%% => success to clean all scanned crash log");
+}
+
+- (NSColor *)toneColor
+{
+    return self.colorBackground.sdBackgroundColor ? : [NSColor clearColor];
 }
 
 @end

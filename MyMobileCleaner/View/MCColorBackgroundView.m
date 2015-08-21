@@ -2,7 +2,7 @@
 //  MCColorBackgroundView.m
 //  MyMobileCleaner
 //
-//  Created by user on 8/21/15.
+//  Created by GoKu on 8/21/15.
 //  Copyright (c) 2015 GoKuStudio. All rights reserved.
 //
 
@@ -14,7 +14,7 @@
 @implementation MCColorBackgroundView
 
 - (void)drawRect:(NSRect)dirtyRect {
-    [super drawRect:dirtyRect];
+    [NSGraphicsContext saveGraphicsState];
 
     NSBezierPath *path = [NSBezierPath bezierPathWithRoundedRect:dirtyRect
                                                          xRadius:self.sdCornerRadius
@@ -29,6 +29,8 @@
 
     [path fill];
     [path stroke];
+
+    [NSGraphicsContext restoreGraphicsState];
 }
 
 @end

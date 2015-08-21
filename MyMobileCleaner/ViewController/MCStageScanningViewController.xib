@@ -6,6 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MCStageScanningViewController">
             <connections>
+                <outlet property="colorBackground" destination="EnR-NJ-Qu4" id="fp2-oz-m6K"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -27,7 +28,7 @@
                             <real key="value" value="0.0"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="sdCornerRadius">
-                            <real key="value" value="0.0"/>
+                            <real key="value" value="6"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customView>

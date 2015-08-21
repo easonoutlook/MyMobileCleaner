@@ -2,7 +2,7 @@
 //  MCStageViewController.m
 //  MyMobileCleaner
 //
-//  Created by user on 8/20/15.
+//  Created by GoKu on 8/20/15.
 //  Copyright (c) 2015 GoKuStudio. All rights reserved.
 //
 
@@ -25,6 +25,11 @@
 - (void)stageViewDidAppear
 {
 
+}
+
+- (NSColor *)toneColor
+{
+    return [NSColor clearColor];
 }
 
 @end

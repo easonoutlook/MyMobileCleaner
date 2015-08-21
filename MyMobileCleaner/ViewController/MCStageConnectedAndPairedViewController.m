@@ -2,7 +2,7 @@
 //  MCStageConnectedAndPairedViewController.m
 //  MyMobileCleaner
 //
-//  Created by user on 8/21/15.
+//  Created by GoKu on 8/21/15.
 //  Copyright (c) 2015 GoKuStudio. All rights reserved.
 //
 
@@ -10,6 +10,8 @@
 #import "MCMainWindowController.h"
 
 @interface MCStageConnectedAndPairedViewController ()
+
+@property (weak) IBOutlet MCColorBackgroundView *colorBackground;
 
 @end
 
@@ -30,6 +32,11 @@
     
     // disk usage
     NSLog(@"%@", [[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage]);
+}
+
+- (NSColor *)toneColor
+{
+    return self.colorBackground.sdBackgroundColor ? : [NSColor clearColor];
 }
 
 @end
