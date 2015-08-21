@@ -54,8 +54,9 @@
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 
-    self.window.titlebarAppearsTransparent = YES;
-    self.window.movableByWindowBackground = YES;
+    // !!! important, or else the subviews in contentView maybe abnormal.
+    // !!! because the contentView implements [drawRect:] to draw by itself.
+    [self.window.contentView setWantsLayer:YES];
 
     self.currentUIStage = -1;
     [self updateStage:kMCStageViewControllerUIStageNoConnection animate:NO completion:nil];
