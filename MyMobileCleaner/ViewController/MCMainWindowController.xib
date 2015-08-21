@@ -6,6 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MCMainWindowController">
             <connections>
+                <outlet property="cavas" destination="0rw-yj-frg" id="5Yr-8z-5FB"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>

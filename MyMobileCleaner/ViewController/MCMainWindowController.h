@@ -12,6 +12,8 @@
 
 @interface MCMainWindowController : NSWindowController <NSWindowDelegate, MCStageViewControllerManager, MCDeviceControllerDelegate>
 
+@property (nonatomic, strong) NSArray *myCrashLogs;
+
 - (void)goToWork;
 
 @end

@@ -7,9 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MCDeviceController.h"
 
 typedef NS_ENUM(NSUInteger, MCStageViewControllerUIStage) {
-    kMCStageViewControllerUIStageNoConnection,
+    kMCStageViewControllerUIStageNoConnection = 0,
     kMCStageViewControllerUIStageConnectedButUnPaired,
     kMCStageViewControllerUIStageConnectedAndPaired,
     kMCStageViewControllerUIStageScanning,

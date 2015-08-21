@@ -10,6 +10,21 @@
 		84BEE1631B85C3D6000F3DC1 /* MCMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BEE1611B85C3D6000F3DC1 /* MCMainWindowController.m */; };
 		84BEE1641B85C3D6000F3DC1 /* MCMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BEE1621B85C3D6000F3DC1 /* MCMainWindowController.xib */; };
 		84BEE1691B85CD48000F3DC1 /* MCStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BEE1671B85CD48000F3DC1 /* MCStageViewController.m */; };
+		84BEE1701B86C2F3000F3DC1 /* MCStageNoConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BEE16E1B86C2F3000F3DC1 /* MCStageNoConnectionViewController.m */; };
+		84BEE1711B86C2F3000F3DC1 /* MCStageNoConnectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BEE16F1B86C2F3000F3DC1 /* MCStageNoConnectionViewController.xib */; };
+		84BEE1751B86C378000F3DC1 /* MCStageConnectedButUnPairedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BEE1731B86C378000F3DC1 /* MCStageConnectedButUnPairedViewController.m */; };
+		84BEE1761B86C378000F3DC1 /* MCStageConnectedButUnPairedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BEE1741B86C378000F3DC1 /* MCStageConnectedButUnPairedViewController.xib */; };
+		84BEE17A1B86C398000F3DC1 /* MCStageConnectedAndPairedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BEE1781B86C398000F3DC1 /* MCStageConnectedAndPairedViewController.m */; };
+		84BEE17B1B86C398000F3DC1 /* MCStageConnectedAndPairedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BEE1791B86C398000F3DC1 /* MCStageConnectedAndPairedViewController.xib */; };
+		84BEE17F1B86C3BD000F3DC1 /* MCStageScanningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BEE17D1B86C3BD000F3DC1 /* MCStageScanningViewController.m */; };
+		84BEE1801B86C3BD000F3DC1 /* MCStageScanningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BEE17E1B86C3BD000F3DC1 /* MCStageScanningViewController.xib */; };
+		84BEE1841B86C3E3000F3DC1 /* MCStageScanDoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BEE1821B86C3E3000F3DC1 /* MCStageScanDoneViewController.m */; };
+		84BEE1851B86C3E3000F3DC1 /* MCStageScanDoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BEE1831B86C3E3000F3DC1 /* MCStageScanDoneViewController.xib */; };
+		84BEE1891B86C3FF000F3DC1 /* MCStageCleaningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BEE1871B86C3FF000F3DC1 /* MCStageCleaningViewController.m */; };
+		84BEE18A1B86C3FF000F3DC1 /* MCStageCleaningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BEE1881B86C3FF000F3DC1 /* MCStageCleaningViewController.xib */; };
+		84BEE18E1B86C41B000F3DC1 /* MCStageCleanDoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BEE18C1B86C41B000F3DC1 /* MCStageCleanDoneViewController.m */; };
+		84BEE18F1B86C41B000F3DC1 /* MCStageCleanDoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BEE18D1B86C41B000F3DC1 /* MCStageCleanDoneViewController.xib */; };
+		84BEE1931B86C8A2000F3DC1 /* MCColorBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BEE1921B86C8A2000F3DC1 /* MCColorBackgroundView.m */; };
 		84F03A9D1B82D79200FFFA28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F03A9C1B82D79200FFFA28 /* AppDelegate.m */; };
 		84F03A9F1B82D79200FFFA28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F03A9E1B82D79200FFFA28 /* main.m */; };
 		84F03AA11B82D79200FFFA28 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84F03AA01B82D79200FFFA28 /* Images.xcassets */; };
@@ -52,6 +67,29 @@
 		84BEE1621B85C3D6000F3DC1 /* MCMainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MCMainWindowController.xib; path = ViewController/MCMainWindowController.xib; sourceTree = "<group>"; };
 		84BEE1661B85CD48000F3DC1 /* MCStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCStageViewController.h; path = ViewController/MCStageViewController.h; sourceTree = "<group>"; };
 		84BEE1671B85CD48000F3DC1 /* MCStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCStageViewController.m; path = ViewController/MCStageViewController.m; sourceTree = "<group>"; };
+		84BEE16D1B86C2F3000F3DC1 /* MCStageNoConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCStageNoConnectionViewController.h; path = ViewController/MCStageNoConnectionViewController.h; sourceTree = "<group>"; };
+		84BEE16E1B86C2F3000F3DC1 /* MCStageNoConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCStageNoConnectionViewController.m; path = ViewController/MCStageNoConnectionViewController.m; sourceTree = "<group>"; };
+		84BEE16F1B86C2F3000F3DC1 /* MCStageNoConnectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MCStageNoConnectionViewController.xib; path = ViewController/MCStageNoConnectionViewController.xib; sourceTree = "<group>"; };
+		84BEE1721B86C378000F3DC1 /* MCStageConnectedButUnPairedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCStageConnectedButUnPairedViewController.h; path = ViewController/MCStageConnectedButUnPairedViewController.h; sourceTree = "<group>"; };
+		84BEE1731B86C378000F3DC1 /* MCStageConnectedButUnPairedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCStageConnectedButUnPairedViewController.m; path = ViewController/MCStageConnectedButUnPairedViewController.m; sourceTree = "<group>"; };
+		84BEE1741B86C378000F3DC1 /* MCStageConnectedButUnPairedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MCStageConnectedButUnPairedViewController.xib; path = ViewController/MCStageConnectedButUnPairedViewController.xib; sourceTree = "<group>"; };
+		84BEE1771B86C398000F3DC1 /* MCStageConnectedAndPairedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCStageConnectedAndPairedViewController.h; path = ViewController/MCStageConnectedAndPairedViewController.h; sourceTree = "<group>"; };
+		84BEE1781B86C398000F3DC1 /* MCStageConnectedAndPairedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCStageConnectedAndPairedViewController.m; path = ViewController/MCStageConnectedAndPairedViewController.m; sourceTree = "<group>"; };
+		84BEE1791B86C398000F3DC1 /* MCStageConnectedAndPairedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MCStageConnectedAndPairedViewController.xib; path = ViewController/MCStageConnectedAndPairedViewController.xib; sourceTree = "<group>"; };
+		84BEE17C1B86C3BD000F3DC1 /* MCStageScanningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCStageScanningViewController.h; path = ViewController/MCStageScanningViewController.h; sourceTree = "<group>"; };
+		84BEE17D1B86C3BD000F3DC1 /* MCStageScanningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCStageScanningViewController.m; path = ViewController/MCStageScanningViewController.m; sourceTree = "<group>"; };
+		84BEE17E1B86C3BD000F3DC1 /* MCStageScanningViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MCStageScanningViewController.xib; path = ViewController/MCStageScanningViewController.xib; sourceTree = "<group>"; };
+		84BEE1811B86C3E3000F3DC1 /* MCStageScanDoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCStageScanDoneViewController.h; path = ViewController/MCStageScanDoneViewController.h; sourceTree = "<group>"; };
+		84BEE1821B86C3E3000F3DC1 /* MCStageScanDoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCStageScanDoneViewController.m; path = ViewController/MCStageScanDoneViewController.m; sourceTree = "<group>"; };
+		84BEE1831B86C3E3000F3DC1 /* MCStageScanDoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MCStageScanDoneViewController.xib; path = ViewController/MCStageScanDoneViewController.xib; sourceTree = "<group>"; };
+		84BEE1861B86C3FF000F3DC1 /* MCStageCleaningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCStageCleaningViewController.h; path = ViewController/MCStageCleaningViewController.h; sourceTree = "<group>"; };
+		84BEE1871B86C3FF000F3DC1 /* MCStageCleaningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCStageCleaningViewController.m; path = ViewController/MCStageCleaningViewController.m; sourceTree = "<group>"; };
+		84BEE1881B86C3FF000F3DC1 /* MCStageCleaningViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MCStageCleaningViewController.xib; path = ViewController/MCStageCleaningViewController.xib; sourceTree = "<group>"; };
+		84BEE18B1B86C41B000F3DC1 /* MCStageCleanDoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCStageCleanDoneViewController.h; path = ViewController/MCStageCleanDoneViewController.h; sourceTree = "<group>"; };
+		84BEE18C1B86C41B000F3DC1 /* MCStageCleanDoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCStageCleanDoneViewController.m; path = ViewController/MCStageCleanDoneViewController.m; sourceTree = "<group>"; };
+		84BEE18D1B86C41B000F3DC1 /* MCStageCleanDoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MCStageCleanDoneViewController.xib; path = ViewController/MCStageCleanDoneViewController.xib; sourceTree = "<group>"; };
+		84BEE1911B86C8A2000F3DC1 /* MCColorBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCColorBackgroundView.h; path = View/MCColorBackgroundView.h; sourceTree = "<group>"; };
+		84BEE1921B86C8A2000F3DC1 /* MCColorBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCColorBackgroundView.m; path = View/MCColorBackgroundView.m; sourceTree = "<group>"; };
 		84F03A961B82D79200FFFA28 /* MyMobileCleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMobileCleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F03A9A1B82D79200FFFA28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84F03A9B1B82D79200FFFA28 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -106,8 +144,38 @@
 			children = (
 				84BEE1661B85CD48000F3DC1 /* MCStageViewController.h */,
 				84BEE1671B85CD48000F3DC1 /* MCStageViewController.m */,
+				84BEE16D1B86C2F3000F3DC1 /* MCStageNoConnectionViewController.h */,
+				84BEE16E1B86C2F3000F3DC1 /* MCStageNoConnectionViewController.m */,
+				84BEE16F1B86C2F3000F3DC1 /* MCStageNoConnectionViewController.xib */,
+				84BEE1721B86C378000F3DC1 /* MCStageConnectedButUnPairedViewController.h */,
+				84BEE1731B86C378000F3DC1 /* MCStageConnectedButUnPairedViewController.m */,
+				84BEE1741B86C378000F3DC1 /* MCStageConnectedButUnPairedViewController.xib */,
+				84BEE1771B86C398000F3DC1 /* MCStageConnectedAndPairedViewController.h */,
+				84BEE1781B86C398000F3DC1 /* MCStageConnectedAndPairedViewController.m */,
+				84BEE1791B86C398000F3DC1 /* MCStageConnectedAndPairedViewController.xib */,
+				84BEE17C1B86C3BD000F3DC1 /* MCStageScanningViewController.h */,
+				84BEE17D1B86C3BD000F3DC1 /* MCStageScanningViewController.m */,
+				84BEE17E1B86C3BD000F3DC1 /* MCStageScanningViewController.xib */,
+				84BEE1811B86C3E3000F3DC1 /* MCStageScanDoneViewController.h */,
+				84BEE1821B86C3E3000F3DC1 /* MCStageScanDoneViewController.m */,
+				84BEE1831B86C3E3000F3DC1 /* MCStageScanDoneViewController.xib */,
+				84BEE1861B86C3FF000F3DC1 /* MCStageCleaningViewController.h */,
+				84BEE1871B86C3FF000F3DC1 /* MCStageCleaningViewController.m */,
+				84BEE1881B86C3FF000F3DC1 /* MCStageCleaningViewController.xib */,
+				84BEE18B1B86C41B000F3DC1 /* MCStageCleanDoneViewController.h */,
+				84BEE18C1B86C41B000F3DC1 /* MCStageCleanDoneViewController.m */,
+				84BEE18D1B86C41B000F3DC1 /* MCStageCleanDoneViewController.xib */,
 			);
 			name = StageViewController;
+			sourceTree = "<group>";
+		};
+		84BEE1901B86C869000F3DC1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84BEE1911B86C8A2000F3DC1 /* MCColorBackgroundView.h */,
+				84BEE1921B86C8A2000F3DC1 /* MCColorBackgroundView.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		84F03A8D1B82D79200FFFA28 = {
@@ -134,8 +202,9 @@
 			children = (
 				84F03A9B1B82D79200FFFA28 /* AppDelegate.h */,
 				84F03A9C1B82D79200FFFA28 /* AppDelegate.m */,
-				84BEE15F1B85C379000F3DC1 /* ViewController */,
 				84F03AC01B82DAA200FFFA28 /* Core */,
+				84BEE15F1B85C379000F3DC1 /* ViewController */,
+				84BEE1901B86C869000F3DC1 /* View */,
 				84F03A991B82D79200FFFA28 /* Supporting Files */,
 			);
 			path = MyMobileCleaner;
@@ -271,9 +340,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84BEE1851B86C3E3000F3DC1 /* MCStageScanDoneViewController.xib in Resources */,
 				84F03AA11B82D79200FFFA28 /* Images.xcassets in Resources */,
 				84BEE1641B85C3D6000F3DC1 /* MCMainWindowController.xib in Resources */,
+				84BEE18F1B86C41B000F3DC1 /* MCStageCleanDoneViewController.xib in Resources */,
+				84BEE1711B86C2F3000F3DC1 /* MCStageNoConnectionViewController.xib in Resources */,
 				84F03AA41B82D79200FFFA28 /* MainMenu.xib in Resources */,
+				84BEE17B1B86C398000F3DC1 /* MCStageConnectedAndPairedViewController.xib in Resources */,
+				84BEE1761B86C378000F3DC1 /* MCStageConnectedButUnPairedViewController.xib in Resources */,
+				84BEE18A1B86C3FF000F3DC1 /* MCStageCleaningViewController.xib in Resources */,
+				84BEE1801B86C3BD000F3DC1 /* MCStageScanningViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,11 +369,19 @@
 			files = (
 				84BEE1691B85CD48000F3DC1 /* MCStageViewController.m in Sources */,
 				84F03A9F1B82D79200FFFA28 /* main.m in Sources */,
+				84BEE18E1B86C41B000F3DC1 /* MCStageCleanDoneViewController.m in Sources */,
 				84F03AC71B83204600FFFA28 /* MCDevice.m in Sources */,
+				84BEE1751B86C378000F3DC1 /* MCStageConnectedButUnPairedViewController.m in Sources */,
 				84BEE1631B85C3D6000F3DC1 /* MCMainWindowController.m in Sources */,
+				84BEE1931B86C8A2000F3DC1 /* MCColorBackgroundView.m in Sources */,
 				E57FAD6E1B84B33100ABF2D0 /* MCDeviceInfoHub.m in Sources */,
 				84F03AC31B82DABF00FFFA28 /* MCDeviceController.m in Sources */,
+				84BEE1701B86C2F3000F3DC1 /* MCStageNoConnectionViewController.m in Sources */,
+				84BEE1841B86C3E3000F3DC1 /* MCStageScanDoneViewController.m in Sources */,
+				84BEE1891B86C3FF000F3DC1 /* MCStageCleaningViewController.m in Sources */,
+				84BEE17A1B86C398000F3DC1 /* MCStageConnectedAndPairedViewController.m in Sources */,
 				84F03A9D1B82D79200FFFA28 /* AppDelegate.m in Sources */,
+				84BEE17F1B86C3BD000F3DC1 /* MCStageScanningViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,7 +505,7 @@
 					"$(PROJECT_DIR)/3rd",
 				);
 				INFOPLIST_FILE = MyMobileCleaner/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks $(CONFIGURATION_BUILD_DIR)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/3rd/SDMMobileDevice.framework/Headers";
 			};
@@ -438,7 +522,7 @@
 					"$(PROJECT_DIR)/3rd",
 				);
 				INFOPLIST_FILE = MyMobileCleaner/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks $(CONFIGURATION_BUILD_DIR)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/3rd/SDMMobileDevice.framework/Headers";
 			};
