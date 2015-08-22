@@ -19,7 +19,6 @@
 @interface MCMainWindowController ()
 
 @property (weak) IBOutlet MCCustomWindowButtonBar *windowButtonBar;
-
 @property (weak) IBOutlet NSView *cavas;
 
 @property (nonatomic, assign) MCStageViewControllerUIStage currentUIStage;
@@ -51,8 +50,6 @@
 
 - (void)windowDidLoad {
     [super windowDidLoad];
-    
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 
     // !!! important, or else the subviews in contentView maybe abnormal.
     // !!! because the contentView implements [drawRect:] to draw by itself.
@@ -60,27 +57,6 @@
 
     self.currentUIStage = -1;
     [self updateStage:kMCStageViewControllerUIStageNoConnection animate:NO completion:nil];
-}
-
-- (void)refreshWindowButtonBarWithBackgroundColor:(NSColor *)color
-{
-    [self.windowButtonBar removeFromSuperviewWithoutNeedingDisplay];
-    [self.window.contentView addSubview:self.windowButtonBar];
-    [self.window.contentView addConstraints:@[[NSLayoutConstraint constraintWithItem:self.windowButtonBar
-                                                                           attribute:NSLayoutAttributeTop
-                                                                           relatedBy:NSLayoutRelationEqual
-                                                                              toItem:self.window.contentView
-                                                                           attribute:NSLayoutAttributeTop
-                                                                          multiplier:1
-                                                                            constant:16],
-                                              [NSLayoutConstraint constraintWithItem:self.windowButtonBar
-                                                                           attribute:NSLayoutAttributeLeading
-                                                                           relatedBy:NSLayoutRelationEqual
-                                                                              toItem:self.window.contentView
-                                                                           attribute:NSLayoutAttributeLeading
-                                                                          multiplier:1
-                                                                            constant:16]]];
-    [self.windowButtonBar layoutButtonsVertical:YES withBackgroundColor:color];
 }
 
 - (void)windowWillClose:(NSNotification *)notification
@@ -187,7 +163,28 @@
 
     [self.currentUIStageViewController stageViewDidAppear];
 
-    [self refreshWindowButtonBarWithBackgroundColor:self.currentUIStageViewController.toneColor];
+    [self refreshWindowButtonBar];
+}
+
+- (void)refreshWindowButtonBar
+{
+    [self.windowButtonBar removeFromSuperviewWithoutNeedingDisplay];
+    [self.window.contentView addSubview:self.windowButtonBar];
+    [self.window.contentView addConstraints:@[[NSLayoutConstraint constraintWithItem:self.windowButtonBar
+                                                                           attribute:NSLayoutAttributeTop
+                                                                           relatedBy:NSLayoutRelationEqual
+                                                                              toItem:self.window.contentView
+                                                                           attribute:NSLayoutAttributeTop
+                                                                          multiplier:1
+                                                                            constant:16],
+                                              [NSLayoutConstraint constraintWithItem:self.windowButtonBar
+                                                                           attribute:NSLayoutAttributeLeading
+                                                                           relatedBy:NSLayoutRelationEqual
+                                                                              toItem:self.window.contentView
+                                                                           attribute:NSLayoutAttributeLeading
+                                                                          multiplier:1
+                                                                            constant:16]]];
+    [self.windowButtonBar layoutButtonsVertical:YES];
 }
 
 #pragma mark - MCStageViewControllerManager
@@ -234,15 +231,11 @@
 
 - (void)deviceDidConnectButUnPaired
 {
-    NSLog(@"unpaired device: %@", [MCDeviceController sharedInstance].selectedConnectedDevice.deviceName);
-
     dispatch_async(dispatch_get_main_queue(), ^{
         [self updateStage:kMCStageViewControllerUIStageConnectedButUnPaired animate:NO completion:nil];
     });
 
     [[MCDeviceController sharedInstance].selectedConnectedDevice waitingForPairWithCompleteBlock:^{
-        NSLog(@"success to pair device: %@ [%@]", [MCDeviceController sharedInstance].selectedConnectedDevice.deviceName, [MCDeviceController sharedInstance].selectedConnectedDevice.deviceType);
-
         [self deviceDidConnectAndPaired];
     }];
 

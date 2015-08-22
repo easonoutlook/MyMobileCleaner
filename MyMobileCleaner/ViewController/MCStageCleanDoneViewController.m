@@ -35,9 +35,4 @@
     NSLog(@"100%% => success to clean all scanned crash log");
 }
 
-- (NSColor *)toneColor
-{
-    return self.colorBackground.cbvBackgroundColor ? : [NSColor clearColor];
-}
-
 @end

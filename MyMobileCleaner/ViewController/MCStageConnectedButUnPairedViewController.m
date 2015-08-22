@@ -34,9 +34,4 @@
     ((MCMainWindowController *)(self.manager)).myCrashLogs = nil;
 }
 
-- (NSColor *)toneColor
-{
-    return self.colorBackground.cbvBackgroundColor ? : [NSColor clearColor];
-}
-
 @end

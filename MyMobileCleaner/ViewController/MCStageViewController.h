@@ -29,8 +29,6 @@ typedef NS_ENUM(NSUInteger, MCStageViewControllerUIStage) {
 
 @interface MCStageViewController : NSViewController
 
-@property (nonatomic, readonly, strong) NSColor *toneColor;
-
 @property (nonatomic, weak) id<MCStageViewControllerManager> manager;
 
 - (instancetype)initWithManager:(id<MCStageViewControllerManager>)manager;

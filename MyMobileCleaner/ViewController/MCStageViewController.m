@@ -27,9 +27,4 @@
 
 }
 
-- (NSColor *)toneColor
-{
-    return [NSColor clearColor];
-}
-
 @end

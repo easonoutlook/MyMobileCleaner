@@ -36,7 +36,6 @@
     self.labelInfo.stringValue = [MCDeviceController sharedInstance].selectedConnectedDevice.deviceType;
 
     NSUInteger totalSize = 0;
-
     for (MCDeviceCrashLogItem *item in ((MCMainWindowController *)(self.manager)).myCrashLogs) {
         totalSize += [item.size unsignedIntegerValue];
     }
@@ -53,11 +52,6 @@
 
 - (IBAction)clickBtnClean:(id)sender {
     [self.manager gotoNextStage];
-}
-
-- (NSColor *)toneColor
-{
-    return self.colorBackground.cbvBackgroundColor ? : [NSColor clearColor];
 }
 
 @end

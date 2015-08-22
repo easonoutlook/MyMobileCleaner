@@ -14,8 +14,6 @@
 @property (nonatomic, weak) NSButton *miniButton;
 @property (nonatomic, weak) NSButton *resizeButton;
 
-@property (nonatomic, strong) NSColor *bgColor;
-
 @property (nonatomic, assign) BOOL mouseInside;
 @property (nonatomic, strong) NSTrackingArea * trackArea;
 
@@ -29,21 +27,13 @@
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
-    [NSGraphicsContext saveGraphicsState];
-
-    NSBezierPath *path = [NSBezierPath bezierPathWithRect:dirtyRect];
-    [self.bgColor setFill];
-    [path fill];
-
-    [NSGraphicsContext restoreGraphicsState];
+    [super drawRect:dirtyRect];
 }
 
 - (instancetype)initWithFrame:(NSRect)frameRect
 {
     self = [super initWithFrame:frameRect];
     if (self) {
-        self.bgColor = [NSColor clearColor];
-
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(parentWindowDidResize:) name:NSWindowDidResizeNotification object:self.window];
     }
     return self;
@@ -55,10 +45,7 @@
 }
 
 - (void)layoutButtonsVertical:(BOOL)vertical
-          withBackgroundColor:(NSColor *)color
 {
-    self.bgColor = color ? : [NSColor clearColor];
-    
     [self.closeButton removeFromSuperviewWithoutNeedingDisplay];
     [self.miniButton removeFromSuperviewWithoutNeedingDisplay];
     [self.resizeButton removeFromSuperviewWithoutNeedingDisplay];

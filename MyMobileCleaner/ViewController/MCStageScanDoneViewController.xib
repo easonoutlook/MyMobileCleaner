@@ -23,7 +23,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="cbvBackgroundColor">
-                            <color key="value" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="value" red="0.0" green="0.50196081400000003" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="cbvBorderColor">
                             <color key="value" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -53,7 +53,7 @@
                     </textFieldCell>
                 </textField>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="XbA-4r-3ss" userLabel="clean">
-                    <rect key="frame" x="136" y="136" width="128" height="128"/>
+                    <rect key="frame" x="136" y="104" width="128" height="128"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="128" id="6DT-n0-BcF"/>
                         <constraint firstAttribute="height" constant="128" id="hq9-ce-UHl"/>
@@ -67,7 +67,7 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Ap-zu-aI9" userLabel="size">
-                    <rect key="frame" x="196" y="89" width="8" height="39"/>
+                    <rect key="frame" x="196" y="248" width="8" height="39"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="xT1-rD-ffc">
                         <font key="font" metaFont="system" size="32"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -76,16 +76,16 @@
                 </textField>
             </subviews>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="XbA-4r-3ss" secondAttribute="centerY" id="3Wc-cD-sKD"/>
+                <constraint firstAttribute="centerY" secondItem="XbA-4r-3ss" secondAttribute="centerY" constant="-32" id="3Wc-cD-sKD"/>
                 <constraint firstAttribute="trailing" secondItem="ndR-XH-QeB" secondAttribute="trailing" id="APL-gp-3cY"/>
                 <constraint firstItem="Urd-7u-4EP" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="FYT-VE-xTi"/>
                 <constraint firstAttribute="centerX" secondItem="XbA-4r-3ss" secondAttribute="centerX" id="Jtv-py-NFH"/>
                 <constraint firstItem="ndR-XH-QeB" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="PdP-U0-Sqe"/>
                 <constraint firstAttribute="centerX" secondItem="WQe-g3-w7m" secondAttribute="centerX" id="Pod-G2-AH5"/>
+                <constraint firstItem="XbA-4r-3ss" firstAttribute="top" secondItem="4Ap-zu-aI9" secondAttribute="bottom" constant="16" id="Swd-9p-4DY"/>
                 <constraint firstAttribute="centerX" secondItem="4Ap-zu-aI9" secondAttribute="centerX" id="WZt-Md-NNO"/>
                 <constraint firstAttribute="bottom" secondItem="ndR-XH-QeB" secondAttribute="bottom" id="X2P-Wy-9fl"/>
                 <constraint firstItem="WQe-g3-w7m" firstAttribute="top" secondItem="Urd-7u-4EP" secondAttribute="bottom" constant="8" symbolic="YES" id="jIt-5R-Wf3"/>
-                <constraint firstItem="4Ap-zu-aI9" firstAttribute="top" secondItem="XbA-4r-3ss" secondAttribute="bottom" constant="8" symbolic="YES" id="u8m-PM-aWY"/>
                 <constraint firstAttribute="centerX" secondItem="Urd-7u-4EP" secondAttribute="centerX" id="xyN-jv-Sjy"/>
                 <constraint firstItem="ndR-XH-QeB" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="yU9-dW-7jx"/>
             </constraints>

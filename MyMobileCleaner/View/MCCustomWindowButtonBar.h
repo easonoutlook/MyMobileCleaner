@@ -10,6 +10,6 @@
 
 @interface MCCustomWindowButtonBar : NSView
 
-- (void)layoutButtonsVertical:(BOOL)vertical withBackgroundColor:(NSColor *)color;
+- (void)layoutButtonsVertical:(BOOL)vertical;
 
 @end

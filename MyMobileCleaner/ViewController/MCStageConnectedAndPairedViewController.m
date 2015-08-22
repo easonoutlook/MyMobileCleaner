@@ -44,9 +44,4 @@
     [self.manager gotoNextStage];
 }
 
-- (NSColor *)toneColor
-{
-    return self.colorBackground.cbvBackgroundColor ? : [NSColor clearColor];
-}
-
 @end

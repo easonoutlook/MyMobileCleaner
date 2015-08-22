@@ -10,7 +10,7 @@
                 <outlet property="error" destination="Fka-Zj-wCa" id="MNP-Qb-Yfk"/>
                 <outlet property="labelInfo" destination="Mq2-k2-ztS" id="1Ur-cd-M7h"/>
                 <outlet property="labelTitle" destination="qEC-Jw-4iH" id="PiG-3U-eJ8"/>
-                <outlet property="progressBar" destination="0a2-1I-n6Y" id="5GR-qX-un5"/>
+                <outlet property="progress" destination="UDj-fY-2bd" id="fFo-Lf-5ld"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -23,7 +23,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="cbvBackgroundColor">
-                            <color key="value" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="value" red="0.0" green="0.50196081400000003" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="cbvBorderColor">
                             <color key="value" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -52,6 +52,13 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="UDj-fY-2bd" userLabel="progress">
+                    <rect key="frame" x="136" y="136" width="128" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="128" id="5ff-eb-2y1"/>
+                        <constraint firstAttribute="height" constant="128" id="QPJ-DJ-jIs"/>
+                    </constraints>
+                </progressIndicator>
                 <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fka-Zj-wCa" userLabel="error">
                     <rect key="frame" x="136" y="136" width="128" height="128"/>
                     <constraints>
@@ -60,25 +67,19 @@
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSStopProgressFreestandingTemplate" id="28c-eL-GUP"/>
                 </imageView>
-                <progressIndicator maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="0a2-1I-n6Y" userLabel="progress">
-                    <rect key="frame" x="50" y="190" width="300" height="20"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="300" id="WOR-AV-Emt"/>
-                    </constraints>
-                </progressIndicator>
             </subviews>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="Fka-Zj-wCa" secondAttribute="centerY" id="7M0-vd-5vt"/>
                 <constraint firstAttribute="bottom" secondItem="EnR-NJ-Qu4" secondAttribute="bottom" id="C9C-aK-SWo"/>
                 <constraint firstAttribute="trailing" secondItem="EnR-NJ-Qu4" secondAttribute="trailing" id="G9M-6e-KUG"/>
-                <constraint firstAttribute="centerY" secondItem="0a2-1I-n6Y" secondAttribute="centerY" id="KmY-6S-syV"/>
                 <constraint firstItem="EnR-NJ-Qu4" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="NrK-v7-VQQ"/>
+                <constraint firstAttribute="centerX" secondItem="UDj-fY-2bd" secondAttribute="centerX" id="OrL-QJ-gzZ"/>
                 <constraint firstItem="EnR-NJ-Qu4" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="RW5-Wc-m7N"/>
                 <constraint firstAttribute="centerX" secondItem="Fka-Zj-wCa" secondAttribute="centerX" id="Zdu-ws-4oc"/>
+                <constraint firstAttribute="centerY" secondItem="UDj-fY-2bd" secondAttribute="centerY" id="Zz1-bX-5XO"/>
                 <constraint firstAttribute="centerX" secondItem="Mq2-k2-ztS" secondAttribute="centerX" id="am9-Fg-dLf"/>
                 <constraint firstItem="qEC-Jw-4iH" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="kVn-iN-RVn"/>
                 <constraint firstItem="Mq2-k2-ztS" firstAttribute="top" secondItem="qEC-Jw-4iH" secondAttribute="bottom" constant="8" symbolic="YES" id="m8m-rL-vXT"/>
-                <constraint firstAttribute="centerX" secondItem="0a2-1I-n6Y" secondAttribute="centerX" id="qOH-Mr-8wi"/>
                 <constraint firstAttribute="centerX" secondItem="qEC-Jw-4iH" secondAttribute="centerX" id="r23-Mk-Jog"/>
             </constraints>
         </customView>
