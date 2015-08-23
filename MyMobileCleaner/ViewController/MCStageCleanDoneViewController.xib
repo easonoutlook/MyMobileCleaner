@@ -6,6 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MCStageCleanDoneViewController">
             <connections>
+                <outlet property="btnDone" destination="ihZ-RW-qO8" id="BJk-yz-euv"/>
                 <outlet property="colorBackground" destination="PVQ-O6-Lxh" id="ps7-dv-wRc"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -40,23 +41,29 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o0M-69-fDL" userLabel="bye">
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="ihZ-RW-qO8" userLabel="done">
                     <rect key="frame" x="136" y="88" width="128" height="128"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="128" id="hOZ-bN-Aw8"/>
-                        <constraint firstAttribute="width" constant="128" id="uNH-k5-dcm"/>
+                        <constraint firstAttribute="height" constant="128" id="dAk-84-l3B"/>
+                        <constraint firstAttribute="width" constant="128" id="qXo-XK-M8c"/>
                     </constraints>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="finish" id="8xy-qN-Ril"/>
-                </imageView>
+                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="finish" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="zna-cX-DUc" userLabel="done">
+                        <behavior key="behavior" lightByContents="YES"/>
+                        <font key="font" metaFont="system" size="40"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickBtnDone:" target="-2" id="ZG8-Ns-uTq"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
+                <constraint firstAttribute="centerY" secondItem="ihZ-RW-qO8" secondAttribute="centerY" constant="-48" id="CqQ-zF-dHt"/>
                 <constraint firstItem="PVQ-O6-Lxh" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Gyu-hy-21s"/>
                 <constraint firstItem="PVQ-O6-Lxh" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="JPy-vk-NgC"/>
-                <constraint firstAttribute="centerY" secondItem="o0M-69-fDL" secondAttribute="centerY" constant="-48" id="Oqr-Px-PkH"/>
+                <constraint firstAttribute="centerX" secondItem="ihZ-RW-qO8" secondAttribute="centerX" id="N8Q-on-DZl"/>
                 <constraint firstAttribute="centerX" secondItem="g9t-KP-YQC" secondAttribute="centerX" id="R7L-Sk-zmX"/>
                 <constraint firstAttribute="trailing" secondItem="PVQ-O6-Lxh" secondAttribute="trailing" id="fp8-0J-nld"/>
-                <constraint firstAttribute="centerX" secondItem="o0M-69-fDL" secondAttribute="centerX" id="h2e-a6-ZdL"/>
-                <constraint firstItem="o0M-69-fDL" firstAttribute="top" secondItem="g9t-KP-YQC" secondAttribute="bottom" constant="16" id="jAX-h2-fId"/>
+                <constraint firstItem="ihZ-RW-qO8" firstAttribute="top" secondItem="g9t-KP-YQC" secondAttribute="bottom" constant="16" id="oyZ-Wt-WUx"/>
                 <constraint firstAttribute="bottom" secondItem="PVQ-O6-Lxh" secondAttribute="bottom" id="uVZ-X7-lh8"/>
             </constraints>
         </customView>

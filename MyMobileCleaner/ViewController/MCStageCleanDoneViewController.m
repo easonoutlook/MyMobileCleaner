@@ -11,6 +11,7 @@
 @interface MCStageCleanDoneViewController ()
 
 @property (weak) IBOutlet MCColorBackgroundView *colorBackground;
+@property (weak) IBOutlet NSButton *btnDone;
 
 @end
 
@@ -28,6 +29,10 @@
 - (void)stageViewDidAppear
 {
     NSLog(@"100%% => success to clean all scanned crash log");
+}
+
+- (IBAction)clickBtnDone:(id)sender {
+    [self.view.window close];
 }
 
 @end
