@@ -116,6 +116,7 @@
 		E57FAD6D1B84B33100ABF2D0 /* MCDeviceInfoHub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCDeviceInfoHub.m; path = Core/MCDeviceInfoHub.m; sourceTree = "<group>"; };
 		E5B240311B89CB4400A2BC03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/MyMobileCleaner.strings; sourceTree = "<group>"; };
 		E5B240331B89CB4500A2BC03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MyMobileCleaner.strings; sourceTree = "<group>"; };
+		E5B240341B89CF0800A2BC03 /* MyMobileCleaner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MyMobileCleaner.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +214,7 @@
 		84F03A981B82D79200FFFA28 /* MyMobileCleaner */ = {
 			isa = PBXGroup;
 			children = (
+				E5B240341B89CF0800A2BC03 /* MyMobileCleaner.entitlements */,
 				84F03A9B1B82D79200FFFA28 /* AppDelegate.h */,
 				84F03A9C1B82D79200FFFA28 /* AppDelegate.m */,
 				84F03AC01B82DAA200FFFA28 /* Core */,
@@ -323,6 +325,11 @@
 				TargetAttributes = {
 					84F03A951B82D79200FFFA28 = {
 						CreatedOnToolsVersion = 6.4;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					84F03AA81B82D79200FFFA28 = {
 						CreatedOnToolsVersion = 6.4;
@@ -458,7 +465,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Trend Micro, Inc.";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -501,7 +508,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Trend Micro, Inc.";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -525,6 +532,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MyMobileCleaner/MyMobileCleaner.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Trend Micro, Inc.";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -542,6 +551,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MyMobileCleaner/MyMobileCleaner.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Trend Micro, Inc.";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
