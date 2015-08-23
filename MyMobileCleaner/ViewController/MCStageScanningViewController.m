@@ -43,7 +43,7 @@
          scanCrashLogSuccessBlock:^(NSArray *crashLogs) {
              ((MCMainWindowController *)(self.manager)).myCrashLogs = crashLogs;
 
-             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kDefaultWaitDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                  [self.progress stopAnimation:self];
                  [self.manager gotoNextStage];
              });
