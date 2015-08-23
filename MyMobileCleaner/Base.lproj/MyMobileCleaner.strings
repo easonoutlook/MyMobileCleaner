@@ -11,4 +11,5 @@
 
 "to.pair.info" = "Please pair your device for access.";
 
-"scan.done.crash.log.info" = "Crash Log: %@";
+"scan.done.crash.log.info.single" = "%@ Crash Log: %@";
+"scan.done.crash.log.info.many" = "%@ Crash Logs: %@";

@@ -29,3 +29,7 @@
 @implementation MCDeviceCrashLogItem
 
 @end
+
+@implementation MCDeviceCrashLogSearchedItem
+
+@end

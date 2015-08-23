@@ -31,8 +31,14 @@
 - (void)stageViewDidAppear
 {
     NSUInteger totalSize = 0;
+    NSMutableArray *allFiles = [NSMutableArray array];
     for (MCDeviceCrashLogItem *item in ((MCMainWindowController *)(self.manager)).myCrashLogs) {
-        totalSize += [item.size unsignedIntegerValue];
+        totalSize += [item.totalSize unsignedIntegerValue];
+        [allFiles addObjectsFromArray:item.allFiles];
+    }
+    NSMutableArray *allFilesName = [NSMutableArray array];
+    for (NSString *path in allFiles) {
+        [allFilesName addObject:path.lastPathComponent];
     }
 
     NSByteCountFormatter *formatter = [[NSByteCountFormatter alloc] init];
@@ -41,8 +47,11 @@
     formatter.zeroPadsFractionDigits = YES;
 
     NSLog(@"100%% => all scanned crash log: %@", [formatter stringFromByteCount:totalSize]);
+    NSLog(@"100%% => all scanned crash log: %@", allFilesName);
 
-    self.labelSize.stringValue = [NSString stringWithFormat:NSLocalizedStringFromTable(@"scan.done.crash.log.info", @"MyMobileCleaner", @"scan.done"), [formatter stringFromByteCount:totalSize]];
+    self.labelSize.stringValue = [NSString stringWithFormat:((allFilesName.count > 1) ? NSLocalizedStringFromTable(@"scan.done.crash.log.info.many", @"MyMobileCleaner", @"scan.done") : NSLocalizedStringFromTable(@"scan.done.crash.log.info.single", @"MyMobileCleaner", @"scan.done")),
+                                  @(allFilesName.count),
+                                  [formatter stringFromByteCount:totalSize]];
 }
 
 - (IBAction)clickBtnClean:(id)sender {

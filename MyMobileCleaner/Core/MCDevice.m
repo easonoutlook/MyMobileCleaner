@@ -271,13 +271,16 @@
                     if (SDM_MD_CallSuccessful(sdm_return)) {
                         NSDictionary *info = (__bridge_transfer NSDictionary *)(SDMMD_AFCOperationGetPacketResponse(operation_get_info));
                         item.isDir = [info[@kAFC_File_Info_st_ifmt] isEqualToString:@"S_IFDIR"];
-                        item.size = [self sizeOfItemWithFullPath:path AFCConnection:sdm_crash_report_conn];
-                    }
+                        MCDeviceCrashLogSearchedItem *searchedItem = [self infoOfItemWithFullPath:path AFCConnection:sdm_crash_report_conn];
+                        item.totalSize = @(searchedItem.totalSize);
+                        item.allFiles = searchedItem.allFiles;
 
-                    if (updateBlock) {
-                        updateBlock(dirContents.count-2, item);
+                        if (updateBlock) {
+                            updateBlock(dirContents.count-2, item);
+                        }
+
+                        [crashLogs addObject:item];
                     }
-                    [crashLogs addObject:item];
                 }
 
                 CFSafeRelease(sdm_crash_report_conn);
@@ -428,9 +431,12 @@
 
 #pragma mark - inner
 
-- (NSNumber *)sizeOfItemWithFullPath:(NSString *)path AFCConnection:(SDMMD_AFCConnectionRef)afc_conn
+- (MCDeviceCrashLogSearchedItem *)infoOfItemWithFullPath:(NSString *)path
+                                           AFCConnection:(SDMMD_AFCConnectionRef)afc_conn
 {
-    NSUInteger totalSize = 0;
+    MCDeviceCrashLogSearchedItem *searchedItem = [[MCDeviceCrashLogSearchedItem alloc] init];
+    searchedItem.totalSize = 0;
+    searchedItem.allFiles = [NSMutableArray array];
 
     SDMMD_AFCOperationRef operation_get_info = SDMMD_AFCOperationCreateGetFileInfo((__bridge CFStringRef)path);
     kern_return_t sdm_return = SDMMD_AFCProcessOperation(afc_conn, &operation_get_info);
@@ -438,7 +444,7 @@
     if (SDM_MD_CallSuccessful(sdm_return)) {
         NSDictionary *info = (__bridge_transfer NSDictionary *)(SDMMD_AFCOperationGetPacketResponse(operation_get_info));
 
-        totalSize += [(NSString *)(info[@kAFC_File_Info_st_size]) integerValue];
+        searchedItem.totalSize += [(NSString *)(info[@kAFC_File_Info_st_size]) integerValue];
 
         BOOL isDir = [info[@kAFC_File_Info_st_ifmt] isEqualToString:@"S_IFDIR"];
         if (isDir) {
@@ -453,13 +459,18 @@
                     }
 
                     NSString *newPath = [path stringByAppendingPathComponent:subPath];
-                    totalSize += [[self sizeOfItemWithFullPath:newPath AFCConnection:afc_conn] unsignedIntegerValue];
+                    MCDeviceCrashLogSearchedItem *subSearchedItem = [self infoOfItemWithFullPath:newPath AFCConnection:afc_conn];
+                    searchedItem.totalSize += subSearchedItem.totalSize;
+                    [searchedItem.allFiles addObjectsFromArray:subSearchedItem.allFiles];
                 }
             }
+
+        } else {
+            [searchedItem.allFiles addObject:path];
         }
     }
 
-    return @(totalSize);
+    return searchedItem;
 }
 
 @end
