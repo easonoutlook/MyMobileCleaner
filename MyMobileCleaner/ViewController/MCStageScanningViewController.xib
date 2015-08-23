@@ -52,7 +52,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="UDj-fY-2bd" userLabel="progress">
+                <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="UDj-fY-2bd" userLabel="progress">
                     <rect key="frame" x="136" y="136" width="128" height="128"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="128" id="5ff-eb-2y1"/>
