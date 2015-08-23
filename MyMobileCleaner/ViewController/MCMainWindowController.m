@@ -58,6 +58,14 @@
     [self.window.contentView setWantsLayer:YES];
 
     self.currentUIStage = -1;
+    [self showDefaultDisConnectStatus];
+}
+
+- (void)showDefaultDisConnectStatus
+{
+    self.labelTitle.stringValue = NSLocalizedStringFromTable(@"to.connect.title", @"MyMobileCleaner", @"to.connect");
+    self.labelInfo.stringValue = NSLocalizedStringFromTable(@"to.connect.info", @"MyMobileCleaner", @"to.connect");
+
     [self updateStage:kMCStageViewControllerUIStageNoConnection animate:NO completion:nil];
 }
 
@@ -261,10 +269,7 @@
 - (void)deviceDidDisconnect
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.labelTitle.stringValue = NSLocalizedStringFromTable(@"to.connect.title", @"MyMobileCleaner", @"to.connect");
-        self.labelInfo.stringValue = NSLocalizedStringFromTable(@"to.connect.info", @"MyMobileCleaner", @"to.connect");
-
-        [self updateStage:kMCStageViewControllerUIStageNoConnection animate:NO completion:nil];
+        [self showDefaultDisConnectStatus];
     });
 }
 
