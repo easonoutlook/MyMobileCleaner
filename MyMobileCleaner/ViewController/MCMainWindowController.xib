@@ -7,6 +7,8 @@
         <customObject id="-2" userLabel="File's Owner" customClass="MCMainWindowController">
             <connections>
                 <outlet property="cavas" destination="0rw-yj-frg" id="5Yr-8z-5FB"/>
+                <outlet property="labelInfo" destination="4Op-PH-Grg" id="vKK-jE-15t"/>
+                <outlet property="labelTitle" destination="NEl-lZ-5md" id="oQu-CY-Gc2"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
                 <outlet property="windowButtonBar" destination="M4c-IF-Mqd" id="hhd-3x-tFg"/>
             </connections>
@@ -32,14 +34,49 @@
                             <constraint firstAttribute="height" constant="40" id="RLt-mB-nlh"/>
                         </constraints>
                     </customView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="LTs-Dv-qEp" userLabel="line" customClass="MCColorBackgroundView">
+                        <rect key="frame" x="16" y="300" width="368" height="4"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="4" id="NJ3-3o-3zY"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cbvCornerRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </customView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Op-PH-Grg" userLabel="info">
+                        <rect key="frame" x="196" y="324" width="8" height="19"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="iWm-HY-bZs">
+                            <font key="font" metaFont="system" size="16"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NEl-lZ-5md" userLabel="title">
+                        <rect key="frame" x="196" y="351" width="8" height="29"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="qKr-uZ-cgh">
+                            <font key="font" metaFont="system" size="24"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
                 <constraints>
                     <constraint firstItem="M4c-IF-Mqd" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="16" id="0ev-Yj-yrM"/>
                     <constraint firstItem="0rw-yj-frg" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="9xh-WJ-0jN"/>
                     <constraint firstItem="0rw-yj-frg" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="AZJ-Sp-Ppc"/>
+                    <constraint firstItem="NEl-lZ-5md" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="20" symbolic="YES" id="DyI-72-LXF"/>
+                    <constraint firstAttribute="trailing" secondItem="LTs-Dv-qEp" secondAttribute="trailing" constant="16" id="IoZ-Fw-HQ8"/>
+                    <constraint firstAttribute="centerX" secondItem="NEl-lZ-5md" secondAttribute="centerX" id="TVI-Rg-soL"/>
+                    <constraint firstItem="LTs-Dv-qEp" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="16" id="TX3-Cf-xyb"/>
                     <constraint firstAttribute="trailing" secondItem="0rw-yj-frg" secondAttribute="trailing" id="UqZ-pD-JKg"/>
+                    <constraint firstItem="4Op-PH-Grg" firstAttribute="top" secondItem="NEl-lZ-5md" secondAttribute="bottom" constant="8" symbolic="YES" id="ehX-oS-t6g"/>
                     <constraint firstItem="M4c-IF-Mqd" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="16" id="l74-O7-xzx"/>
+                    <constraint firstItem="4Op-PH-Grg" firstAttribute="top" secondItem="NEl-lZ-5md" secondAttribute="bottom" constant="8" symbolic="YES" id="pDX-vb-LCM"/>
+                    <constraint firstItem="LTs-Dv-qEp" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="96" id="wa9-7d-Nm7"/>
                     <constraint firstAttribute="bottom" secondItem="0rw-yj-frg" secondAttribute="bottom" id="xNI-Mk-aoQ"/>
+                    <constraint firstAttribute="centerX" secondItem="4Op-PH-Grg" secondAttribute="centerX" id="zUZ-2s-Qdd"/>
                 </constraints>
                 <userDefinedRuntimeAttributes>
                     <userDefinedRuntimeAttribute type="number" keyPath="cbvCornerRadius">

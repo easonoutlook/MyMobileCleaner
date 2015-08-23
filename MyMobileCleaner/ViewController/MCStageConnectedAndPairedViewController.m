@@ -12,8 +12,6 @@
 @interface MCStageConnectedAndPairedViewController ()
 
 @property (weak) IBOutlet MCColorBackgroundView *colorBackground;
-@property (weak) IBOutlet NSTextField *labelTitle;
-@property (weak) IBOutlet NSTextField *labelInfo;
 @property (weak) IBOutlet NSButton *btnScan;
 
 @end
@@ -31,9 +29,6 @@
 
 - (void)stageViewDidAppear
 {
-    self.labelTitle.stringValue = [MCDeviceController sharedInstance].selectedConnectedDevice.deviceName;
-    self.labelInfo.stringValue = [MCDeviceController sharedInstance].selectedConnectedDevice.deviceType;
-
     ((MCMainWindowController *)(self.manager)).myCrashLogs = nil;
     
     // disk usage

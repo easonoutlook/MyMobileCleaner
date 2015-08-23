@@ -12,7 +12,6 @@
 @interface MCStageConnectedButUnPairedViewController ()
 
 @property (weak) IBOutlet MCColorBackgroundView *colorBackground;
-@property (weak) IBOutlet NSTextField *labelTitle;
 
 @end
 
@@ -29,8 +28,6 @@
 
 - (void)stageViewDidAppear
 {
-    self.labelTitle.stringValue = [MCDeviceController sharedInstance].selectedConnectedDevice.deviceName;
-
     ((MCMainWindowController *)(self.manager)).myCrashLogs = nil;
 }
 

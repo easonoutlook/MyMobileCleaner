@@ -8,8 +8,6 @@
             <connections>
                 <outlet property="btnScan" destination="G9e-HL-Eh6" id="Gtp-lA-WqI"/>
                 <outlet property="colorBackground" destination="BwZ-kg-xf3" id="hQR-Kw-8An"/>
-                <outlet property="labelInfo" destination="heT-pa-GIl" id="mbb-81-xPE"/>
-                <outlet property="labelTitle" destination="T87-CF-aQ2" id="NPc-zs-2tC"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -35,31 +33,15 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="T87-CF-aQ2" userLabel="title">
-                    <rect key="frame" x="196" y="351" width="8" height="29"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="WFr-BD-2xP">
-                        <font key="font" metaFont="system" size="24"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="heT-pa-GIl" userLabel="info">
-                    <rect key="frame" x="196" y="324" width="8" height="19"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="pDF-b9-Ikp">
-                        <font key="font" metaFont="system" size="16"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="G9e-HL-Eh6" userLabel="scan">
-                    <rect key="frame" x="136" y="136" width="128" height="128"/>
+                    <rect key="frame" x="125" y="77" width="150" height="150"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="128" id="6fK-ZZ-LMR"/>
-                        <constraint firstAttribute="width" constant="128" id="LMi-TT-lgH"/>
+                        <constraint firstAttribute="height" constant="150" id="6fK-ZZ-LMR"/>
+                        <constraint firstAttribute="width" constant="150" id="LMi-TT-lgH"/>
                     </constraints>
-                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="NSRevealFreestandingTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="SIo-wR-4Dl">
+                    <buttonCell key="cell" type="bevel" title="Scan" bezelStyle="regularSquare" image="button" imagePosition="overlaps" alignment="center" alternateImage="button_click" imageScaling="proportionallyUpOrDown" inset="2" id="SIo-wR-4Dl">
                         <behavior key="behavior" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="system" size="40"/>
                     </buttonCell>
                     <connections>
                         <action selector="clickBtnScan:" target="-2" id="mhP-Yw-0sb"/>
@@ -69,18 +51,15 @@
             <constraints>
                 <constraint firstItem="BwZ-kg-xf3" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="3fj-4O-s7p"/>
                 <constraint firstAttribute="trailing" secondItem="BwZ-kg-xf3" secondAttribute="trailing" id="5uT-pP-VlK"/>
-                <constraint firstItem="T87-CF-aQ2" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="8d7-gw-gfo"/>
                 <constraint firstAttribute="centerX" secondItem="G9e-HL-Eh6" secondAttribute="centerX" id="K6X-e5-fBh"/>
-                <constraint firstAttribute="centerX" secondItem="heT-pa-GIl" secondAttribute="centerX" id="VMJ-ux-C6j"/>
-                <constraint firstAttribute="centerY" secondItem="G9e-HL-Eh6" secondAttribute="centerY" id="bfp-yT-oGY"/>
+                <constraint firstAttribute="centerY" secondItem="G9e-HL-Eh6" secondAttribute="centerY" constant="-48" id="bfp-yT-oGY"/>
                 <constraint firstAttribute="bottom" secondItem="BwZ-kg-xf3" secondAttribute="bottom" id="evY-Jk-XMd"/>
-                <constraint firstAttribute="centerX" secondItem="T87-CF-aQ2" secondAttribute="centerX" id="iDj-Kh-db3"/>
                 <constraint firstItem="BwZ-kg-xf3" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="nG0-Dq-LZk"/>
-                <constraint firstItem="heT-pa-GIl" firstAttribute="top" secondItem="T87-CF-aQ2" secondAttribute="bottom" constant="8" symbolic="YES" id="uVv-JZ-qRi"/>
             </constraints>
         </customView>
     </objects>
     <resources>
-        <image name="NSRevealFreestandingTemplate" width="14" height="14"/>
+        <image name="button" width="151" height="151"/>
+        <image name="button_click" width="151" height="151"/>
     </resources>
 </document>

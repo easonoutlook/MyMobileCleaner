@@ -7,7 +7,6 @@
         <customObject id="-2" userLabel="File's Owner" customClass="MCStageConnectedButUnPairedViewController">
             <connections>
                 <outlet property="colorBackground" destination="qt1-Mh-YlD" id="P5E-vU-aXI"/>
-                <outlet property="labelTitle" destination="NNR-Q2-qXH" id="iAh-9m-22b"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -33,36 +32,26 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NNR-Q2-qXH" userLabel="title">
-                    <rect key="frame" x="196" y="351" width="8" height="29"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="1HJ-6n-akr">
-                        <font key="font" metaFont="system" size="24"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SrM-XG-kA1" userLabel="info">
-                    <rect key="frame" x="48" y="325" width="304" height="18"/>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tVV-zP-z13">
+                    <rect key="frame" x="40" y="32" width="320" height="240"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="300" id="xsU-7h-4bo"/>
+                        <constraint firstAttribute="width" constant="320" id="Ak5-3Y-Kfa"/>
+                        <constraint firstAttribute="height" constant="240" id="O7N-Jf-P08"/>
                     </constraints>
-                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Please pair your device for access." id="awN-Ag-uag">
-                        <font key="font" metaFont="system" size="14"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="pair" id="EzX-OP-Bxr"/>
+                </imageView>
             </subviews>
             <constraints>
                 <constraint firstItem="qt1-Mh-YlD" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="7tp-1f-hRx"/>
                 <constraint firstItem="qt1-Mh-YlD" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Vhf-VX-Kft"/>
-                <constraint firstItem="NNR-Q2-qXH" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="cWK-ZV-n16"/>
-                <constraint firstAttribute="centerX" secondItem="NNR-Q2-qXH" secondAttribute="centerX" id="cq2-qu-Yjv"/>
+                <constraint firstAttribute="centerY" secondItem="tVV-zP-z13" secondAttribute="centerY" constant="-48" id="XFQ-0i-rr6"/>
                 <constraint firstAttribute="bottom" secondItem="qt1-Mh-YlD" secondAttribute="bottom" id="gPh-kf-C1b"/>
+                <constraint firstAttribute="centerX" secondItem="tVV-zP-z13" secondAttribute="centerX" id="hsr-8z-kgz"/>
                 <constraint firstAttribute="trailing" secondItem="qt1-Mh-YlD" secondAttribute="trailing" id="llY-eW-4qK"/>
-                <constraint firstItem="SrM-XG-kA1" firstAttribute="top" secondItem="NNR-Q2-qXH" secondAttribute="bottom" constant="8" symbolic="YES" id="stY-Z9-W5P"/>
-                <constraint firstAttribute="centerX" secondItem="SrM-XG-kA1" secondAttribute="centerX" id="wOy-QE-vVS"/>
             </constraints>
         </customView>
     </objects>
+    <resources>
+        <image name="pair" width="518" height="247"/>
+    </resources>
 </document>

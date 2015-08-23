@@ -20,6 +20,8 @@
 
 @property (weak) IBOutlet MCCustomWindowButtonBar *windowButtonBar;
 @property (weak) IBOutlet NSView *cavas;
+@property (weak) IBOutlet NSTextField *labelTitle;
+@property (weak) IBOutlet NSTextField *labelInfo;
 
 @property (nonatomic, assign) MCStageViewControllerUIStage currentUIStage;
 @property (nonatomic, strong) MCStageViewController *currentUIStageViewController;
@@ -232,6 +234,9 @@
 - (void)deviceDidConnectButUnPaired
 {
     dispatch_async(dispatch_get_main_queue(), ^{
+        self.labelTitle.stringValue = [MCDeviceController sharedInstance].selectedConnectedDevice.deviceName;
+        self.labelInfo.stringValue = NSLocalizedStringFromTable(@"to.pair.info", @"MyMobileCleaner", @"to.pair");
+
         [self updateStage:kMCStageViewControllerUIStageConnectedButUnPaired animate:NO completion:nil];
     });
 
@@ -246,6 +251,9 @@
 - (void)deviceDidConnectAndPaired
 {
     dispatch_async(dispatch_get_main_queue(), ^{
+        self.labelTitle.stringValue = [MCDeviceController sharedInstance].selectedConnectedDevice.deviceName;
+        self.labelInfo.stringValue = [MCDeviceController sharedInstance].selectedConnectedDevice.deviceType;
+
         [self updateStage:kMCStageViewControllerUIStageConnectedAndPaired animate:NO completion:nil];
     });
 }
@@ -253,6 +261,9 @@
 - (void)deviceDidDisconnect
 {
     dispatch_async(dispatch_get_main_queue(), ^{
+        self.labelTitle.stringValue = NSLocalizedStringFromTable(@"to.connect.title", @"MyMobileCleaner", @"to.connect");
+        self.labelInfo.stringValue = NSLocalizedStringFromTable(@"to.connect.info", @"MyMobileCleaner", @"to.connect");
+
         [self updateStage:kMCStageViewControllerUIStageNoConnection animate:NO completion:nil];
     });
 }

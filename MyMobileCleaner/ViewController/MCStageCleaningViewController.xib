@@ -8,8 +8,6 @@
             <connections>
                 <outlet property="colorBackground" destination="aXj-yp-I3l" id="VXM-Dk-nh2"/>
                 <outlet property="error" destination="d8W-SL-0WX" id="D6c-aB-d4e"/>
-                <outlet property="labelInfo" destination="vti-q7-vcJ" id="C50-aU-sQd"/>
-                <outlet property="labelTitle" destination="Vjf-mE-1YE" id="Cj9-dS-SOY"/>
                 <outlet property="progress" destination="Spu-af-UbQ" id="dGx-bT-u0P"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -36,31 +34,15 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vjf-mE-1YE" userLabel="title">
-                    <rect key="frame" x="196" y="351" width="8" height="29"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="deJ-kD-CVU">
-                        <font key="font" metaFont="system" size="24"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vti-q7-vcJ" userLabel="info">
-                    <rect key="frame" x="196" y="324" width="8" height="19"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="dgI-Zt-USW">
-                        <font key="font" metaFont="system" size="16"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
                 <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Spu-af-UbQ" userLabel="progress">
-                    <rect key="frame" x="136" y="136" width="128" height="128"/>
+                    <rect key="frame" x="136" y="88" width="128" height="128"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="128" id="T72-1x-975"/>
                         <constraint firstAttribute="width" constant="128" id="Xmn-rn-Wkb"/>
                     </constraints>
                 </progressIndicator>
                 <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d8W-SL-0WX" userLabel="error">
-                    <rect key="frame" x="136" y="136" width="128" height="128"/>
+                    <rect key="frame" x="136" y="88" width="128" height="128"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="128" id="PVJ-9h-2H9"/>
                         <constraint firstAttribute="height" constant="128" id="up1-K1-alo"/>
@@ -71,16 +53,12 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="aXj-yp-I3l" secondAttribute="bottom" id="DFl-z6-zFF"/>
                 <constraint firstItem="aXj-yp-I3l" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Kem-6L-aB5"/>
-                <constraint firstAttribute="centerY" secondItem="d8W-SL-0WX" secondAttribute="centerY" id="L5b-Xo-Oz3"/>
+                <constraint firstAttribute="centerY" secondItem="d8W-SL-0WX" secondAttribute="centerY" constant="-48" id="L5b-Xo-Oz3"/>
                 <constraint firstAttribute="centerX" secondItem="Spu-af-UbQ" secondAttribute="centerX" id="LFO-jt-O92"/>
-                <constraint firstAttribute="centerX" secondItem="Vjf-mE-1YE" secondAttribute="centerX" id="RIw-Wx-YJd"/>
-                <constraint firstAttribute="centerX" secondItem="vti-q7-vcJ" secondAttribute="centerX" id="VjM-JH-8gn"/>
                 <constraint firstItem="aXj-yp-I3l" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="aUn-2u-jLy"/>
                 <constraint firstAttribute="centerX" secondItem="d8W-SL-0WX" secondAttribute="centerX" id="i2K-1g-kKA"/>
                 <constraint firstAttribute="trailing" secondItem="aXj-yp-I3l" secondAttribute="trailing" id="kLU-No-GSU"/>
-                <constraint firstAttribute="centerY" secondItem="Spu-af-UbQ" secondAttribute="centerY" id="nP5-Bo-LyH"/>
-                <constraint firstItem="vti-q7-vcJ" firstAttribute="top" secondItem="Vjf-mE-1YE" secondAttribute="bottom" constant="8" symbolic="YES" id="qpL-vw-x1n"/>
-                <constraint firstItem="Vjf-mE-1YE" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="spe-XI-vll"/>
+                <constraint firstAttribute="centerY" secondItem="Spu-af-UbQ" secondAttribute="centerY" constant="-48" id="nP5-Bo-LyH"/>
             </constraints>
         </customView>
     </objects>

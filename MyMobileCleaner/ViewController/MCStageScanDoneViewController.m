@@ -12,8 +12,6 @@
 @interface MCStageScanDoneViewController ()
 
 @property (weak) IBOutlet MCColorBackgroundView *colorBackground;
-@property (weak) IBOutlet NSTextField *labelTitle;
-@property (weak) IBOutlet NSTextField *labelInfo;
 @property (weak) IBOutlet NSButton *btnClean;
 @property (weak) IBOutlet NSTextField *labelSize;
 
@@ -32,9 +30,6 @@
 
 - (void)stageViewDidAppear
 {
-    self.labelTitle.stringValue = [MCDeviceController sharedInstance].selectedConnectedDevice.deviceName;
-    self.labelInfo.stringValue = [MCDeviceController sharedInstance].selectedConnectedDevice.deviceType;
-
     NSUInteger totalSize = 0;
     for (MCDeviceCrashLogItem *item in ((MCMainWindowController *)(self.manager)).myCrashLogs) {
         totalSize += [item.size unsignedIntegerValue];
@@ -47,7 +42,7 @@
 
     NSLog(@"100%% => all scanned crash log: %@", [formatter stringFromByteCount:totalSize]);
 
-    self.labelSize.stringValue = [formatter stringFromByteCount:totalSize];
+    self.labelSize.stringValue = [NSString stringWithFormat:NSLocalizedStringFromTable(@"scan.done.crash.log.info", @"MyMobileCleaner", @"scan.done"), [formatter stringFromByteCount:totalSize]];
 }
 
 - (IBAction)clickBtnClean:(id)sender {

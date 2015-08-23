@@ -37,6 +37,7 @@
 		84F03AC31B82DABF00FFFA28 /* MCDeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F03AC21B82DABF00FFFA28 /* MCDeviceController.m */; };
 		84F03AC71B83204600FFFA28 /* MCDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F03AC61B83204600FFFA28 /* MCDevice.m */; };
 		E57FAD6E1B84B33100ABF2D0 /* MCDeviceInfoHub.m in Sources */ = {isa = PBXBuildFile; fileRef = E57FAD6D1B84B33100ABF2D0 /* MCDeviceInfoHub.m */; };
+		E5BA29EC1B897E1C00413D76 /* MyMobileCleaner.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5BA29EB1B897E1C00413D76 /* MyMobileCleaner.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		84F03AC61B83204600FFFA28 /* MCDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCDevice.m; path = Core/MCDevice.m; sourceTree = "<group>"; };
 		E57FAD6C1B84B33100ABF2D0 /* MCDeviceInfoHub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCDeviceInfoHub.h; path = Core/MCDeviceInfoHub.h; sourceTree = "<group>"; };
 		E57FAD6D1B84B33100ABF2D0 /* MCDeviceInfoHub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCDeviceInfoHub.m; path = Core/MCDeviceInfoHub.m; sourceTree = "<group>"; };
+		E5BA29EB1B897E1C00413D76 /* MyMobileCleaner.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = MyMobileCleaner.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 		84F03A991B82D79200FFFA28 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E5BA29EB1B897E1C00413D76 /* MyMobileCleaner.strings */,
 				84F03AA01B82D79200FFFA28 /* Images.xcassets */,
 				84F03AA21B82D79200FFFA28 /* MainMenu.xib */,
 				84F03A9A1B82D79200FFFA28 /* Info.plist */,
@@ -356,6 +359,7 @@
 				84BEE18F1B86C41B000F3DC1 /* MCStageCleanDoneViewController.xib in Resources */,
 				84BEE1711B86C2F3000F3DC1 /* MCStageNoConnectionViewController.xib in Resources */,
 				84F03AA41B82D79200FFFA28 /* MainMenu.xib in Resources */,
+				E5BA29EC1B897E1C00413D76 /* MyMobileCleaner.strings in Resources */,
 				84BEE17B1B86C398000F3DC1 /* MCStageConnectedAndPairedViewController.xib in Resources */,
 				84BEE1761B86C378000F3DC1 /* MCStageConnectedButUnPairedViewController.xib in Resources */,
 				84BEE18A1B86C3FF000F3DC1 /* MCStageCleaningViewController.xib in Resources */,

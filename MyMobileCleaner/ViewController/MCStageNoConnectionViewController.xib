@@ -32,36 +32,26 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6DS-e2-oyS" userLabel="title">
-                    <rect key="frame" x="79" y="351" width="242" height="29"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="No Connected Device" id="mDA-Uo-jdY">
-                        <font key="font" metaFont="system" size="24"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JLG-p9-EkB" userLabel="info">
-                    <rect key="frame" x="48" y="325" width="304" height="18"/>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OvJ-4N-Z0a">
+                    <rect key="frame" x="40" y="32" width="320" height="240"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="300" id="kXW-kN-5MH"/>
+                        <constraint firstAttribute="height" constant="240" id="gQM-P6-yqs"/>
+                        <constraint firstAttribute="width" constant="320" id="mMv-at-JXG"/>
                     </constraints>
-                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Please connect your device with USB." id="OpF-WW-wOe">
-                        <font key="font" metaFont="system" size="14"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="connect" id="PHF-9W-6EN"/>
+                </imageView>
             </subviews>
             <constraints>
-                <constraint firstAttribute="centerX" secondItem="6DS-e2-oyS" secondAttribute="centerX" id="2Qh-8w-JDK"/>
-                <constraint firstItem="6DS-e2-oyS" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="6mg-Bp-lRJ"/>
-                <constraint firstAttribute="centerX" secondItem="JLG-p9-EkB" secondAttribute="centerX" id="KVD-3q-Obk"/>
                 <constraint firstItem="pTS-sq-Stv" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="OV5-1j-kX5"/>
                 <constraint firstItem="pTS-sq-Stv" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="RKy-5b-yuH"/>
+                <constraint firstAttribute="centerX" secondItem="OvJ-4N-Z0a" secondAttribute="centerX" id="hOf-e8-4wa"/>
+                <constraint firstAttribute="centerY" secondItem="OvJ-4N-Z0a" secondAttribute="centerY" constant="-48" id="hsV-7z-hLb"/>
                 <constraint firstAttribute="trailing" secondItem="pTS-sq-Stv" secondAttribute="trailing" id="vDQ-W2-Egp"/>
                 <constraint firstAttribute="bottom" secondItem="pTS-sq-Stv" secondAttribute="bottom" id="xNX-qp-RnS"/>
-                <constraint firstItem="JLG-p9-EkB" firstAttribute="top" secondItem="6DS-e2-oyS" secondAttribute="bottom" constant="8" symbolic="YES" id="zoW-fN-HAt"/>
             </constraints>
         </customView>
     </objects>
+    <resources>
+        <image name="connect" width="518" height="247"/>
+    </resources>
 </document>

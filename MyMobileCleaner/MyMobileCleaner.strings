@@ -1,0 +1,14 @@
+/* 
+  MyMobileCleaner.strings
+  MyMobileCleaner
+
+  Created by GoKu on 8/23/15.
+  Copyright (c) 2015 GoKuStudio. All rights reserved.
+*/
+
+"to.connect.title" = "No Connected Device";
+"to.connect.info" = "Please connect your device with USB.";
+
+"to.pair.info" = "Please pair your device for access.";
+
+"scan.done.crash.log.info" = "Crash Log: %@";
