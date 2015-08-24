@@ -13,7 +13,8 @@
 
 @property (weak) IBOutlet MCColorBackgroundView *colorBackground;
 @property (weak) IBOutlet NSProgressIndicator *progress;
-@property (weak) IBOutlet NSImageView *error;
+@property (weak) IBOutlet NSButton *btnError;
+@property (weak) IBOutlet NSTextField *labelError;
 
 @property (nonatomic, assign) NSUInteger myCurrentScannedItemCount;
 
@@ -33,7 +34,8 @@
 - (void)stageViewDidAppear
 {
     [self.progress startAnimation:self];
-    self.error.hidden = YES;
+    self.btnError.hidden = YES;
+    self.labelError.hidden = YES;
 
     // scan crash log
     self.myCurrentScannedItemCount = 0;
@@ -59,14 +61,15 @@
 
              dispatch_async(dispatch_get_main_queue(), ^{
                  [self.progress stopAnimation:self];
-                 self.error.hidden = NO;
-             });
-
-             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                 [self.manager gotoPreviousStage];
+                 self.btnError.hidden = NO;
+                 self.labelError.hidden = NO;
              });
          }];
     });
+}
+
+- (IBAction)clickBtnError:(id)sender {
+    [self.view.window close];
 }
 
 @end

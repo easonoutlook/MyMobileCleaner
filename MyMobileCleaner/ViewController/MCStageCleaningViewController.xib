@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MCStageCleaningViewController">
             <connections>
+                <outlet property="btnError" destination="EAR-oV-BEX" id="2WI-5A-vQm"/>
                 <outlet property="colorBackground" destination="aXj-yp-I3l" id="VXM-Dk-nh2"/>
-                <outlet property="error" destination="d8W-SL-0WX" id="D6c-aB-d4e"/>
+                <outlet property="labelError" destination="uBa-JB-Vvv" id="enK-kS-Xua"/>
                 <outlet property="progress" destination="Spu-af-UbQ" id="dGx-bT-u0P"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -41,28 +42,44 @@
                         <constraint firstAttribute="width" constant="128" id="Xmn-rn-Wkb"/>
                     </constraints>
                 </progressIndicator>
-                <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d8W-SL-0WX" userLabel="error">
+                <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uBa-JB-Vvv" userLabel="errorInfo">
+                    <rect key="frame" x="18" y="232" width="364" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="360" id="d7d-RP-OyY"/>
+                    </constraints>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Something is wrong. Please restart the app." id="Kg9-hT-FsQ">
+                        <font key="font" metaFont="system" size="16"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="EAR-oV-BEX" userLabel="error">
                     <rect key="frame" x="136" y="88" width="128" height="128"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="128" id="PVJ-9h-2H9"/>
-                        <constraint firstAttribute="height" constant="128" id="up1-K1-alo"/>
+                        <constraint firstAttribute="width" constant="128" id="8g1-YY-eiy"/>
+                        <constraint firstAttribute="height" constant="128" id="Ax9-xa-mpx"/>
                     </constraints>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSStopProgressFreestandingTemplate" id="l9d-8Q-Xih"/>
-                </imageView>
+                    <buttonCell key="cell" type="bevel" title="Button" bezelStyle="regularSquare" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="8jN-7z-r1r">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickBtnError:" target="-2" id="WJy-c5-Vhf"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="aXj-yp-I3l" secondAttribute="bottom" id="DFl-z6-zFF"/>
                 <constraint firstItem="aXj-yp-I3l" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Kem-6L-aB5"/>
-                <constraint firstAttribute="centerY" secondItem="d8W-SL-0WX" secondAttribute="centerY" constant="-48" id="L5b-Xo-Oz3"/>
                 <constraint firstAttribute="centerX" secondItem="Spu-af-UbQ" secondAttribute="centerX" id="LFO-jt-O92"/>
                 <constraint firstItem="aXj-yp-I3l" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="aUn-2u-jLy"/>
-                <constraint firstAttribute="centerX" secondItem="d8W-SL-0WX" secondAttribute="centerX" id="i2K-1g-kKA"/>
+                <constraint firstAttribute="centerY" secondItem="EAR-oV-BEX" secondAttribute="centerY" constant="-48" id="k1w-tq-kX8"/>
                 <constraint firstAttribute="trailing" secondItem="aXj-yp-I3l" secondAttribute="trailing" id="kLU-No-GSU"/>
+                <constraint firstAttribute="centerX" secondItem="EAR-oV-BEX" secondAttribute="centerX" id="kp2-8u-OT5"/>
+                <constraint firstAttribute="centerX" secondItem="uBa-JB-Vvv" secondAttribute="centerX" id="ktk-sT-zkE"/>
                 <constraint firstAttribute="centerY" secondItem="Spu-af-UbQ" secondAttribute="centerY" constant="-48" id="nP5-Bo-LyH"/>
+                <constraint firstItem="EAR-oV-BEX" firstAttribute="top" secondItem="uBa-JB-Vvv" secondAttribute="bottom" constant="16" id="rkC-cO-mxs"/>
             </constraints>
         </customView>
     </objects>
-    <resources>
-        <image name="NSStopProgressFreestandingTemplate" width="14" height="14"/>
-    </resources>
 </document>
