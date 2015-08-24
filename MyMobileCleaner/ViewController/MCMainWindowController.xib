@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
@@ -18,7 +18,7 @@
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" visibleAtLaunch="NO" animationBehavior="default" id="F0z-JX-Cv5" customClass="MCCustomWindow">
             <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
             <rect key="contentRect" x="196" y="240" width="400" height="400"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <value key="minSize" type="size" width="400" height="400"/>
             <view key="contentView" id="se5-gp-TjO" customClass="MCColorBackgroundView">
                 <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
@@ -27,13 +27,6 @@
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="0rw-yj-frg" userLabel="cavas">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                     </customView>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="M4c-IF-Mqd" customClass="MCCustomWindowButtonBar">
-                        <rect key="frame" x="16" y="344" width="20" height="40"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="20" id="7HN-zH-lVs"/>
-                            <constraint firstAttribute="height" constant="40" id="RLt-mB-nlh"/>
-                        </constraints>
-                    </customView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="LTs-Dv-qEp" userLabel="line" customClass="MCColorBackgroundView">
                         <rect key="frame" x="16" y="300" width="368" height="4"/>
                         <constraints>
@@ -41,26 +34,39 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cbvCornerRadius">
-                                <real key="value" value="4"/>
+                                <real key="value" value="8"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </customView>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Op-PH-Grg" userLabel="info">
-                        <rect key="frame" x="196" y="324" width="8" height="19"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="iWm-HY-bZs">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Op-PH-Grg" userLabel="info">
+                        <rect key="frame" x="38" y="324" width="324" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="320" id="DbQ-qf-ebP"/>
+                        </constraints>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" id="iWm-HY-bZs">
                             <font key="font" metaFont="system" size="16"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NEl-lZ-5md" userLabel="title">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NEl-lZ-5md" userLabel="title">
                         <rect key="frame" x="196" y="351" width="8" height="29"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="qKr-uZ-cgh">
+                        <constraints>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="320" id="7kS-8W-vPT"/>
+                        </constraints>
+                        <textFieldCell key="cell" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" alignment="center" id="qKr-uZ-cgh">
                             <font key="font" metaFont="system" size="24"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="M4c-IF-Mqd" customClass="MCCustomWindowButtonBar">
+                        <rect key="frame" x="16" y="344" width="20" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="7HN-zH-lVs"/>
+                            <constraint firstAttribute="height" constant="40" id="RLt-mB-nlh"/>
+                        </constraints>
+                    </customView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="M4c-IF-Mqd" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="16" id="0ev-Yj-yrM"/>
@@ -73,7 +79,6 @@
                     <constraint firstAttribute="trailing" secondItem="0rw-yj-frg" secondAttribute="trailing" id="UqZ-pD-JKg"/>
                     <constraint firstItem="4Op-PH-Grg" firstAttribute="top" secondItem="NEl-lZ-5md" secondAttribute="bottom" constant="8" symbolic="YES" id="ehX-oS-t6g"/>
                     <constraint firstItem="M4c-IF-Mqd" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="16" id="l74-O7-xzx"/>
-                    <constraint firstItem="4Op-PH-Grg" firstAttribute="top" secondItem="NEl-lZ-5md" secondAttribute="bottom" constant="8" symbolic="YES" id="pDX-vb-LCM"/>
                     <constraint firstItem="LTs-Dv-qEp" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="96" id="wa9-7d-Nm7"/>
                     <constraint firstAttribute="bottom" secondItem="0rw-yj-frg" secondAttribute="bottom" id="xNI-Mk-aoQ"/>
                     <constraint firstAttribute="centerX" secondItem="4Op-PH-Grg" secondAttribute="centerX" id="zUZ-2s-Qdd"/>
