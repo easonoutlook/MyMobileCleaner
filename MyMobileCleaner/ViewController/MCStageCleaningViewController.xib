@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
@@ -59,7 +59,7 @@
                         <constraint firstAttribute="width" constant="128" id="8g1-YY-eiy"/>
                         <constraint firstAttribute="height" constant="128" id="Ax9-xa-mpx"/>
                     </constraints>
-                    <buttonCell key="cell" type="bevel" title="Button" bezelStyle="regularSquare" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="8jN-7z-r1r">
+                    <buttonCell key="cell" type="bevel" title="Button" bezelStyle="regularSquare" image="error" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="8jN-7z-r1r">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -82,4 +82,7 @@
             </constraints>
         </customView>
     </objects>
+    <resources>
+        <image name="error" width="128" height="128"/>
+    </resources>
 </document>
