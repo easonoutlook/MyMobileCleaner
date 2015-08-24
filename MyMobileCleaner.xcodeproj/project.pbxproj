@@ -27,6 +27,7 @@
 		84BEE1931B86C8A2000F3DC1 /* MCColorBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BEE1921B86C8A2000F3DC1 /* MCColorBackgroundView.m */; };
 		84BEE1A51B8749DD000F3DC1 /* MCCustomWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BEE1A41B8749DD000F3DC1 /* MCCustomWindow.m */; };
 		84BEE1AB1B874A6E000F3DC1 /* MCCustomWindowButtonBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BEE1AA1B874A6E000F3DC1 /* MCCustomWindowButtonBar.m */; };
+		84DF06471B8AFFBE00914801 /* MCDiskUsageCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DF06461B8AFFBE00914801 /* MCDiskUsageCircleView.m */; };
 		84F03A9D1B82D79200FFFA28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F03A9C1B82D79200FFFA28 /* AppDelegate.m */; };
 		84F03A9F1B82D79200FFFA28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F03A9E1B82D79200FFFA28 /* main.m */; };
 		84F03AA11B82D79200FFFA28 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84F03AA01B82D79200FFFA28 /* Images.xcassets */; };
@@ -97,6 +98,8 @@
 		84BEE1A41B8749DD000F3DC1 /* MCCustomWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCCustomWindow.m; path = View/MCCustomWindow.m; sourceTree = "<group>"; };
 		84BEE1A91B874A6E000F3DC1 /* MCCustomWindowButtonBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCCustomWindowButtonBar.h; path = View/MCCustomWindowButtonBar.h; sourceTree = "<group>"; };
 		84BEE1AA1B874A6E000F3DC1 /* MCCustomWindowButtonBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCCustomWindowButtonBar.m; path = View/MCCustomWindowButtonBar.m; sourceTree = "<group>"; };
+		84DF06451B8AFFBE00914801 /* MCDiskUsageCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCDiskUsageCircleView.h; path = View/MCDiskUsageCircleView.h; sourceTree = "<group>"; };
+		84DF06461B8AFFBE00914801 /* MCDiskUsageCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCDiskUsageCircleView.m; path = View/MCDiskUsageCircleView.m; sourceTree = "<group>"; };
 		84F03A961B82D79200FFFA28 /* MyMobileCleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMobileCleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F03A9A1B82D79200FFFA28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84F03A9B1B82D79200FFFA28 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 				84BEE1AA1B874A6E000F3DC1 /* MCCustomWindowButtonBar.m */,
 				84BEE1911B86C8A2000F3DC1 /* MCColorBackgroundView.h */,
 				84BEE1921B86C8A2000F3DC1 /* MCColorBackgroundView.m */,
+				84DF06451B8AFFBE00914801 /* MCDiskUsageCircleView.h */,
+				84DF06461B8AFFBE00914801 /* MCDiskUsageCircleView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -396,6 +401,7 @@
 				84BEE1751B86C378000F3DC1 /* MCStageConnectedButUnPairedViewController.m in Sources */,
 				84BEE1AB1B874A6E000F3DC1 /* MCCustomWindowButtonBar.m in Sources */,
 				84BEE1631B85C3D6000F3DC1 /* MCMainWindowController.m in Sources */,
+				84DF06471B8AFFBE00914801 /* MCDiskUsageCircleView.m in Sources */,
 				84BEE1931B86C8A2000F3DC1 /* MCColorBackgroundView.m in Sources */,
 				E57FAD6E1B84B33100ABF2D0 /* MCDeviceInfoHub.m in Sources */,
 				84F03AC31B82DABF00FFFA28 /* MCDeviceController.m in Sources */,
@@ -487,6 +493,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CODE_SIGN_FLAGS = "--timestamp=none";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -523,6 +530,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CODE_SIGN_FLAGS = "--timestamp=none";
 				SDKROOT = macosx;
 			};
 			name = Release;

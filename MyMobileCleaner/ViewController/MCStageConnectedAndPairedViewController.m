@@ -8,11 +8,13 @@
 
 #import "MCStageConnectedAndPairedViewController.h"
 #import "MCMainWindowController.h"
+#import "MCDiskUsageCircleView.h"
 
 @interface MCStageConnectedAndPairedViewController ()
 
 @property (weak) IBOutlet MCColorBackgroundView *colorBackground;
 @property (weak) IBOutlet NSButton *btnScan;
+@property (weak) IBOutlet MCDiskUsageCircleView *chartDiskUsage;
 
 @end
 
@@ -33,6 +35,15 @@
     
     // disk usage
     NSLog(@"%@", [[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage]);
+
+    [self.chartDiskUsage updateWithData:@[[[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage].totalDiskUsed,
+                                          [[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage].totalDiskReserved,
+                                          [[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage].totalDiskFree]
+                                  color:@[[NSColor redColor],
+                                          [NSColor yellowColor],
+                                          [NSColor greenColor]]
+                               animated:YES
+                             completion:nil];
 }
 
 - (IBAction)clickBtnScan:(id)sender {

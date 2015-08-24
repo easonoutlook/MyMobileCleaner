@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
@@ -7,6 +7,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="MCStageConnectedAndPairedViewController">
             <connections>
                 <outlet property="btnScan" destination="G9e-HL-Eh6" id="Gtp-lA-WqI"/>
+                <outlet property="chartDiskUsage" destination="n7e-ab-VgN" id="IIR-nZ-aUi"/>
                 <outlet property="colorBackground" destination="BwZ-kg-xf3" id="hQR-Kw-8An"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -33,6 +34,13 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="n7e-ab-VgN" customClass="MCDiskUsageCircleView">
+                    <rect key="frame" x="106" y="58" width="188" height="188"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="188" id="0xK-kx-012"/>
+                        <constraint firstAttribute="width" constant="188" id="pLZ-9h-pFW"/>
+                    </constraints>
+                </customView>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="G9e-HL-Eh6" userLabel="scan">
                     <rect key="frame" x="125" y="77" width="150" height="150"/>
                     <constraints>
@@ -51,9 +59,11 @@
             <constraints>
                 <constraint firstItem="BwZ-kg-xf3" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="3fj-4O-s7p"/>
                 <constraint firstAttribute="trailing" secondItem="BwZ-kg-xf3" secondAttribute="trailing" id="5uT-pP-VlK"/>
+                <constraint firstAttribute="centerX" secondItem="n7e-ab-VgN" secondAttribute="centerX" id="9HI-0t-zE3"/>
                 <constraint firstAttribute="centerX" secondItem="G9e-HL-Eh6" secondAttribute="centerX" id="K6X-e5-fBh"/>
                 <constraint firstAttribute="centerY" secondItem="G9e-HL-Eh6" secondAttribute="centerY" constant="-48" id="bfp-yT-oGY"/>
                 <constraint firstAttribute="bottom" secondItem="BwZ-kg-xf3" secondAttribute="bottom" id="evY-Jk-XMd"/>
+                <constraint firstAttribute="centerY" secondItem="n7e-ab-VgN" secondAttribute="centerY" constant="-48" id="gR1-0s-Z8d"/>
                 <constraint firstItem="BwZ-kg-xf3" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="nG0-Dq-LZk"/>
             </constraints>
         </customView>
