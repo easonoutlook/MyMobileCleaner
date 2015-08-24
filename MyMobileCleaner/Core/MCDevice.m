@@ -52,6 +52,12 @@
     return _isInSession;
 }
 
+- (void)stopSession
+{
+    SDMMD_AMDeviceStopSession(_rawDevice);
+    _isInSession = NO;
+}
+
 #pragma mark - connection
 
 - (instancetype)initWithRawDevice:(SDMMD_AMDeviceRef)rawDevice
@@ -198,6 +204,9 @@
         CFSafeRelease(valueAmountDataReserved);
         CFSafeRelease(valueAmountDataAvailable);
 
+        // stop session if any failure, then restart session later.
+        [self stopSession];
+
         return nil;
     }
 
@@ -305,6 +314,9 @@
     if (failureBlock) {
         failureBlock();
     }
+
+    // stop session if any failure, then restart session later.
+    [self stopSession];
 }
 
 - (void)cleanCrashLog:(NSArray *)crashLogs
@@ -401,6 +413,9 @@
     if (failureBlock) {
         failureBlock();
     }
+
+    // stop session if any failure, then restart session later.
+    [self stopSession];
 }
 
 - (CFTypeRef)copyDeviceValueOfKey:(NSString *)key inDomain:(NSString *)domain
@@ -425,6 +440,9 @@
     sdm_value = SDMMD_AMDeviceCopyValue(self.rawDevice, (__bridge CFStringRef)domain, (__bridge CFStringRef)key);
     if (sdm_value == NULL) {
         NSLog(@"[%s] failed: Copy Value Error", __FUNCTION__);
+
+        // stop session if any failure, then restart session later.
+        [self stopSession];
     }
     return sdm_value;
 }
