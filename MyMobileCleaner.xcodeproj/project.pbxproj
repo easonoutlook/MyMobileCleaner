@@ -32,7 +32,6 @@
 		84F03A9F1B82D79200FFFA28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F03A9E1B82D79200FFFA28 /* main.m */; };
 		84F03AA11B82D79200FFFA28 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84F03AA01B82D79200FFFA28 /* Images.xcassets */; };
 		84F03AA41B82D79200FFFA28 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F03AA21B82D79200FFFA28 /* MainMenu.xib */; };
-		84F03AB01B82D79200FFFA28 /* MyMobileCleanerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F03AAF1B82D79200FFFA28 /* MyMobileCleanerTests.m */; };
 		84F03ABE1B82D98D00FFFA28 /* SDMMobileDevice.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 84F03ABB1B82D85200FFFA28 /* SDMMobileDevice.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84F03ABF1B82D9F400FFFA28 /* SDMMobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F03ABB1B82D85200FFFA28 /* SDMMobileDevice.framework */; };
 		84F03AC31B82DABF00FFFA28 /* MCDeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F03AC21B82DABF00FFFA28 /* MCDeviceController.m */; };
@@ -40,16 +39,6 @@
 		E57FAD6E1B84B33100ABF2D0 /* MCDeviceInfoHub.m in Sources */ = {isa = PBXBuildFile; fileRef = E57FAD6D1B84B33100ABF2D0 /* MCDeviceInfoHub.m */; };
 		E5B240301B89CB4400A2BC03 /* MyMobileCleaner.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5B240321B89CB4400A2BC03 /* MyMobileCleaner.strings */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		84F03AAA1B82D79200FFFA28 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 84F03A8E1B82D79200FFFA28 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 84F03A951B82D79200FFFA28;
-			remoteInfo = MyMobileCleaner;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		84F03ABD1B82D98400FFFA28 /* Copy Frameworks */ = {
@@ -107,9 +96,6 @@
 		84F03A9E1B82D79200FFFA28 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84F03AA01B82D79200FFFA28 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		84F03AA31B82D79200FFFA28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		84F03AA91B82D79200FFFA28 /* MyMobileCleanerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMobileCleanerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		84F03AAE1B82D79200FFFA28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84F03AAF1B82D79200FFFA28 /* MyMobileCleanerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMobileCleanerTests.m; sourceTree = "<group>"; };
 		84F03ABB1B82D85200FFFA28 /* SDMMobileDevice.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDMMobileDevice.framework; sourceTree = "<group>"; };
 		84F03AC11B82DABF00FFFA28 /* MCDeviceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCDeviceController.h; path = Core/MCDeviceController.h; sourceTree = "<group>"; };
 		84F03AC21B82DABF00FFFA28 /* MCDeviceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCDeviceController.m; path = Core/MCDeviceController.m; sourceTree = "<group>"; };
@@ -128,13 +114,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				84F03ABF1B82D9F400FFFA28 /* SDMMobileDevice.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		84F03AA61B82D79200FFFA28 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +181,6 @@
 			children = (
 				84F03A981B82D79200FFFA28 /* MyMobileCleaner */,
 				84F03ABA1B82D85200FFFA28 /* 3rd */,
-				84F03AAC1B82D79200FFFA28 /* MyMobileCleanerTests */,
 				84F03A971B82D79200FFFA28 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -211,7 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				84F03A961B82D79200FFFA28 /* MyMobileCleaner.app */,
-				84F03AA91B82D79200FFFA28 /* MyMobileCleanerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -238,23 +215,6 @@
 				84F03AA21B82D79200FFFA28 /* MainMenu.xib */,
 				84F03A9A1B82D79200FFFA28 /* Info.plist */,
 				84F03A9E1B82D79200FFFA28 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		84F03AAC1B82D79200FFFA28 /* MyMobileCleanerTests */ = {
-			isa = PBXGroup;
-			children = (
-				84F03AAF1B82D79200FFFA28 /* MyMobileCleanerTests.m */,
-				84F03AAD1B82D79200FFFA28 /* Supporting Files */,
-			);
-			path = MyMobileCleanerTests;
-			sourceTree = "<group>";
-		};
-		84F03AAD1B82D79200FFFA28 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				84F03AAE1B82D79200FFFA28 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -301,24 +261,6 @@
 			productReference = 84F03A961B82D79200FFFA28 /* MyMobileCleaner.app */;
 			productType = "com.apple.product-type.application";
 		};
-		84F03AA81B82D79200FFFA28 /* MyMobileCleanerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 84F03AB61B82D79200FFFA28 /* Build configuration list for PBXNativeTarget "MyMobileCleanerTests" */;
-			buildPhases = (
-				84F03AA51B82D79200FFFA28 /* Sources */,
-				84F03AA61B82D79200FFFA28 /* Frameworks */,
-				84F03AA71B82D79200FFFA28 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				84F03AAB1B82D79200FFFA28 /* PBXTargetDependency */,
-			);
-			name = MyMobileCleanerTests;
-			productName = MyMobileCleanerTests;
-			productReference = 84F03AA91B82D79200FFFA28 /* MyMobileCleanerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -336,10 +278,6 @@
 							};
 						};
 					};
-					84F03AA81B82D79200FFFA28 = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 84F03A951B82D79200FFFA28;
-					};
 				};
 			};
 			buildConfigurationList = 84F03A911B82D79200FFFA28 /* Build configuration list for PBXProject "MyMobileCleaner" */;
@@ -356,7 +294,6 @@
 			projectRoot = "";
 			targets = (
 				84F03A951B82D79200FFFA28 /* MyMobileCleaner */,
-				84F03AA81B82D79200FFFA28 /* MyMobileCleanerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -377,13 +314,6 @@
 				84BEE1761B86C378000F3DC1 /* MCStageConnectedButUnPairedViewController.xib in Resources */,
 				84BEE18A1B86C3FF000F3DC1 /* MCStageCleaningViewController.xib in Resources */,
 				84BEE1801B86C3BD000F3DC1 /* MCStageScanningViewController.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		84F03AA71B82D79200FFFA28 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,23 +345,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		84F03AA51B82D79200FFFA28 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				84F03AB01B82D79200FFFA28 /* MyMobileCleanerTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		84F03AAB1B82D79200FFFA28 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 84F03A951B82D79200FFFA28 /* MyMobileCleaner */;
-			targetProxy = 84F03AAA1B82D79200FFFA28 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		84F03AA21B82D79200FFFA28 /* MainMenu.xib */ = {
@@ -573,42 +487,6 @@
 			};
 			name = Release;
 		};
-		84F03AB71B82D79200FFFA28 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MyMobileCleanerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyMobileCleaner.app/Contents/MacOS/MyMobileCleaner";
-			};
-			name = Debug;
-		};
-		84F03AB81B82D79200FFFA28 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MyMobileCleanerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyMobileCleaner.app/Contents/MacOS/MyMobileCleaner";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -626,15 +504,6 @@
 			buildConfigurations = (
 				84F03AB41B82D79200FFFA28 /* Debug */,
 				84F03AB51B82D79200FFFA28 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		84F03AB61B82D79200FFFA28 /* Build configuration list for PBXNativeTarget "MyMobileCleanerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				84F03AB71B82D79200FFFA28 /* Debug */,
-				84F03AB81B82D79200FFFA28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
