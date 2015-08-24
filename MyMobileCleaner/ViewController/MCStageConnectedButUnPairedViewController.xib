@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
@@ -33,7 +33,7 @@
                     </userDefinedRuntimeAttributes>
                 </customView>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tVV-zP-z13">
-                    <rect key="frame" x="40" y="32" width="320" height="240"/>
+                    <rect key="frame" x="40" y="36" width="320" height="240"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="320" id="Ak5-3Y-Kfa"/>
                         <constraint firstAttribute="height" constant="240" id="O7N-Jf-P08"/>
@@ -44,7 +44,7 @@
             <constraints>
                 <constraint firstItem="qt1-Mh-YlD" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="7tp-1f-hRx"/>
                 <constraint firstItem="qt1-Mh-YlD" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Vhf-VX-Kft"/>
-                <constraint firstAttribute="centerY" secondItem="tVV-zP-z13" secondAttribute="centerY" constant="-48" id="XFQ-0i-rr6"/>
+                <constraint firstAttribute="centerY" secondItem="tVV-zP-z13" secondAttribute="centerY" constant="-44" id="XFQ-0i-rr6"/>
                 <constraint firstAttribute="bottom" secondItem="qt1-Mh-YlD" secondAttribute="bottom" id="gPh-kf-C1b"/>
                 <constraint firstAttribute="centerX" secondItem="tVV-zP-z13" secondAttribute="centerX" id="hsr-8z-kgz"/>
                 <constraint firstAttribute="trailing" secondItem="qt1-Mh-YlD" secondAttribute="trailing" id="llY-eW-4qK"/>

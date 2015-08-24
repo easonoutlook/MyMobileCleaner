@@ -35,14 +35,14 @@
                     </userDefinedRuntimeAttributes>
                 </customView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="n7e-ab-VgN" customClass="MCDiskUsageCircleView">
-                    <rect key="frame" x="106" y="58" width="188" height="188"/>
+                    <rect key="frame" x="106" y="62" width="188" height="188"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="188" id="0xK-kx-012"/>
                         <constraint firstAttribute="width" constant="188" id="pLZ-9h-pFW"/>
                     </constraints>
                 </customView>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="G9e-HL-Eh6" userLabel="scan">
-                    <rect key="frame" x="125" y="77" width="150" height="150"/>
+                    <rect key="frame" x="125" y="81" width="150" height="150"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="150" id="6fK-ZZ-LMR"/>
                         <constraint firstAttribute="width" constant="150" id="LMi-TT-lgH"/>
@@ -55,15 +55,25 @@
                         <action selector="clickBtnScan:" target="-2" id="mhP-Yw-0sb"/>
                     </connections>
                 </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="J6j-KP-vYf" userLabel="disk">
+                    <rect key="frame" x="96" y="259" width="209" height="29"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Device Disk Usage" id="QqZ-UJ-NWT">
+                        <font key="font" metaFont="system" size="24"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <constraints>
                 <constraint firstItem="BwZ-kg-xf3" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="3fj-4O-s7p"/>
                 <constraint firstAttribute="trailing" secondItem="BwZ-kg-xf3" secondAttribute="trailing" id="5uT-pP-VlK"/>
-                <constraint firstAttribute="centerX" secondItem="n7e-ab-VgN" secondAttribute="centerX" id="9HI-0t-zE3"/>
+                <constraint firstItem="G9e-HL-Eh6" firstAttribute="top" secondItem="J6j-KP-vYf" secondAttribute="bottom" constant="28" id="FAx-ec-gHC"/>
                 <constraint firstAttribute="centerX" secondItem="G9e-HL-Eh6" secondAttribute="centerX" id="K6X-e5-fBh"/>
-                <constraint firstAttribute="centerY" secondItem="G9e-HL-Eh6" secondAttribute="centerY" constant="-48" id="bfp-yT-oGY"/>
+                <constraint firstAttribute="centerX" secondItem="J6j-KP-vYf" secondAttribute="centerX" id="Qai-ds-yXF"/>
+                <constraint firstAttribute="centerY" secondItem="G9e-HL-Eh6" secondAttribute="centerY" constant="-44" id="bfp-yT-oGY"/>
                 <constraint firstAttribute="bottom" secondItem="BwZ-kg-xf3" secondAttribute="bottom" id="evY-Jk-XMd"/>
-                <constraint firstAttribute="centerY" secondItem="n7e-ab-VgN" secondAttribute="centerY" constant="-48" id="gR1-0s-Z8d"/>
+                <constraint firstItem="G9e-HL-Eh6" firstAttribute="centerX" secondItem="n7e-ab-VgN" secondAttribute="centerX" id="fXj-wj-fyx"/>
+                <constraint firstItem="G9e-HL-Eh6" firstAttribute="centerY" secondItem="n7e-ab-VgN" secondAttribute="centerY" id="jyE-rI-TDf"/>
                 <constraint firstItem="BwZ-kg-xf3" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="nG0-Dq-LZk"/>
             </constraints>
         </customView>

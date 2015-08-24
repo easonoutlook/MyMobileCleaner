@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
@@ -33,7 +33,7 @@
                     </userDefinedRuntimeAttributes>
                 </customView>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OvJ-4N-Z0a">
-                    <rect key="frame" x="40" y="32" width="320" height="240"/>
+                    <rect key="frame" x="40" y="36" width="320" height="240"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="240" id="gQM-P6-yqs"/>
                         <constraint firstAttribute="width" constant="320" id="mMv-at-JXG"/>
@@ -45,7 +45,7 @@
                 <constraint firstItem="pTS-sq-Stv" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="OV5-1j-kX5"/>
                 <constraint firstItem="pTS-sq-Stv" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="RKy-5b-yuH"/>
                 <constraint firstAttribute="centerX" secondItem="OvJ-4N-Z0a" secondAttribute="centerX" id="hOf-e8-4wa"/>
-                <constraint firstAttribute="centerY" secondItem="OvJ-4N-Z0a" secondAttribute="centerY" constant="-48" id="hsV-7z-hLb"/>
+                <constraint firstAttribute="centerY" secondItem="OvJ-4N-Z0a" secondAttribute="centerY" constant="-44" id="hsV-7z-hLb"/>
                 <constraint firstAttribute="trailing" secondItem="pTS-sq-Stv" secondAttribute="trailing" id="vDQ-W2-Egp"/>
                 <constraint firstAttribute="bottom" secondItem="pTS-sq-Stv" secondAttribute="bottom" id="xNX-qp-RnS"/>
             </constraints>

@@ -36,14 +36,14 @@
                     </userDefinedRuntimeAttributes>
                 </customView>
                 <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="UDj-fY-2bd" userLabel="progress">
-                    <rect key="frame" x="136" y="88" width="128" height="128"/>
+                    <rect key="frame" x="136" y="92" width="128" height="128"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="128" id="5ff-eb-2y1"/>
                         <constraint firstAttribute="height" constant="128" id="QPJ-DJ-jIs"/>
                     </constraints>
                 </progressIndicator>
                 <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ssk-ok-5OS" userLabel="errorInfo">
-                    <rect key="frame" x="18" y="232" width="364" height="19"/>
+                    <rect key="frame" x="18" y="248" width="364" height="19"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="360" id="9Ey-cS-rN2"/>
                     </constraints>
@@ -54,7 +54,7 @@
                     </textFieldCell>
                 </textField>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="xwv-bJ-194" userLabel="error">
-                    <rect key="frame" x="136" y="88" width="128" height="128"/>
+                    <rect key="frame" x="136" y="92" width="128" height="128"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="128" id="jNq-2y-v38"/>
                         <constraint firstAttribute="height" constant="128" id="t3O-gV-hd5"/>
@@ -71,14 +71,14 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="EnR-NJ-Qu4" secondAttribute="bottom" id="C9C-aK-SWo"/>
                 <constraint firstAttribute="trailing" secondItem="EnR-NJ-Qu4" secondAttribute="trailing" id="G9M-6e-KUG"/>
+                <constraint firstItem="xwv-bJ-194" firstAttribute="centerX" secondItem="UDj-fY-2bd" secondAttribute="centerX" id="K3c-nV-zw4"/>
                 <constraint firstItem="EnR-NJ-Qu4" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="NrK-v7-VQQ"/>
                 <constraint firstAttribute="centerX" secondItem="UDj-fY-2bd" secondAttribute="centerX" id="OrL-QJ-gzZ"/>
                 <constraint firstItem="EnR-NJ-Qu4" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="RW5-Wc-m7N"/>
-                <constraint firstAttribute="centerY" secondItem="xwv-bJ-194" secondAttribute="centerY" constant="-48" id="S6C-Wp-8lu"/>
                 <constraint firstAttribute="centerX" secondItem="Ssk-ok-5OS" secondAttribute="centerX" id="SLB-sG-aDk"/>
-                <constraint firstAttribute="centerY" secondItem="UDj-fY-2bd" secondAttribute="centerY" constant="-48" id="Zz1-bX-5XO"/>
-                <constraint firstItem="xwv-bJ-194" firstAttribute="top" secondItem="Ssk-ok-5OS" secondAttribute="bottom" constant="16" id="hPx-LT-bKb"/>
-                <constraint firstAttribute="centerX" secondItem="xwv-bJ-194" secondAttribute="centerX" id="qmt-7Z-7nb"/>
+                <constraint firstAttribute="centerY" secondItem="UDj-fY-2bd" secondAttribute="centerY" constant="-44" id="Zz1-bX-5XO"/>
+                <constraint firstItem="xwv-bJ-194" firstAttribute="centerY" secondItem="UDj-fY-2bd" secondAttribute="centerY" id="bYl-uP-09P"/>
+                <constraint firstItem="xwv-bJ-194" firstAttribute="top" secondItem="Ssk-ok-5OS" secondAttribute="bottom" constant="28" id="hPx-LT-bKb"/>
             </constraints>
         </customView>
     </objects>

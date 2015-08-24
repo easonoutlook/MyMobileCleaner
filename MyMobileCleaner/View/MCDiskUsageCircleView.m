@@ -116,7 +116,7 @@ static CGFloat barSpace = 0.03;
 
 - (void)popAnimation
 {
-    CGFloat delay = 1;
+    CGFloat delay = 0.6;
     for (NSUInteger i = 0; i < self.barLayers.count; ++i) {
         CAShapeLayer *rainbowLayer = self.barLayers[i];
 

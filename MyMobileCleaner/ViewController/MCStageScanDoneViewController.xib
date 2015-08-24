@@ -35,7 +35,7 @@
                     </userDefinedRuntimeAttributes>
                 </customView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ap-zu-aI9" userLabel="size">
-                    <rect key="frame" x="18" y="243" width="364" height="29"/>
+                    <rect key="frame" x="18" y="259" width="364" height="29"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="360" id="0R0-fp-7wj"/>
                     </constraints>
@@ -46,7 +46,7 @@
                     </textFieldCell>
                 </textField>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="XbA-4r-3ss" userLabel="clean">
-                    <rect key="frame" x="125" y="77" width="150" height="150"/>
+                    <rect key="frame" x="125" y="81" width="150" height="150"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="6DT-n0-BcF"/>
                         <constraint firstAttribute="height" constant="150" id="hq9-ce-UHl"/>
@@ -61,11 +61,11 @@
                 </button>
             </subviews>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="XbA-4r-3ss" secondAttribute="centerY" constant="-48" id="3Wc-cD-sKD"/>
+                <constraint firstAttribute="centerY" secondItem="XbA-4r-3ss" secondAttribute="centerY" constant="-44" id="3Wc-cD-sKD"/>
                 <constraint firstAttribute="trailing" secondItem="ndR-XH-QeB" secondAttribute="trailing" id="APL-gp-3cY"/>
                 <constraint firstAttribute="centerX" secondItem="XbA-4r-3ss" secondAttribute="centerX" id="Jtv-py-NFH"/>
                 <constraint firstItem="ndR-XH-QeB" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="PdP-U0-Sqe"/>
-                <constraint firstItem="XbA-4r-3ss" firstAttribute="top" secondItem="4Ap-zu-aI9" secondAttribute="bottom" constant="16" id="Swd-9p-4DY"/>
+                <constraint firstItem="XbA-4r-3ss" firstAttribute="top" secondItem="4Ap-zu-aI9" secondAttribute="bottom" constant="28" id="Swd-9p-4DY"/>
                 <constraint firstAttribute="centerX" secondItem="4Ap-zu-aI9" secondAttribute="centerX" id="WZt-Md-NNO"/>
                 <constraint firstAttribute="bottom" secondItem="ndR-XH-QeB" secondAttribute="bottom" id="X2P-Wy-9fl"/>
                 <constraint firstItem="ndR-XH-QeB" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="yU9-dW-7jx"/>
