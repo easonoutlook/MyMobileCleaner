@@ -15,6 +15,9 @@
 @property (weak) IBOutlet MCColorBackgroundView *colorBackground;
 @property (weak) IBOutlet NSButton *btnScan;
 @property (weak) IBOutlet MCDiskUsageCircleView *chartDiskUsage;
+@property (weak) IBOutlet NSTextField *labelSizeUsed;
+@property (weak) IBOutlet NSTextField *labelSizeReserved;
+@property (weak) IBOutlet NSTextField *labelSizeFree;
 
 @end
 
@@ -35,6 +38,14 @@
     
     // disk usage
     NSLog(@"%@", [[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage]);
+
+    NSByteCountFormatter *formatter = [[NSByteCountFormatter alloc] init];
+    formatter.countStyle = NSByteCountFormatterCountStyleBinary;
+    formatter.adaptive = NO;
+    formatter.zeroPadsFractionDigits = YES;
+    self.labelSizeUsed.stringValue = [formatter stringFromByteCount:[[[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage].totalDiskUsed unsignedIntegerValue]];
+    self.labelSizeReserved.stringValue = [formatter stringFromByteCount:[[[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage].totalDiskReserved unsignedIntegerValue]];
+    self.labelSizeFree.stringValue = [formatter stringFromByteCount:[[[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage].totalDiskFree unsignedIntegerValue]];
 
     [self.chartDiskUsage updateWithData:@[[[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage].totalDiskUsed,
                                           [[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage].totalDiskReserved,

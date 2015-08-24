@@ -9,6 +9,9 @@
                 <outlet property="btnScan" destination="G9e-HL-Eh6" id="Gtp-lA-WqI"/>
                 <outlet property="chartDiskUsage" destination="n7e-ab-VgN" id="IIR-nZ-aUi"/>
                 <outlet property="colorBackground" destination="BwZ-kg-xf3" id="hQR-Kw-8An"/>
+                <outlet property="labelSizeFree" destination="53x-4E-kV0" id="O0T-No-HQD"/>
+                <outlet property="labelSizeReserved" destination="nmU-lH-tqG" id="V8E-eX-CMX"/>
+                <outlet property="labelSizeUsed" destination="xAa-mp-UKp" id="NlU-QP-0XS"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -42,39 +45,234 @@
                     </constraints>
                 </customView>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="G9e-HL-Eh6" userLabel="scan">
-                    <rect key="frame" x="125" y="81" width="150" height="150"/>
+                    <rect key="frame" x="125" y="81" width="151" height="151"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="150" id="6fK-ZZ-LMR"/>
-                        <constraint firstAttribute="width" constant="150" id="LMi-TT-lgH"/>
+                        <constraint firstAttribute="height" constant="151" id="6fK-ZZ-LMR"/>
+                        <constraint firstAttribute="width" constant="151" id="LMi-TT-lgH"/>
                     </constraints>
-                    <buttonCell key="cell" type="bevel" title="Scan" bezelStyle="regularSquare" image="button" imagePosition="overlaps" alignment="center" alternateImage="button_click" imageScaling="proportionallyUpOrDown" inset="2" id="SIo-wR-4Dl">
+                    <buttonCell key="cell" type="bevel" title="Scan" bezelStyle="regularSquare" image="button" imagePosition="overlaps" alignment="center" alternateImage="button_click" imageScaling="proportionallyDown" inset="2" id="SIo-wR-4Dl">
                         <behavior key="behavior" lightByContents="YES"/>
-                        <font key="font" metaFont="system" size="40"/>
+                        <font key="font" size="40" name="HelveticaNeue-Light"/>
                     </buttonCell>
                     <connections>
                         <action selector="clickBtnScan:" target="-2" id="mhP-Yw-0sb"/>
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="J6j-KP-vYf" userLabel="disk">
-                    <rect key="frame" x="96" y="259" width="209" height="29"/>
+                    <rect key="frame" x="99" y="260" width="202" height="29"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Device Disk Usage" id="QqZ-UJ-NWT">
-                        <font key="font" metaFont="system" size="24"/>
+                        <font key="font" size="24" name="HelveticaNeue-Light"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="CfM-sj-6tZ" userLabel="used">
+                    <rect key="frame" x="8" y="0.0" width="128" height="62"/>
+                    <subviews>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="Rj1-sX-egy">
+                            <rect key="frame" x="39" y="34" width="50" height="20"/>
+                            <subviews>
+                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hra-BO-9rp" userLabel="dot" customClass="MCColorBackgroundView">
+                                    <rect key="frame" x="0.0" y="3" width="10" height="10"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="10" id="Ahj-cA-YXI"/>
+                                        <constraint firstAttribute="width" constant="10" id="kqI-o5-dtx"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cbvBorderWidth">
+                                            <real key="value" value="0.050000000000000003"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cbvCornerRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="cbvBackgroundColor">
+                                            <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="cbvBorderColor">
+                                            <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </customView>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4oi-KU-htu" userLabel="cat">
+                                    <rect key="frame" x="14" y="0.0" width="38" height="20"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Used" id="xhW-9M-RZy" userLabel="cat">
+                                        <font key="font" size="13" name="HelveticaNeue-Light"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="4oi-KU-htu" firstAttribute="top" secondItem="Rj1-sX-egy" secondAttribute="top" id="2ag-kJ-uQj"/>
+                                <constraint firstAttribute="bottom" secondItem="4oi-KU-htu" secondAttribute="bottom" id="4CT-Ay-wxt"/>
+                                <constraint firstAttribute="trailing" secondItem="4oi-KU-htu" secondAttribute="trailing" id="Yhj-I6-TXs"/>
+                                <constraint firstItem="Hra-BO-9rp" firstAttribute="leading" secondItem="Rj1-sX-egy" secondAttribute="leading" id="bTf-cv-15v"/>
+                                <constraint firstItem="4oi-KU-htu" firstAttribute="leading" secondItem="Hra-BO-9rp" secondAttribute="trailing" constant="6" id="oiZ-hN-qGe"/>
+                                <constraint firstAttribute="bottom" secondItem="Hra-BO-9rp" secondAttribute="bottom" constant="3" id="tyV-ms-LyV"/>
+                            </constraints>
+                        </customView>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xAa-mp-UKp">
+                            <rect key="frame" x="60" y="13" width="8" height="17"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="3oL-2b-Aee">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="128" id="Yro-V2-ohF"/>
+                        <constraint firstItem="Rj1-sX-egy" firstAttribute="top" secondItem="CfM-sj-6tZ" secondAttribute="top" constant="8" id="Zhg-ON-dt7"/>
+                        <constraint firstItem="xAa-mp-UKp" firstAttribute="top" secondItem="Rj1-sX-egy" secondAttribute="bottom" constant="4" id="jYS-8X-eMT"/>
+                        <constraint firstAttribute="centerX" secondItem="xAa-mp-UKp" secondAttribute="centerX" id="ufa-3a-Px4"/>
+                        <constraint firstAttribute="centerX" secondItem="Rj1-sX-egy" secondAttribute="centerX" id="w1Y-Hx-svU"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="nrA-Gl-CFX" userLabel="reserved">
+                    <rect key="frame" x="136" y="0.0" width="128" height="62"/>
+                    <subviews>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="vXR-AV-m7H">
+                            <rect key="frame" x="28" y="34" width="73" height="20"/>
+                            <subviews>
+                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="2Jv-3A-d0L" userLabel="dot" customClass="MCColorBackgroundView">
+                                    <rect key="frame" x="0.0" y="3" width="10" height="10"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="10" id="azX-0e-CHc"/>
+                                        <constraint firstAttribute="height" constant="10" id="hYm-T6-sNd"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cbvBorderWidth">
+                                            <real key="value" value="0.050000000000000003"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cbvCornerRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="cbvBackgroundColor">
+                                            <color key="value" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="cbvBorderColor">
+                                            <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </customView>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9m7-uR-Ujx" userLabel="cat">
+                                    <rect key="frame" x="14" y="0.0" width="61" height="20"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Reserved" id="KHh-eP-Jgb" userLabel="cat">
+                                        <font key="font" size="13" name="HelveticaNeue-Light"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="2Jv-3A-d0L" secondAttribute="bottom" constant="3" id="1TY-NZ-6rB"/>
+                                <constraint firstItem="2Jv-3A-d0L" firstAttribute="leading" secondItem="vXR-AV-m7H" secondAttribute="leading" id="1rF-C8-fjQ"/>
+                                <constraint firstItem="9m7-uR-Ujx" firstAttribute="top" secondItem="vXR-AV-m7H" secondAttribute="top" id="NdK-KL-mNI"/>
+                                <constraint firstAttribute="trailing" secondItem="9m7-uR-Ujx" secondAttribute="trailing" id="Teu-E4-9Ne"/>
+                                <constraint firstAttribute="bottom" secondItem="9m7-uR-Ujx" secondAttribute="bottom" id="dDv-qD-BkR"/>
+                                <constraint firstItem="9m7-uR-Ujx" firstAttribute="leading" secondItem="2Jv-3A-d0L" secondAttribute="trailing" constant="6" id="gAs-lM-QGm"/>
+                            </constraints>
+                        </customView>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nmU-lH-tqG">
+                            <rect key="frame" x="60" y="13" width="8" height="17"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="4uF-xl-B7m">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="128" id="TRl-Qp-sES"/>
+                        <constraint firstItem="vXR-AV-m7H" firstAttribute="top" secondItem="nrA-Gl-CFX" secondAttribute="top" constant="8" id="cdL-8g-InO"/>
+                        <constraint firstAttribute="centerX" secondItem="vXR-AV-m7H" secondAttribute="centerX" id="fOk-cJ-NJN"/>
+                        <constraint firstAttribute="centerX" secondItem="nmU-lH-tqG" secondAttribute="centerX" id="hZg-yw-NP7"/>
+                        <constraint firstItem="nmU-lH-tqG" firstAttribute="top" secondItem="vXR-AV-m7H" secondAttribute="bottom" constant="4" id="sq3-FY-qpS"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="9hm-ma-3fd" userLabel="free">
+                    <rect key="frame" x="264" y="0.0" width="128" height="62"/>
+                    <subviews>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="wi8-fe-Y3h">
+                            <rect key="frame" x="42" y="34" width="45" height="20"/>
+                            <subviews>
+                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="6dm-bY-pWv" userLabel="dot" customClass="MCColorBackgroundView">
+                                    <rect key="frame" x="0.0" y="3" width="10" height="10"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="10" id="KT0-4o-6n9"/>
+                                        <constraint firstAttribute="height" constant="10" id="eto-vc-sa2"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cbvBorderWidth">
+                                            <real key="value" value="0.050000000000000003"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cbvCornerRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="cbvBackgroundColor">
+                                            <color key="value" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="cbvBorderColor">
+                                            <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </customView>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="upi-Om-ldr" userLabel="cat">
+                                    <rect key="frame" x="14" y="0.0" width="33" height="20"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Free" id="7gy-IQ-5Jz" userLabel="cat">
+                                        <font key="font" size="13" name="HelveticaNeue-Light"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="6dm-bY-pWv" firstAttribute="leading" secondItem="wi8-fe-Y3h" secondAttribute="leading" id="L8t-cq-yZr"/>
+                                <constraint firstAttribute="bottom" secondItem="6dm-bY-pWv" secondAttribute="bottom" constant="3" id="Lii-4q-6aE"/>
+                                <constraint firstItem="upi-Om-ldr" firstAttribute="leading" secondItem="6dm-bY-pWv" secondAttribute="trailing" constant="6" id="Reb-fL-njy"/>
+                                <constraint firstAttribute="bottom" secondItem="upi-Om-ldr" secondAttribute="bottom" id="ada-u7-dpM"/>
+                                <constraint firstAttribute="trailing" secondItem="upi-Om-ldr" secondAttribute="trailing" id="ljZ-oF-93Y"/>
+                                <constraint firstItem="upi-Om-ldr" firstAttribute="top" secondItem="wi8-fe-Y3h" secondAttribute="top" id="v2X-lS-SfP"/>
+                            </constraints>
+                        </customView>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="53x-4E-kV0">
+                            <rect key="frame" x="60" y="13" width="8" height="17"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="gEA-xv-I7j">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="centerX" secondItem="53x-4E-kV0" secondAttribute="centerX" id="COc-iY-XUd"/>
+                        <constraint firstItem="wi8-fe-Y3h" firstAttribute="top" secondItem="9hm-ma-3fd" secondAttribute="top" constant="8" id="EBi-aT-h2T"/>
+                        <constraint firstAttribute="centerX" secondItem="wi8-fe-Y3h" secondAttribute="centerX" id="loV-Zv-oCg"/>
+                        <constraint firstAttribute="width" constant="128" id="p2j-Pq-kVh"/>
+                        <constraint firstItem="53x-4E-kV0" firstAttribute="top" secondItem="wi8-fe-Y3h" secondAttribute="bottom" constant="4" id="pSu-jZ-MiQ"/>
+                    </constraints>
+                </customView>
             </subviews>
             <constraints>
                 <constraint firstItem="BwZ-kg-xf3" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="3fj-4O-s7p"/>
                 <constraint firstAttribute="trailing" secondItem="BwZ-kg-xf3" secondAttribute="trailing" id="5uT-pP-VlK"/>
+                <constraint firstItem="CfM-sj-6tZ" firstAttribute="bottom" secondItem="nrA-Gl-CFX" secondAttribute="bottom" id="6od-1H-0Wz"/>
                 <constraint firstItem="G9e-HL-Eh6" firstAttribute="top" secondItem="J6j-KP-vYf" secondAttribute="bottom" constant="28" id="FAx-ec-gHC"/>
+                <constraint firstItem="nrA-Gl-CFX" firstAttribute="top" secondItem="9hm-ma-3fd" secondAttribute="top" id="IvP-TM-EUA"/>
                 <constraint firstAttribute="centerX" secondItem="G9e-HL-Eh6" secondAttribute="centerX" id="K6X-e5-fBh"/>
+                <constraint firstAttribute="bottom" secondItem="nrA-Gl-CFX" secondAttribute="bottom" id="K9B-jL-0Cc"/>
+                <constraint firstAttribute="centerX" secondItem="nrA-Gl-CFX" secondAttribute="centerX" id="Mzu-Vf-aGQ"/>
+                <constraint firstItem="CfM-sj-6tZ" firstAttribute="top" secondItem="nrA-Gl-CFX" secondAttribute="top" id="NbE-ZX-4T7"/>
                 <constraint firstAttribute="centerX" secondItem="J6j-KP-vYf" secondAttribute="centerX" id="Qai-ds-yXF"/>
+                <constraint firstItem="nrA-Gl-CFX" firstAttribute="bottom" secondItem="9hm-ma-3fd" secondAttribute="bottom" id="ZMF-JR-Dd2"/>
+                <constraint firstItem="nrA-Gl-CFX" firstAttribute="top" secondItem="n7e-ab-VgN" secondAttribute="bottom" id="ZzX-2F-h3W"/>
                 <constraint firstAttribute="centerY" secondItem="G9e-HL-Eh6" secondAttribute="centerY" constant="-44" id="bfp-yT-oGY"/>
                 <constraint firstAttribute="bottom" secondItem="BwZ-kg-xf3" secondAttribute="bottom" id="evY-Jk-XMd"/>
                 <constraint firstItem="G9e-HL-Eh6" firstAttribute="centerX" secondItem="n7e-ab-VgN" secondAttribute="centerX" id="fXj-wj-fyx"/>
                 <constraint firstItem="G9e-HL-Eh6" firstAttribute="centerY" secondItem="n7e-ab-VgN" secondAttribute="centerY" id="jyE-rI-TDf"/>
                 <constraint firstItem="BwZ-kg-xf3" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="nG0-Dq-LZk"/>
+                <constraint firstItem="nrA-Gl-CFX" firstAttribute="leading" secondItem="CfM-sj-6tZ" secondAttribute="trailing" id="xPr-AL-Fg1"/>
+                <constraint firstItem="9hm-ma-3fd" firstAttribute="leading" secondItem="nrA-Gl-CFX" secondAttribute="trailing" id="xyh-0o-Jgv"/>
             </constraints>
         </customView>
     </objects>

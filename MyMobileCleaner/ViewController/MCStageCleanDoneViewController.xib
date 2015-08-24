@@ -39,7 +39,7 @@
                         <constraint firstAttribute="width" constant="360" id="9uk-yU-703"/>
                     </constraints>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Clean Successfully" id="rrQ-cN-wcg">
-                        <font key="font" metaFont="system" size="24"/>
+                        <font key="font" size="24" name="HelveticaNeue-Light"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

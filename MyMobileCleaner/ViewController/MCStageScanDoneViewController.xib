@@ -35,25 +35,25 @@
                     </userDefinedRuntimeAttributes>
                 </customView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ap-zu-aI9" userLabel="size">
-                    <rect key="frame" x="18" y="259" width="364" height="29"/>
+                    <rect key="frame" x="18" y="260" width="364" height="29"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="360" id="0R0-fp-7wj"/>
                     </constraints>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" id="xT1-rD-ffc">
-                        <font key="font" metaFont="system" size="24"/>
+                        <font key="font" size="24" name="HelveticaNeue-Light"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="XbA-4r-3ss" userLabel="clean">
-                    <rect key="frame" x="125" y="81" width="150" height="150"/>
+                    <rect key="frame" x="125" y="81" width="151" height="151"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="150" id="6DT-n0-BcF"/>
-                        <constraint firstAttribute="height" constant="150" id="hq9-ce-UHl"/>
+                        <constraint firstAttribute="width" constant="151" id="6DT-n0-BcF"/>
+                        <constraint firstAttribute="height" constant="151" id="hq9-ce-UHl"/>
                     </constraints>
-                    <buttonCell key="cell" type="bevel" title="Clean" bezelStyle="regularSquare" image="button" imagePosition="overlaps" alignment="center" alternateImage="button_click" imageScaling="proportionallyUpOrDown" inset="2" id="lG1-Na-9Vc">
+                    <buttonCell key="cell" type="bevel" title="Clean" bezelStyle="regularSquare" image="button" imagePosition="overlaps" alignment="center" alternateImage="button_click" imageScaling="proportionallyDown" inset="2" id="lG1-Na-9Vc">
                         <behavior key="behavior" lightByContents="YES"/>
-                        <font key="font" metaFont="system" size="40"/>
+                        <font key="font" size="40" name="HelveticaNeue-Light"/>
                     </buttonCell>
                     <connections>
                         <action selector="clickBtnClean:" target="-2" id="CcG-nb-Dhm"/>

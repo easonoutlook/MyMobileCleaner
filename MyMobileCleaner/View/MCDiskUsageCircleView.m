@@ -98,7 +98,7 @@ static CGFloat barSpace = 0.03;
             rainbowLayer.strokeEnd = (1.0 - 3*barSpace) * currentValue / sum + fromValue;
         }
 
-        rainbowLayer.lineWidth = 10;
+        rainbowLayer.lineWidth = 8;
 
         [self.barLayers addObject:rainbowLayer];
         [self.layer addSublayer:rainbowLayer];
@@ -116,13 +116,13 @@ static CGFloat barSpace = 0.03;
 
 - (void)popAnimation
 {
-    CGFloat delay = 0.6;
+    CGFloat delay = 1;
     for (NSUInteger i = 0; i < self.barLayers.count; ++i) {
         CAShapeLayer *rainbowLayer = self.barLayers[i];
 
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"lineWidth"];
         animation.duration = 0.2;
-        animation.toValue = @(18);
+        animation.toValue = @(16);
 //        animation.removedOnCompletion = NO;
         animation.autoreverses = YES;
         animation.fillMode = kCAFillModeForwards;
