@@ -9,6 +9,7 @@
 #import "MCStageScanDoneViewController.h"
 #import "MCMainWindowController.h"
 #import "MCFlashRingView.h"
+#import "MCStageScanDonePopoverCellView.h"
 
 @interface MCStageScanDoneViewController ()
 
@@ -16,6 +17,9 @@
 @property (weak) IBOutlet NSButton *btnClean;
 @property (weak) IBOutlet NSTextField *labelSize;
 @property (weak) IBOutlet MCFlashRingView *flashRing;
+
+@property (strong) IBOutlet NSPopover *infoPopover;
+@property (nonatomic, strong) NSMutableArray *allFilesName;
 
 @end
 
@@ -40,9 +44,9 @@
         totalSize += [item.totalSize unsignedIntegerValue];
         [allFiles addObjectsFromArray:item.allFiles];
     }
-    NSMutableArray *allFilesName = [NSMutableArray array];
+    self.allFilesName = [NSMutableArray array];
     for (NSString *path in allFiles) {
-        [allFilesName addObject:path.lastPathComponent];
+        [self.allFilesName addObject:path.lastPathComponent];
     }
 
     NSByteCountFormatter *formatter = [[NSByteCountFormatter alloc] init];
@@ -51,16 +55,39 @@
     formatter.zeroPadsFractionDigits = YES;
 
     NSLog(@"100%% => all scanned crash log: %@", [formatter stringFromByteCount:totalSize]);
-    NSLog(@"100%% => all scanned crash log: %@", allFilesName);
+    NSLog(@"100%% => all scanned crash log: %@", self.allFilesName);
 
-    self.labelSize.stringValue = [NSString stringWithFormat:((allFilesName.count > 1) ? NSLocalizedStringFromTable(@"scan.done.crash.log.info.many", @"MyMobileCleaner", @"scan.done") : NSLocalizedStringFromTable(@"scan.done.crash.log.info.single", @"MyMobileCleaner", @"scan.done")),
-                                  @(allFilesName.count),
+    self.labelSize.stringValue = [NSString stringWithFormat:((self.allFilesName.count > 1) ? NSLocalizedStringFromTable(@"scan.done.crash.log.info.many", @"MyMobileCleaner", @"scan.done") : NSLocalizedStringFromTable(@"scan.done.crash.log.info.single", @"MyMobileCleaner", @"scan.done")),
+                                  @(self.allFilesName.count),
                                   [formatter stringFromByteCount:totalSize]];
 }
+
+- (IBAction)clickInfo:(id)sender {
+    NSButton *infoButton = sender;
+    [self.infoPopover showRelativeToRect:infoButton.bounds
+                                  ofView:infoButton
+                           preferredEdge:NSMaxYEdge];
+}
+
 
 - (IBAction)clickBtnClean:(id)sender {
     [self.flashRing stopFlashRing];
     [self.manager gotoNextStage];
+}
+
+#pragma mark - NSTableViewDelegate
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
+{
+    return self.allFilesName.count;
+}
+
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+    MCStageScanDonePopoverCellView *cellView = [tableView makeViewWithIdentifier:@"MCStageScanDonePopoverCellView" owner:self];
+    cellView.name.stringValue = self.allFilesName[row];
+
+    return cellView;
 }
 
 @end

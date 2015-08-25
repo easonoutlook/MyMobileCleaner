@@ -9,6 +9,7 @@
                 <outlet property="btnClean" destination="XbA-4r-3ss" id="LAe-rI-l8m"/>
                 <outlet property="colorBackground" destination="ndR-XH-QeB" id="qY0-LB-6HG"/>
                 <outlet property="flashRing" destination="2mh-Bc-NZC" id="ec9-QD-nzr"/>
+                <outlet property="infoPopover" destination="6QC-lV-JiF" id="G4z-9D-jIf"/>
                 <outlet property="labelSize" destination="4Ap-zu-aI9" id="IjY-nk-BjD"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -67,8 +68,19 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="6k3-rq-Uwf" userLabel="info">
+                    <rect key="frame" x="190.5" y="24" width="19" height="20"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="info" imagePosition="only" alignment="center" alternateImage="info.click" imageScaling="proportionallyDown" inset="2" id="6cD-YC-oKx">
+                        <behavior key="behavior" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickInfo:" target="-2" id="UkZ-mk-C36"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="6k3-rq-Uwf" secondAttribute="bottom" constant="24" id="0Zd-sh-jLa"/>
                 <constraint firstAttribute="centerY" secondItem="XbA-4r-3ss" secondAttribute="centerY" constant="-44" id="3Wc-cD-sKD"/>
                 <constraint firstAttribute="trailing" secondItem="ndR-XH-QeB" secondAttribute="trailing" id="APL-gp-3cY"/>
                 <constraint firstAttribute="centerX" secondItem="XbA-4r-3ss" secondAttribute="centerX" id="Jtv-py-NFH"/>
@@ -76,14 +88,112 @@
                 <constraint firstItem="XbA-4r-3ss" firstAttribute="top" secondItem="4Ap-zu-aI9" secondAttribute="bottom" constant="28" id="Swd-9p-4DY"/>
                 <constraint firstItem="XbA-4r-3ss" firstAttribute="centerY" secondItem="2mh-Bc-NZC" secondAttribute="centerY" constant="1" id="TJ9-Aa-LFI"/>
                 <constraint firstAttribute="centerX" secondItem="4Ap-zu-aI9" secondAttribute="centerX" id="WZt-Md-NNO"/>
+                <constraint firstAttribute="centerX" secondItem="6k3-rq-Uwf" secondAttribute="centerX" id="WfE-tK-5gO"/>
                 <constraint firstAttribute="bottom" secondItem="ndR-XH-QeB" secondAttribute="bottom" id="X2P-Wy-9fl"/>
                 <constraint firstItem="XbA-4r-3ss" firstAttribute="centerX" secondItem="2mh-Bc-NZC" secondAttribute="centerX" id="lUm-N2-Tow"/>
                 <constraint firstItem="ndR-XH-QeB" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="yU9-dW-7jx"/>
             </constraints>
         </customView>
+        <viewController id="ohT-K2-3X4" userLabel="Popover View Controller">
+            <connections>
+                <outlet property="view" destination="Rra-Qu-pnN" id="uJz-Vm-Cqu"/>
+            </connections>
+        </viewController>
+        <popover behavior="t" id="6QC-lV-JiF">
+            <connections>
+                <outlet property="contentViewController" destination="ohT-K2-3X4" id="kbo-8l-Lw5"/>
+            </connections>
+        </popover>
+        <customView translatesAutoresizingMaskIntoConstraints="NO" id="Rra-Qu-pnN" userLabel="info">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+            <subviews>
+                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="27" horizontalPageScroll="10" verticalLineScroll="27" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" scrollerKnobStyle="light" translatesAutoresizingMaskIntoConstraints="NO" id="Pqg-xD-TdH">
+                    <rect key="frame" x="10" y="10" width="300" height="180"/>
+                    <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="BGg-dN-ScN">
+                        <rect key="frame" x="1" y="17" width="238" height="117"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView appearanceType="vibrantLight" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="25" rowSizeStyle="automatic" viewBased="YES" id="aJI-2F-ZSj">
+                                <rect key="frame" x="0.0" y="0.0" width="238" height="117"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <size key="intercellSpacing" width="3" height="2"/>
+                                <color key="backgroundColor" red="0.0" green="0.41176470588235292" blue="0.85098039215686272" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn width="297" minWidth="40" maxWidth="1000" id="pJM-5P-vCF">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingMiddle" selectable="YES" editable="YES" alignment="left" id="grD-wI-ZoV">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        <prototypeCellViews>
+                                            <customView identifier="MCStageScanDonePopoverCellView" id="dKI-rZ-T8r" customClass="MCStageScanDonePopoverCellView">
+                                                <rect key="frame" x="1" y="1" width="297" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <subviews>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QJP-0M-1xM" userLabel="name">
+                                                        <rect key="frame" x="2" y="2" width="293" height="21"/>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" alignment="left" id="mjV-HP-uG9">
+                                                            <font key="font" size="14" name="HelveticaNeue-Light"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="QJP-0M-1xM" firstAttribute="top" secondItem="dKI-rZ-T8r" secondAttribute="top" constant="2" id="Nbn-pg-8hA"/>
+                                                    <constraint firstItem="QJP-0M-1xM" firstAttribute="leading" secondItem="dKI-rZ-T8r" secondAttribute="leading" constant="4" id="dMA-nS-b9Q"/>
+                                                    <constraint firstAttribute="bottom" secondItem="QJP-0M-1xM" secondAttribute="bottom" constant="2" id="oZn-k1-VW1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="QJP-0M-1xM" secondAttribute="trailing" constant="4" id="vPO-5N-ZAL"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="name" destination="QJP-0M-1xM" id="nYa-uK-UNl"/>
+                                                </connections>
+                                            </customView>
+                                        </prototypeCellViews>
+                                    </tableColumn>
+                                </tableColumns>
+                                <connections>
+                                    <outlet property="dataSource" destination="-2" id="2KR-pA-iCx"/>
+                                    <outlet property="delegate" destination="-2" id="wCp-eR-d4j"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                    </clipView>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="180" id="log-2z-1fc"/>
+                        <constraint firstAttribute="width" constant="300" id="mNl-QE-lr8"/>
+                    </constraints>
+                    <scroller key="horizontalScroller" hidden="YES" appearanceType="vibrantLight" verticalHuggingPriority="750" horizontal="YES" id="xvh-JY-YfN">
+                        <rect key="frame" x="1" y="119" width="223" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" appearanceType="vibrantLight" verticalHuggingPriority="750" horizontal="NO" id="tLY-fK-WAc">
+                        <rect key="frame" x="224" y="17" width="15" height="102"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Pqg-xD-TdH" secondAttribute="trailing" constant="10" id="bKG-0c-28i"/>
+                <constraint firstItem="Pqg-xD-TdH" firstAttribute="top" secondItem="Rra-Qu-pnN" secondAttribute="top" constant="10" id="cMR-gI-6FK"/>
+                <constraint firstItem="Pqg-xD-TdH" firstAttribute="leading" secondItem="Rra-Qu-pnN" secondAttribute="leading" constant="10" id="rOn-Af-wPO"/>
+                <constraint firstAttribute="bottom" secondItem="Pqg-xD-TdH" secondAttribute="bottom" constant="10" id="tVS-UO-cTe"/>
+            </constraints>
+            <point key="canvasLocation" x="321" y="626"/>
+        </customView>
     </objects>
     <resources>
         <image name="button" width="151" height="151"/>
         <image name="button_click" width="151" height="151"/>
+        <image name="info" width="19" height="20"/>
+        <image name="info.click" width="14" height="14"/>
     </resources>
 </document>
