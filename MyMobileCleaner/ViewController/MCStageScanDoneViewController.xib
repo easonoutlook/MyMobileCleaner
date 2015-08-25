@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="btnClean" destination="XbA-4r-3ss" id="LAe-rI-l8m"/>
                 <outlet property="colorBackground" destination="ndR-XH-QeB" id="qY0-LB-6HG"/>
+                <outlet property="flashRing" destination="2mh-Bc-NZC" id="ec9-QD-nzr"/>
                 <outlet property="labelSize" destination="4Ap-zu-aI9" id="IjY-nk-BjD"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -34,19 +35,15 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ap-zu-aI9" userLabel="size">
-                    <rect key="frame" x="18" y="260" width="364" height="29"/>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="2mh-Bc-NZC" customClass="MCFlashRingView">
+                    <rect key="frame" x="118" y="75" width="164" height="164"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="360" id="0R0-fp-7wj"/>
+                        <constraint firstAttribute="width" constant="164" id="8My-2A-o8b"/>
+                        <constraint firstAttribute="height" constant="164" id="pLI-pr-eIe"/>
                     </constraints>
-                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" id="xT1-rD-ffc">
-                        <font key="font" size="24" name="HelveticaNeue-Light"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
+                </customView>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="XbA-4r-3ss" userLabel="clean">
-                    <rect key="frame" x="125" y="81" width="151" height="151"/>
+                    <rect key="frame" x="124.5" y="80.5" width="151" height="151"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="151" id="6DT-n0-BcF"/>
                         <constraint firstAttribute="height" constant="151" id="hq9-ce-UHl"/>
@@ -59,6 +56,17 @@
                         <action selector="clickBtnClean:" target="-2" id="CcG-nb-Dhm"/>
                     </connections>
                 </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ap-zu-aI9" userLabel="size">
+                    <rect key="frame" x="18" y="259.5" width="364" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="360" id="0R0-fp-7wj"/>
+                    </constraints>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" id="xT1-rD-ffc">
+                        <font key="font" size="24" name="HelveticaNeue-Light"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="XbA-4r-3ss" secondAttribute="centerY" constant="-44" id="3Wc-cD-sKD"/>
@@ -66,8 +74,10 @@
                 <constraint firstAttribute="centerX" secondItem="XbA-4r-3ss" secondAttribute="centerX" id="Jtv-py-NFH"/>
                 <constraint firstItem="ndR-XH-QeB" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="PdP-U0-Sqe"/>
                 <constraint firstItem="XbA-4r-3ss" firstAttribute="top" secondItem="4Ap-zu-aI9" secondAttribute="bottom" constant="28" id="Swd-9p-4DY"/>
+                <constraint firstItem="XbA-4r-3ss" firstAttribute="centerY" secondItem="2mh-Bc-NZC" secondAttribute="centerY" constant="1" id="TJ9-Aa-LFI"/>
                 <constraint firstAttribute="centerX" secondItem="4Ap-zu-aI9" secondAttribute="centerX" id="WZt-Md-NNO"/>
                 <constraint firstAttribute="bottom" secondItem="ndR-XH-QeB" secondAttribute="bottom" id="X2P-Wy-9fl"/>
+                <constraint firstItem="XbA-4r-3ss" firstAttribute="centerX" secondItem="2mh-Bc-NZC" secondAttribute="centerX" id="lUm-N2-Tow"/>
                 <constraint firstItem="ndR-XH-QeB" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="yU9-dW-7jx"/>
             </constraints>
         </customView>

@@ -8,12 +8,14 @@
 
 #import "MCStageScanDoneViewController.h"
 #import "MCMainWindowController.h"
+#import "MCFlashRingView.h"
 
 @interface MCStageScanDoneViewController ()
 
 @property (weak) IBOutlet MCColorBackgroundView *colorBackground;
 @property (weak) IBOutlet NSButton *btnClean;
 @property (weak) IBOutlet NSTextField *labelSize;
+@property (weak) IBOutlet MCFlashRingView *flashRing;
 
 @end
 
@@ -30,6 +32,8 @@
 
 - (void)stageViewDidAppear
 {
+    [self.flashRing startFlashRingWithColor:[NSColor greenColor]];
+
     NSUInteger totalSize = 0;
     NSMutableArray *allFiles = [NSMutableArray array];
     for (MCDeviceCrashLogItem *item in ((MCMainWindowController *)(self.manager)).myCrashLogs) {
@@ -55,6 +59,7 @@
 }
 
 - (IBAction)clickBtnClean:(id)sender {
+    [self.flashRing stopFlashRing];
     [self.manager gotoNextStage];
 }
 

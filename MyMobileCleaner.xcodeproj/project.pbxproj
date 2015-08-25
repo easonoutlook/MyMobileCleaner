@@ -38,6 +38,7 @@
 		84F03AC71B83204600FFFA28 /* MCDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F03AC61B83204600FFFA28 /* MCDevice.m */; };
 		E57FAD6E1B84B33100ABF2D0 /* MCDeviceInfoHub.m in Sources */ = {isa = PBXBuildFile; fileRef = E57FAD6D1B84B33100ABF2D0 /* MCDeviceInfoHub.m */; };
 		E5B240301B89CB4400A2BC03 /* MyMobileCleaner.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5B240321B89CB4400A2BC03 /* MyMobileCleaner.strings */; };
+		E5E9E84A1B8CB49700FF39C4 /* MCFlashRingView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E9E8491B8CB49700FF39C4 /* MCFlashRingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -106,6 +107,8 @@
 		E5B240311B89CB4400A2BC03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/MyMobileCleaner.strings; sourceTree = "<group>"; };
 		E5B240331B89CB4500A2BC03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MyMobileCleaner.strings; sourceTree = "<group>"; };
 		E5B240341B89CF0800A2BC03 /* MyMobileCleaner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MyMobileCleaner.entitlements; sourceTree = "<group>"; };
+		E5E9E8481B8CB49700FF39C4 /* MCFlashRingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCFlashRingView.h; path = View/MCFlashRingView.h; sourceTree = "<group>"; };
+		E5E9E8491B8CB49700FF39C4 /* MCFlashRingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCFlashRingView.m; path = View/MCFlashRingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +173,8 @@
 				84BEE1AA1B874A6E000F3DC1 /* MCCustomWindowButtonBar.m */,
 				84BEE1911B86C8A2000F3DC1 /* MCColorBackgroundView.h */,
 				84BEE1921B86C8A2000F3DC1 /* MCColorBackgroundView.m */,
+				E5E9E8481B8CB49700FF39C4 /* MCFlashRingView.h */,
+				E5E9E8491B8CB49700FF39C4 /* MCFlashRingView.m */,
 				84DF06451B8AFFBE00914801 /* MCDiskUsageCircleView.h */,
 				84DF06461B8AFFBE00914801 /* MCDiskUsageCircleView.m */,
 			);
@@ -324,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5E9E84A1B8CB49700FF39C4 /* MCFlashRingView.m in Sources */,
 				84BEE1691B85CD48000F3DC1 /* MCStageViewController.m in Sources */,
 				84F03A9F1B82D79200FFFA28 /* main.m in Sources */,
 				84BEE18E1B86C41B000F3DC1 /* MCStageCleanDoneViewController.m in Sources */,
