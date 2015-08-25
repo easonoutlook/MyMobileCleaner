@@ -15,6 +15,9 @@
 @property (weak) IBOutlet MCColorBackgroundView *colorBackground;
 @property (weak) IBOutlet NSButton *btnScan;
 @property (weak) IBOutlet MCDiskUsageCircleView *chartDiskUsage;
+@property (weak) IBOutlet NSView *boxUsed;
+@property (weak) IBOutlet NSView *boxReserved;
+@property (weak) IBOutlet NSView *boxFree;
 @property (weak) IBOutlet NSTextField *labelSizeUsed;
 @property (weak) IBOutlet NSTextField *labelSizeReserved;
 @property (weak) IBOutlet NSTextField *labelSizeFree;
@@ -39,6 +42,10 @@
     // disk usage
     NSLog(@"%@", [[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage]);
 
+    self.boxUsed.hidden = YES;
+    self.boxReserved.hidden = YES;
+    self.boxFree.hidden = YES;
+
     NSByteCountFormatter *formatter = [[NSByteCountFormatter alloc] init];
     formatter.countStyle = NSByteCountFormatterCountStyleBinary;
     formatter.adaptive = NO;
@@ -53,7 +60,17 @@
                                   color:@[[NSColor redColor],
                                           [NSColor yellowColor],
                                           [NSColor greenColor]]
-                               animated:YES
+                               animation:^(NSUInteger dataIndex) {
+                                   dispatch_async(dispatch_get_main_queue(), ^{
+                                       if (dataIndex == 0) {
+                                           self.boxUsed.hidden = NO;
+                                       } else if (dataIndex == 1) {
+                                           self.boxReserved.hidden = NO;
+                                       } else if (dataIndex == 2) {
+                                           self.boxFree.hidden = NO;
+                                       }
+                                   });
+                               }
                              completion:nil];
 }
 

@@ -17,7 +17,8 @@ static CGFloat barSpace = 0.03;
 
 @property (nonatomic, strong) NSMutableArray *barLayers;
 
-@property (nonatomic, copy) void (^updateWithDataAnimationCallback)(MCDiskUsageCircleView *);
+@property (nonatomic, copy) void (^updateWithAnimation)(NSUInteger dataIndex);
+@property (nonatomic, copy) void (^updateWithCompletion)(MCDiskUsageCircleView *);
 
 @end
 
@@ -57,11 +58,12 @@ static CGFloat barSpace = 0.03;
 
 - (void)updateWithData:(NSArray *)data
                  color:(NSArray *)color
-              animated:(BOOL)animated
+             animation:(void(^)(NSUInteger dataIndex))animation
             completion:(void(^)(MCDiskUsageCircleView *))completion
 {
     [self unloadData];
-    self.updateWithDataAnimationCallback = completion;
+    self.updateWithAnimation = animation;
+    self.updateWithCompletion = completion;
 
     NSInteger sum = 0;
     for (NSNumber *number in data) {
@@ -106,11 +108,10 @@ static CGFloat barSpace = 0.03;
         fromValue = self.clockWise ? (rainbowLayer.strokeStart - barSpace) : (rainbowLayer.strokeEnd + barSpace);
     }
 
-    if (animated) {
-        [self popAnimation];
+    [self popAnimation];
 
-    } else {
-        [self animationDidStop:nil finished:YES];
+    if (self.updateWithCompletion) {
+        self.updateWithCompletion(self);
     }
 }
 
@@ -128,14 +129,12 @@ static CGFloat barSpace = 0.03;
         animation.fillMode = kCAFillModeForwards;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((delay+i*0.12) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [rainbowLayer addAnimation:animation forKey:@"pop"];
+            if (self.updateWithAnimation) {
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                    self.updateWithAnimation(i);
+                });
+            }
         });
-    }
-}
-
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
-{
-    if (self.updateWithDataAnimationCallback) {
-        self.updateWithDataAnimationCallback(self);
     }
 }
 

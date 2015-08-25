@@ -12,7 +12,7 @@
 
 - (void)updateWithData:(NSArray *)data
                  color:(NSArray *)color
-              animated:(BOOL)animated
+             animation:(void(^)(NSUInteger dataIndex))animation
             completion:(void(^)(MCDiskUsageCircleView *))completion;
 
 @end

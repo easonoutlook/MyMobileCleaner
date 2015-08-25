@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MCStageConnectedAndPairedViewController">
             <connections>
+                <outlet property="boxFree" destination="9hm-ma-3fd" id="dWL-zm-afd"/>
+                <outlet property="boxReserved" destination="nrA-Gl-CFX" id="FLK-Qa-jED"/>
+                <outlet property="boxUsed" destination="CfM-sj-6tZ" id="6w8-td-nWm"/>
                 <outlet property="btnScan" destination="G9e-HL-Eh6" id="Gtp-lA-WqI"/>
                 <outlet property="chartDiskUsage" destination="n7e-ab-VgN" id="IIR-nZ-aUi"/>
                 <outlet property="colorBackground" destination="BwZ-kg-xf3" id="hQR-Kw-8An"/>
@@ -45,7 +48,7 @@
                     </constraints>
                 </customView>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="G9e-HL-Eh6" userLabel="scan">
-                    <rect key="frame" x="125" y="81" width="151" height="151"/>
+                    <rect key="frame" x="124" y="80" width="151" height="151"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="151" id="6fK-ZZ-LMR"/>
                         <constraint firstAttribute="width" constant="151" id="LMi-TT-lgH"/>
@@ -59,7 +62,7 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="J6j-KP-vYf" userLabel="disk">
-                    <rect key="frame" x="99" y="260" width="202" height="29"/>
+                    <rect key="frame" x="99" y="259" width="202" height="29"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Device Disk Usage" id="QqZ-UJ-NWT">
                         <font key="font" size="24" name="HelveticaNeue-Light"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -132,7 +135,7 @@
                     <rect key="frame" x="136" y="0.0" width="128" height="62"/>
                     <subviews>
                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="vXR-AV-m7H">
-                            <rect key="frame" x="28" y="34" width="73" height="20"/>
+                            <rect key="frame" x="27" y="34" width="73" height="20"/>
                             <subviews>
                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="2Jv-3A-d0L" userLabel="dot" customClass="MCColorBackgroundView">
                                     <rect key="frame" x="0.0" y="3" width="10" height="10"/>
@@ -194,7 +197,7 @@
                     <rect key="frame" x="264" y="0.0" width="128" height="62"/>
                     <subviews>
                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="wi8-fe-Y3h">
-                            <rect key="frame" x="42" y="34" width="45" height="20"/>
+                            <rect key="frame" x="41" y="34" width="45" height="20"/>
                             <subviews>
                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="6dm-bY-pWv" userLabel="dot" customClass="MCColorBackgroundView">
                                     <rect key="frame" x="0.0" y="3" width="10" height="10"/>
