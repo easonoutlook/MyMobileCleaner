@@ -10,7 +10,7 @@
 #import "MCDeviceController.h"
 #import "MCColorBackgroundView.h"
 
-static CGFloat const kDefaultWaitDuration = 0.2;
+static CGFloat const kDefaultWaitDuration = 0.02;
 
 typedef NS_ENUM(NSUInteger, MCStageViewControllerUIStage) {
     kMCStageViewControllerUIStageNoConnection = 0,
