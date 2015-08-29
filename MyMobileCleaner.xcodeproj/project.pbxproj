@@ -37,6 +37,7 @@
 		84F03AC31B82DABF00FFFA28 /* MCDeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F03AC21B82DABF00FFFA28 /* MCDeviceController.m */; };
 		84F03AC71B83204600FFFA28 /* MCDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F03AC61B83204600FFFA28 /* MCDevice.m */; };
 		DDD6786DDD190A1ECE06F322 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D070B01B2877C4C6891CA2E /* libPods.a */; };
+		E57015021B91889500422D7F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E57015041B91889500422D7F /* InfoPlist.strings */; };
 		E57FAD6E1B84B33100ABF2D0 /* MCDeviceInfoHub.m in Sources */ = {isa = PBXBuildFile; fileRef = E57FAD6D1B84B33100ABF2D0 /* MCDeviceInfoHub.m */; };
 		E5B240301B89CB4400A2BC03 /* MyMobileCleaner.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5B240321B89CB4400A2BC03 /* MyMobileCleaner.strings */; };
 		E5C578DF1B916FC80035AE03 /* LogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C578DE1B916FC80035AE03 /* LogFormatter.m */; };
@@ -108,6 +109,8 @@
 		84F03AC21B82DABF00FFFA28 /* MCDeviceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCDeviceController.m; path = Core/MCDeviceController.m; sourceTree = "<group>"; };
 		84F03AC51B83204600FFFA28 /* MCDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCDevice.h; path = Core/MCDevice.h; sourceTree = "<group>"; };
 		84F03AC61B83204600FFFA28 /* MCDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCDevice.m; path = Core/MCDevice.m; sourceTree = "<group>"; };
+		E57015031B91889500422D7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E57015051B91889600422D7F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E57FAD6C1B84B33100ABF2D0 /* MCDeviceInfoHub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCDeviceInfoHub.h; path = Core/MCDeviceInfoHub.h; sourceTree = "<group>"; };
 		E57FAD6D1B84B33100ABF2D0 /* MCDeviceInfoHub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCDeviceInfoHub.m; path = Core/MCDeviceInfoHub.m; sourceTree = "<group>"; };
 		E5B240311B89CB4400A2BC03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/MyMobileCleaner.strings; sourceTree = "<group>"; };
@@ -246,6 +249,7 @@
 				84F03AA21B82D79200FFFA28 /* MainMenu.xib */,
 				84F03A9A1B82D79200FFFA28 /* Info.plist */,
 				84F03A9E1B82D79200FFFA28 /* main.m */,
+				E57015041B91889500422D7F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -345,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84BEE1851B86C3E3000F3DC1 /* MCStageScanDoneViewController.xib in Resources */,
+				E57015021B91889500422D7F /* InfoPlist.strings in Resources */,
 				84F03AA11B82D79200FFFA28 /* Images.xcassets in Resources */,
 				84BEE1641B85C3D6000F3DC1 /* MCMainWindowController.xib in Resources */,
 				84BEE18F1B86C41B000F3DC1 /* MCStageCleanDoneViewController.xib in Resources */,
@@ -431,6 +436,15 @@
 				84F03AA31B82D79200FFFA28 /* Base */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		E57015041B91889500422D7F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E57015031B91889500422D7F /* Base */,
+				E57015051B91889600422D7F /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		E5B240321B89CB4400A2BC03 /* MyMobileCleaner.strings */ = {
