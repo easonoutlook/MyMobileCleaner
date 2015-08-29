@@ -8,8 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MCMainWindowController.h"
-
-int ddLogLevel = DDLogLevelInfo;
+#import "LogFormatter.h"
 
 @interface AppDelegate ()
 

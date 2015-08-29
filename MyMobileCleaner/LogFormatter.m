@@ -8,6 +8,8 @@
 
 #import "LogFormatter.h"
 
+DDLogLevel ddLogLevel = DDLogLevelInfo;
+
 @interface LogFormatter ()
 
 @property (nonatomic, strong) NSDateFormatter *dateFormat;
@@ -35,6 +37,11 @@
     fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
     [fileLogger setLogFormatter:logFormatter];
     [DDLog addLogger:fileLogger];
+}
+
++ (void)updateLogLevel:(DDLogLevel)newLogLevel
+{
+    ddLogLevel = newLogLevel;
 }
 
 - (id)init

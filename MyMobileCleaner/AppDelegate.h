@@ -7,7 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "LogFormatter.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
