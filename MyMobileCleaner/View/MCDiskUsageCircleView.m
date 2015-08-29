@@ -8,6 +8,7 @@
 
 #import "MCDiskUsageCircleView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "SoundManager.h"
 
 static CGFloat barSpace = 0.03;
 
@@ -118,6 +119,11 @@ static CGFloat barSpace = 0.03;
 - (void)popAnimation
 {
     CGFloat delay = 1;
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[Sound soundNamed:@"bubbles.mp3"] play];
+    });
+
     for (NSUInteger i = 0; i < self.barLayers.count; ++i) {
         CAShapeLayer *rainbowLayer = self.barLayers[i];
 
