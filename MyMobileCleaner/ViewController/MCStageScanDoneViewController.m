@@ -54,8 +54,8 @@
     formatter.adaptive = NO;
     formatter.zeroPadsFractionDigits = YES;
 
-    NSLog(@"100%% => all scanned crash log: %@", [formatter stringFromByteCount:totalSize]);
-    NSLog(@"100%% => all scanned crash log: %@", self.allFilesName);
+    DDLogDebug(@"100%% => all scanned crash log: %@", [formatter stringFromByteCount:totalSize]);
+    DDLogDebug(@"100%% => all scanned crash log: %@", self.allFilesName);
 
     self.labelSize.stringValue = [NSString stringWithFormat:((self.allFilesName.count > 1) ? NSLocalizedStringFromTable(@"scan.done.crash.log.info.many", @"MyMobileCleaner", @"scan.done") : NSLocalizedStringFromTable(@"scan.done.crash.log.info.single", @"MyMobileCleaner", @"scan.done")),
                                   @(self.allFilesName.count),
@@ -66,7 +66,7 @@
     NSButton *infoButton = sender;
     [self.infoPopover showRelativeToRect:infoButton.bounds
                                   ofView:infoButton
-                           preferredEdge:NSMaxYEdge];
+                           preferredEdge:NSMinYEdge];
 }
 
 

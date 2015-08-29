@@ -87,7 +87,7 @@
         return;
     }
 
-    NSLog(@"UI stage change: %ld -> %ld", self.currentUIStage, newStage);
+    DDLogDebug(@"UI stage change: %ld -> %ld", self.currentUIStage, newStage);
 
     if (self.currentUIStageViewController) {
         [self.currentUIStageViewController.view removeFromSuperview];

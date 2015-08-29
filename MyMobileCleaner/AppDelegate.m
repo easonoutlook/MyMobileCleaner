@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "MCMainWindowController.h"
 
+int ddLogLevel = DDLogLevelInfo;
+
 @interface AppDelegate ()
 
 @property (nonatomic, strong) MCMainWindowController *mainWindowController;
@@ -19,6 +21,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+
+    [LogFormatter setupLog];
 
     self.mainWindowController = [[MCMainWindowController alloc] init];
     self.mainWindowController.window.canHide = YES;

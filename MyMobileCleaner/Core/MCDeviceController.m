@@ -7,6 +7,7 @@
 //
 
 #import "MCDeviceController.h"
+#import "LogFormatter.h"
 
 @interface MCDeviceController ()
 
@@ -44,7 +45,7 @@
 - (void)monitorWithListener:(id<MCDeviceControllerDelegate>)listener
 {
     if (self.isRunning) {
-        NSLog(@"device controller is already running");
+        DDLogWarn(@"device controller is already running");
         return;
     }
 
@@ -66,7 +67,7 @@
                                                  name:(__bridge NSString *)kSDMMD_USBMuxListenerDeviceDetachedNotificationFinished
                                                object:nil];
 
-    NSLog(@"device controller starts running");
+    DDLogInfo(@"device controller starts running");
 }
 
 - (void)stopMonitor
@@ -89,7 +90,7 @@
                                                     name:(__bridge NSString *)kSDMMD_USBMuxListenerDeviceDetachedNotificationFinished
                                                   object:nil];
 
-    NSLog(@"device controller stops running");
+    DDLogInfo(@"device controller stops running");
 }
 
 #pragma mark - notification
@@ -107,7 +108,7 @@
             self.selectedConnectedDevice = [[MCDevice alloc] initWithRawDevice:(__bridge SDMMD_AMDeviceRef)(self.allConnectedDevices.firstObject)];
             self.selectedConnectedDeviceUDID = self.selectedConnectedDevice.udid;
 
-            NSLog(@"connect to a new device: {UDID: %@}", self.selectedConnectedDeviceUDID);
+            DDLogInfo(@"connect to a new device: {UDID: %@}", self.selectedConnectedDeviceUDID);
 
             if ([self.selectedConnectedDevice isPairedDevice]) {
                 [self.listener deviceDidConnectAndPaired];
@@ -117,7 +118,7 @@
             }
 
         } else {
-            NSLog(@"already connecting to a device, so ignore others connected.");
+            DDLogDebug(@"already connecting to a device, so ignore others connected.");
         }
     }];
 }
@@ -157,10 +158,10 @@
         BOOL selectedDeviceStillConnected = [self.selectedConnectedDevice isConnectedDevice];
 
         if (selectedDeviceStillConnected) {
-            NSLog(@"selected device is still connected, so ignore others disconnected.");
+            DDLogDebug(@"selected device is still connected, so ignore others disconnected.");
 
         } else {
-            NSLog(@"disconnect with device: {UDID: %@}", self.selectedConnectedDeviceUDID);
+            DDLogInfo(@"disconnect with device: {UDID: %@}", self.selectedConnectedDeviceUDID);
 
             self.selectedConnectedDevice = nil;
             self.selectedConnectedDeviceUDID = nil;

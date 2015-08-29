@@ -7,6 +7,7 @@
 //
 
 #import "MCDevice.h"
+#import "LogFormatter.h"
 
 @interface MCDevice ()
 
@@ -121,7 +122,7 @@
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         while (weakSelf.needWaitingForPair) {
-            NSLog(@"waiting for device to pair: %@", weakSelf.deviceName);
+            DDLogInfo(@"waiting for device to pair: %@", weakSelf.deviceName);
 
             if ([weakSelf isPairedDevice]) {
 
@@ -147,7 +148,7 @@
             }
         }
 
-        NSLog(@"no need to wait for device to pair");
+        DDLogInfo(@"no need to wait for device to pair");
     });
 }
 
@@ -158,14 +159,14 @@
     if (![self isConnectedDevice]) {
         kern_return_t sdm_return = SDMMD_AMDeviceConnect(self.rawDevice);
         if (!(SDM_MD_CallSuccessful(sdm_return))) {
-            NSLog(@"[%s] failed: No Connection", __FUNCTION__);
+            DDLogError(@"[%s] failed: No Connection", __FUNCTION__);
             return nil;
         }
     }
 
     if (!self.isInSession) {
         if (![self startSession]) {
-            NSLog(@"[%s] failed: No Session", __FUNCTION__);
+            DDLogError(@"[%s] failed: No Session", __FUNCTION__);
             return nil;
         }
     }
@@ -195,7 +196,7 @@
         valueAmountDataReserved == NULL ||
         valueAmountDataAvailable == NULL) {
 
-        NSLog(@"[%s] failed: Copy Value Error", __FUNCTION__);
+        DDLogError(@"[%s] failed: Copy Value Error", __FUNCTION__);
         CFSafeRelease(valueTotalDiskCapacity);
         CFSafeRelease(valueTotalSystemCapacity);
         CFSafeRelease(valueTotalSystemAvailable);
@@ -223,14 +224,14 @@
                      updateBlock:(void(^)(NSUInteger totalItemCount, MCDeviceCrashLogItem *currentScannedItem))updateBlock
                     failureBlock:(void(^)())failureBlock
 {
-    NSLog(@"===== start to scan crash log =====");
+    DDLogInfo(@"===== start to scan crash log =====");
 
     kern_return_t sdm_return;
 
     if (![self isConnectedDevice]) {
         sdm_return = SDMMD_AMDeviceConnect(self.rawDevice);
         if (!(SDM_MD_CallSuccessful(sdm_return))) {
-            NSLog(@"[%s] failed: No Connection", __FUNCTION__);
+            DDLogError(@"[%s] failed: No Connection", __FUNCTION__);
 
             if (failureBlock) {
                 failureBlock();
@@ -241,7 +242,7 @@
 
     if (!self.isInSession) {
         if (![self startSession]) {
-            NSLog(@"[%s] failed: No Session", __FUNCTION__);
+            DDLogError(@"[%s] failed: No Session", __FUNCTION__);
 
             if (failureBlock) {
                 failureBlock();
@@ -304,11 +305,11 @@
             CFSafeRelease(sdm_crash_report_conn);
 
         } else {
-            NSLog(@"[%s] failed: No AFC Connection", __FUNCTION__);
+            DDLogError(@"[%s] failed: No AFC Connection", __FUNCTION__);
         }
 
     } else {
-        NSLog(@"[%s] failed: No Service", __FUNCTION__);
+        DDLogError(@"[%s] failed: No Service", __FUNCTION__);
     }
 
     if (failureBlock) {
@@ -324,7 +325,7 @@
           updateBlock:(void(^)(NSUInteger currentItemIndex))updateBlock
          failureBlock:(void(^)())failureBlock
 {
-    NSLog(@"===== start to clean crash log =====");
+    DDLogInfo(@"===== start to clean crash log =====");
 
     if (crashLogs.count == 0) {
         if (successBlock) {
@@ -338,7 +339,7 @@
     if (![self isConnectedDevice]) {
         sdm_return = SDMMD_AMDeviceConnect(self.rawDevice);
         if (!(SDM_MD_CallSuccessful(sdm_return))) {
-            NSLog(@"[%s] failed: No Connection", __FUNCTION__);
+            DDLogError(@"[%s] failed: No Connection", __FUNCTION__);
 
             if (failureBlock) {
                 failureBlock();
@@ -349,7 +350,7 @@
 
     if (!self.isInSession) {
         if (![self startSession]) {
-            NSLog(@"[%s] failed: No Session", __FUNCTION__);
+            DDLogError(@"[%s] failed: No Session", __FUNCTION__);
 
             if (failureBlock) {
                 failureBlock();
@@ -384,9 +385,7 @@
 
                 sdm_return = SDMMD_AFCProcessOperation(sdm_crash_report_conn, &operation_remove_file);
                 if (SDM_MD_CallSuccessful(sdm_return)) {
-//                    NSLog(@"success to clean: %@", path);
                 } else {
-//                    NSLog(@"failed to clean: %@", path);
                 }
 
                 if (updateBlock) {
@@ -403,11 +402,11 @@
             return;
 
         } else {
-            NSLog(@"[%s] failed: No AFC Connection", __FUNCTION__);
+            DDLogError(@"[%s] failed: No AFC Connection", __FUNCTION__);
         }
 
     } else {
-        NSLog(@"[%s] failed: No Service", __FUNCTION__);
+        DDLogError(@"[%s] failed: No Service", __FUNCTION__);
     }
     
     if (failureBlock) {
@@ -425,21 +424,21 @@
     if (![self isConnectedDevice]) {
         kern_return_t sdm_return = SDMMD_AMDeviceConnect(self.rawDevice);
         if (!(SDM_MD_CallSuccessful(sdm_return))) {
-            NSLog(@"[%s] failed: No Connection", __FUNCTION__);
+            DDLogError(@"[%s] failed: No Connection", __FUNCTION__);
             return sdm_value;
         }
     }
 
     if (!self.isInSession) {
         if (![self startSession]) {
-            NSLog(@"[%s] failed: No Session", __FUNCTION__);
+            DDLogError(@"[%s] failed: No Session", __FUNCTION__);
             return sdm_value;
         }
     }
 
     sdm_value = SDMMD_AMDeviceCopyValue(self.rawDevice, (__bridge CFStringRef)domain, (__bridge CFStringRef)key);
     if (sdm_value == NULL) {
-        NSLog(@"[%s] failed: Copy Value Error", __FUNCTION__);
+        DDLogError(@"[%s] failed: Copy Value Error", __FUNCTION__);
 
         // stop session if any failure, then restart session later.
         [self stopSession];

@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "MCDeviceController.h"
 #import "MCColorBackgroundView.h"
+#import "LogFormatter.h"
 
 static CGFloat const kDefaultWaitDuration = 0.02;
 

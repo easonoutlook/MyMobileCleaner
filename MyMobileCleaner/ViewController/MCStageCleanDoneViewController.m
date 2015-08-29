@@ -28,7 +28,7 @@
 
 - (void)stageViewDidAppear
 {
-    NSLog(@"100%% => success to clean all scanned crash log");
+    DDLogDebug(@"100%% => success to clean all scanned crash log");
 }
 
 - (IBAction)clickBtnDone:(id)sender {

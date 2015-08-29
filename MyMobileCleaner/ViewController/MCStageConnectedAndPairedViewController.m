@@ -40,7 +40,7 @@
     ((MCMainWindowController *)(self.manager)).myCrashLogs = nil;
     
     // disk usage
-    NSLog(@"%@", [[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage]);
+    DDLogDebug(@"%@", [[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage]);
 
     self.boxUsed.hidden = YES;
     self.boxReserved.hidden = YES;

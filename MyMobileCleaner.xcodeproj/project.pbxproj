@@ -36,8 +36,10 @@
 		84F03ABF1B82D9F400FFFA28 /* SDMMobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F03ABB1B82D85200FFFA28 /* SDMMobileDevice.framework */; };
 		84F03AC31B82DABF00FFFA28 /* MCDeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F03AC21B82DABF00FFFA28 /* MCDeviceController.m */; };
 		84F03AC71B83204600FFFA28 /* MCDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F03AC61B83204600FFFA28 /* MCDevice.m */; };
+		DDD6786DDD190A1ECE06F322 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D070B01B2877C4C6891CA2E /* libPods.a */; };
 		E57FAD6E1B84B33100ABF2D0 /* MCDeviceInfoHub.m in Sources */ = {isa = PBXBuildFile; fileRef = E57FAD6D1B84B33100ABF2D0 /* MCDeviceInfoHub.m */; };
 		E5B240301B89CB4400A2BC03 /* MyMobileCleaner.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5B240321B89CB4400A2BC03 /* MyMobileCleaner.strings */; };
+		E5C578DF1B916FC80035AE03 /* LogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C578DE1B916FC80035AE03 /* LogFormatter.m */; };
 		E5E9E84A1B8CB49700FF39C4 /* MCFlashRingView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E9E8491B8CB49700FF39C4 /* MCFlashRingView.m */; };
 		E5E9E84D1B8CC5B800FF39C4 /* MCStageScanDonePopoverCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E9E84C1B8CC5B800FF39C4 /* MCStageScanDonePopoverCellView.m */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		10670E41C395202C9BC8CFD2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		37829F931BF39C5F8A742337 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4D070B01B2877C4C6891CA2E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BEE1601B85C3D6000F3DC1 /* MCMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCMainWindowController.h; path = ViewController/MCMainWindowController.h; sourceTree = "<group>"; };
 		84BEE1611B85C3D6000F3DC1 /* MCMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCMainWindowController.m; path = ViewController/MCMainWindowController.m; sourceTree = "<group>"; };
 		84BEE1621B85C3D6000F3DC1 /* MCMainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MCMainWindowController.xib; path = ViewController/MCMainWindowController.xib; sourceTree = "<group>"; };
@@ -108,6 +113,8 @@
 		E5B240311B89CB4400A2BC03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/MyMobileCleaner.strings; sourceTree = "<group>"; };
 		E5B240331B89CB4500A2BC03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MyMobileCleaner.strings; sourceTree = "<group>"; };
 		E5B240341B89CF0800A2BC03 /* MyMobileCleaner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MyMobileCleaner.entitlements; sourceTree = "<group>"; };
+		E5C578DD1B916FC80035AE03 /* LogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogFormatter.h; sourceTree = "<group>"; };
+		E5C578DE1B916FC80035AE03 /* LogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogFormatter.m; sourceTree = "<group>"; };
 		E5E9E8481B8CB49700FF39C4 /* MCFlashRingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCFlashRingView.h; path = View/MCFlashRingView.h; sourceTree = "<group>"; };
 		E5E9E8491B8CB49700FF39C4 /* MCFlashRingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCFlashRingView.m; path = View/MCFlashRingView.m; sourceTree = "<group>"; };
 		E5E9E84B1B8CC5B800FF39C4 /* MCStageScanDonePopoverCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCStageScanDonePopoverCellView.h; path = View/MCStageScanDonePopoverCellView.h; sourceTree = "<group>"; };
@@ -120,12 +127,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				84F03ABF1B82D9F400FFFA28 /* SDMMobileDevice.framework in Frameworks */,
+				DDD6786DDD190A1ECE06F322 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		570C069167BA9F8EBA8F9F8E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				10670E41C395202C9BC8CFD2 /* Pods.debug.xcconfig */,
+				37829F931BF39C5F8A742337 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		84BEE15F1B85C379000F3DC1 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +209,8 @@
 				84F03A981B82D79200FFFA28 /* MyMobileCleaner */,
 				84F03ABA1B82D85200FFFA28 /* 3rd */,
 				84F03A971B82D79200FFFA28 /* Products */,
+				570C069167BA9F8EBA8F9F8E /* Pods */,
+				E7CF8EF5A00D9F53E7845844 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -209,6 +228,8 @@
 				E5B240341B89CF0800A2BC03 /* MyMobileCleaner.entitlements */,
 				84F03A9B1B82D79200FFFA28 /* AppDelegate.h */,
 				84F03A9C1B82D79200FFFA28 /* AppDelegate.m */,
+				E5C578DD1B916FC80035AE03 /* LogFormatter.h */,
+				E5C578DE1B916FC80035AE03 /* LogFormatter.m */,
 				84F03AC01B82DAA200FFFA28 /* Core */,
 				84BEE15F1B85C379000F3DC1 /* ViewController */,
 				84BEE1901B86C869000F3DC1 /* View */,
@@ -250,6 +271,14 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
+		E7CF8EF5A00D9F53E7845844 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D070B01B2877C4C6891CA2E /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -257,10 +286,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84F03AB31B82D79200FFFA28 /* Build configuration list for PBXNativeTarget "MyMobileCleaner" */;
 			buildPhases = (
+				68AE8A6E94910636F3B7D64B /* Check Pods Manifest.lock */,
 				84F03A921B82D79200FFFA28 /* Sources */,
 				84F03A931B82D79200FFFA28 /* Frameworks */,
 				84F03A941B82D79200FFFA28 /* Resources */,
 				84F03ABD1B82D98400FFFA28 /* Copy Frameworks */,
+				3AF17EFDD9FEC66FB203D4F0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -329,6 +360,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3AF17EFDD9FEC66FB203D4F0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68AE8A6E94910636F3B7D64B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		84F03A921B82D79200FFFA28 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -347,6 +411,7 @@
 				84BEE1931B86C8A2000F3DC1 /* MCColorBackgroundView.m in Sources */,
 				E57FAD6E1B84B33100ABF2D0 /* MCDeviceInfoHub.m in Sources */,
 				84F03AC31B82DABF00FFFA28 /* MCDeviceController.m in Sources */,
+				E5C578DF1B916FC80035AE03 /* LogFormatter.m in Sources */,
 				84BEE1701B86C2F3000F3DC1 /* MCStageNoConnectionViewController.m in Sources */,
 				84BEE1841B86C3E3000F3DC1 /* MCStageScanDoneViewController.m in Sources */,
 				84BEE1891B86C3FF000F3DC1 /* MCStageCleaningViewController.m in Sources */,
@@ -463,6 +528,7 @@
 		};
 		84F03AB41B82D79200FFFA28 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10670E41C395202C9BC8CFD2 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -482,6 +548,7 @@
 		};
 		84F03AB51B82D79200FFFA28 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37829F931BF39C5F8A742337 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

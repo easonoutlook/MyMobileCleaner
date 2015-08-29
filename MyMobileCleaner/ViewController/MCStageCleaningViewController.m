@@ -50,10 +50,10 @@
 
                                                                       } updateBlock:^(NSUInteger currentItemIndex) {
                                                                           float progressValue = 100.0*(currentItemIndex+1)/self.crashLogs.count;
-                                                                          NSLog(@"%.1f%% -> cleaned crash log: %@", progressValue, ((MCDeviceCrashLogItem *)(self.crashLogs[currentItemIndex])).path);
+                                                                          DDLogDebug(@"%.1f%% -> cleaned crash log: %@", progressValue, ((MCDeviceCrashLogItem *)(self.crashLogs[currentItemIndex])).path);
 
                                                                       } failureBlock:^{
-                                                                          NSLog(@"=> failed to clean all scanned crash log");
+                                                                          DDLogError(@"=> failed to clean all scanned crash log");
 
                                                                           dispatch_async(dispatch_get_main_queue(), ^{
                                                                               [self.progress stopAnimation:self];

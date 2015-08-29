@@ -53,11 +53,11 @@
          }
          updateBlock:^(NSUInteger totalItemCount, MCDeviceCrashLogItem *currentScannedItem) {
              float progressValue = 100.0*(++self.myCurrentScannedItemCount)/totalItemCount;
-             NSLog(@"%.1f%% -> scanned crash log: %@", progressValue, currentScannedItem.path);
+             DDLogDebug(@"%.1f%% -> scanned crash log: %@", progressValue, currentScannedItem.path);
 
          }
          failureBlock:^{
-             NSLog(@"=> failed to scan crash log");
+             DDLogError(@"=> failed to scan crash log");
 
              dispatch_async(dispatch_get_main_queue(), ^{
                  [self.progress stopAnimation:self];
