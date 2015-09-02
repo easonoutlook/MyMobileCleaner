@@ -40,7 +40,13 @@
     ((MCMainWindowController *)(self.manager)).myCrashLogs = nil;
     
     // disk usage
-    DDLogDebug(@"%@", [[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage]);
+    MCDeviceDiskUsage *diskUsage = [[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage];
+    if (!diskUsage) {
+        DDLogError(@"failed to access disk usage");
+        return;
+    }
+
+    DDLogDebug(@"%@", diskUsage);
 
     self.boxUsed.hidden = YES;
     self.boxReserved.hidden = YES;
@@ -50,13 +56,13 @@
     formatter.countStyle = NSByteCountFormatterCountStyleBinary;
     formatter.adaptive = NO;
     formatter.zeroPadsFractionDigits = YES;
-    self.labelSizeUsed.stringValue = [formatter stringFromByteCount:[[[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage].totalDiskUsed unsignedIntegerValue]];
-    self.labelSizeReserved.stringValue = [formatter stringFromByteCount:[[[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage].totalDiskReserved unsignedIntegerValue]];
-    self.labelSizeFree.stringValue = [formatter stringFromByteCount:[[[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage].totalDiskFree unsignedIntegerValue]];
+    self.labelSizeUsed.stringValue = [formatter stringFromByteCount:[diskUsage.totalDiskUsed unsignedIntegerValue]];
+    self.labelSizeReserved.stringValue = [formatter stringFromByteCount:[diskUsage.totalDiskReserved unsignedIntegerValue]];
+    self.labelSizeFree.stringValue = [formatter stringFromByteCount:[diskUsage.totalDiskFree unsignedIntegerValue]];
 
-    [self.chartDiskUsage updateWithData:@[[[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage].totalDiskUsed,
-                                          [[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage].totalDiskReserved,
-                                          [[MCDeviceController sharedInstance].selectedConnectedDevice diskUsage].totalDiskFree]
+    [self.chartDiskUsage updateWithData:@[diskUsage.totalDiskUsed,
+                                          diskUsage.totalDiskReserved,
+                                          diskUsage.totalDiskFree]
                                   color:@[[NSColor redColor],
                                           [NSColor yellowColor],
                                           [NSColor greenColor]]

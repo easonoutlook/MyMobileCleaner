@@ -41,6 +41,12 @@
     return SDM_MD_CallSuccessful(result);
 }
 
+- (BOOL)stopConnection
+{
+    sdmmd_return_t result = SDMMD_AMDeviceDisconnect(_rawDevice);
+    return SDM_MD_CallSuccessful(result);
+}
+
 - (BOOL)startSession
 {
     sdmmd_return_t result = SDMMD_AMDeviceStartSession(_rawDevice);
@@ -68,7 +74,6 @@
         _rawDevice = rawDevice;
 
         [self startConnection];
-        [self startSession];
 
         // udid
         CFStringRef deviceUDID = SDMMD_AMDeviceCopyUDID(_rawDevice);
@@ -82,7 +87,7 @@
         _deviceName = (__bridge_transfer NSString *)deviceName;
 
         // type
-        if (_isInSession) {
+        if ([self startSession]) {
             CFTypeRef deviceType = SDMMD_AMDeviceCopyValue(_rawDevice, NULL, CFSTR(kProductType));
             _deviceType = [NSString stringWithUTF8String:SDMMD_ResolveModelToName(deviceType)];
             CFSafeRelease(deviceType);
@@ -127,9 +132,7 @@
             if ([weakSelf isPairedDevice]) {
 
                 // update device info after paired
-                [weakSelf startSession];
-
-                if (weakSelf.isInSession) {
+                if ([weakSelf startSession]) {
                     CFTypeRef deviceType = SDMMD_AMDeviceCopyValue(weakSelf.rawDevice, NULL, CFSTR(kProductType));
                     weakSelf.deviceType = [NSString stringWithUTF8String:SDMMD_ResolveModelToName(deviceType)];
                     CFSafeRelease(deviceType);
