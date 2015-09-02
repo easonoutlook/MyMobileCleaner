@@ -21,7 +21,3 @@ With MyMobileCleaner, now it is not a problem.
 ![4](screenshot/4.png)
 
 The world is clear now ^_^
-
-## TODO ##
-
-in Sandbox, app may lose its connections with device sometimes.
