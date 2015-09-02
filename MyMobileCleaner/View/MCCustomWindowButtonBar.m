@@ -23,7 +23,7 @@
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowDidResizeNotification object:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowDidResizeNotification object:self.window];
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
@@ -34,7 +34,6 @@
 {
     self = [super initWithFrame:frameRect];
     if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(parentWindowDidResize:) name:NSWindowDidResizeNotification object:self.window];
     }
     return self;
 }
@@ -46,6 +45,9 @@
 
 - (void)layoutButtonsVertical:(BOOL)vertical
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowDidResizeNotification object:self.window];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(parentWindowDidResize:) name:NSWindowDidResizeNotification object:self.window];
+
     [self.closeButton removeFromSuperviewWithoutNeedingDisplay];
     [self.miniButton removeFromSuperviewWithoutNeedingDisplay];
     [self.resizeButton removeFromSuperviewWithoutNeedingDisplay];

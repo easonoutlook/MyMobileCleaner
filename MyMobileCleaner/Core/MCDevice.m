@@ -27,11 +27,7 @@
 - (void)dealloc
 {
     if ([self isConnectedDevice]) {
-        if (self.isInSession) {
-            SDMMD_AMDeviceStopSession(self.rawDevice);
-        }
-
-        SDMMD_AMDeviceDisconnect(self.rawDevice);
+        [self stopConnection];
     }
 }
 
@@ -59,10 +55,28 @@
     return _isInSession;
 }
 
-- (void)stopSession
+// the connection maybe closed due to long time, so suggest to reconnect for each action.
+- (BOOL)reconnectDevice
 {
-    SDMMD_AMDeviceStopSession(_rawDevice);
-    _isInSession = NO;
+    [self stopConnection];
+
+    if ([self startConnection]) {
+        if ([self startSession]) {
+            CFTypeRef deviceType = SDMMD_AMDeviceCopyValue(_rawDevice, NULL, CFSTR(kProductType));
+            _deviceType = [NSString stringWithUTF8String:SDMMD_ResolveModelToName(deviceType)];
+            CFSafeRelease(deviceType);
+
+            return YES;
+
+        } else {
+            DDLogError(@"[%s] failed to reconnect device: No Session", __FUNCTION__);
+        }
+
+    } else {
+        DDLogError(@"[%s] failed to reconnect device: No Connection", __FUNCTION__);
+    }
+    
+    return NO;
 }
 
 #pragma mark - connection
@@ -132,10 +146,12 @@
             if ([weakSelf isPairedDevice]) {
 
                 // update device info after paired
-                if ([weakSelf startSession]) {
-                    CFTypeRef deviceType = SDMMD_AMDeviceCopyValue(weakSelf.rawDevice, NULL, CFSTR(kProductType));
-                    weakSelf.deviceType = [NSString stringWithUTF8String:SDMMD_ResolveModelToName(deviceType)];
-                    CFSafeRelease(deviceType);
+                if ([weakSelf reconnectDevice]) {
+                    if ([weakSelf startSession]) {
+                        CFTypeRef deviceType = SDMMD_AMDeviceCopyValue(weakSelf.rawDevice, NULL, CFSTR(kProductType));
+                        weakSelf.deviceType = [NSString stringWithUTF8String:SDMMD_ResolveModelToName(deviceType)];
+                        CFSafeRelease(deviceType);
+                    }
                 }
 
                 if (completeBlock) {
@@ -159,18 +175,9 @@
 
 - (MCDeviceDiskUsage *)diskUsage
 {
-    if (![self isConnectedDevice]) {
-        if (![self startConnection]) {
-            DDLogError(@"[%s] failed: No Connection", __FUNCTION__);
-            return nil;
-        }
-    }
-
-    if (!self.isInSession) {
-        if (![self startSession]) {
-            DDLogError(@"[%s] failed: No Session", __FUNCTION__);
-            return nil;
-        }
+    if (![self reconnectDevice]) {
+        DDLogError(@"[%s] failed: Reconnect Device", __FUNCTION__);
+        return nil;
     }
 
     CFNumberRef valueTotalDiskCapacity = SDMMD_AMDeviceCopyValue(self.rawDevice, CFSTR(kDiskUsageDomain), CFSTR(kTotalDiskCapacity));
@@ -207,9 +214,6 @@
         CFSafeRelease(valueAmountDataReserved);
         CFSafeRelease(valueAmountDataAvailable);
 
-        // stop session if any failure, then restart session later.
-        [self stopSession];
-
         return nil;
     }
 
@@ -228,29 +232,16 @@
 {
     DDLogInfo(@"===== start to scan crash log =====");
 
+    if (![self reconnectDevice]) {
+        DDLogError(@"[%s] failed: Reconnect Device", __FUNCTION__);
+
+        if (failureBlock) {
+            failureBlock();
+        }
+        return;
+    }
+
     kern_return_t sdm_return;
-
-    if (![self isConnectedDevice]) {
-        if (![self startConnection]) {
-            DDLogError(@"[%s] failed: No Connection", __FUNCTION__);
-
-            if (failureBlock) {
-                failureBlock();
-            }
-            return;
-        }
-    }
-
-    if (!self.isInSession) {
-        if (![self startSession]) {
-            DDLogError(@"[%s] failed: No Session", __FUNCTION__);
-
-            if (failureBlock) {
-                failureBlock();
-            }
-            return;
-        }
-    }
 
     SDMMD_AMConnectionRef sdm_afc_conn;
     if (SDMMD_AMDeviceGetInterfaceType(self.rawDevice) == kAMDInterfaceConnectionTypeIndirect) {
@@ -316,9 +307,6 @@
     if (failureBlock) {
         failureBlock();
     }
-
-    // stop session if any failure, then restart session later.
-    [self stopSession];
 }
 
 - (void)cleanCrashLog:(NSArray *)crashLogs
@@ -334,30 +322,17 @@
         }
         return;
     }
+
+    if (![self reconnectDevice]) {
+        DDLogError(@"[%s] failed: Reconnect Device", __FUNCTION__);
+
+        if (failureBlock) {
+            failureBlock();
+        }
+        return;
+    }
     
     kern_return_t sdm_return;
-
-    if (![self isConnectedDevice]) {
-        if (![self startConnection]) {
-            DDLogError(@"[%s] failed: No Connection", __FUNCTION__);
-
-            if (failureBlock) {
-                failureBlock();
-            }
-            return;
-        }
-    }
-
-    if (!self.isInSession) {
-        if (![self startSession]) {
-            DDLogError(@"[%s] failed: No Session", __FUNCTION__);
-
-            if (failureBlock) {
-                failureBlock();
-            }
-            return;
-        }
-    }
 
     SDMMD_AMConnectionRef sdm_afc_conn;
     if (SDMMD_AMDeviceGetInterfaceType(self.rawDevice) == kAMDInterfaceConnectionTypeIndirect) {
@@ -412,36 +387,22 @@
     if (failureBlock) {
         failureBlock();
     }
-
-    // stop session if any failure, then restart session later.
-    [self stopSession];
 }
 
 - (CFTypeRef)copyDeviceValueOfKey:(NSString *)key inDomain:(NSString *)domain
 {
     CFTypeRef sdm_value = NULL;
 
-    if (![self isConnectedDevice]) {
-        if (![self startConnection]) {
-            DDLogError(@"[%s] failed: No Connection", __FUNCTION__);
-            return sdm_value;
+    if (![self reconnectDevice]) {
+        DDLogError(@"[%s] failed: Reconnect Device", __FUNCTION__);
+
+    } else {
+        sdm_value = SDMMD_AMDeviceCopyValue(self.rawDevice, (__bridge CFStringRef)domain, (__bridge CFStringRef)key);
+        if (sdm_value == NULL) {
+            DDLogError(@"[%s] failed: Copy Value Error", __FUNCTION__);
         }
     }
 
-    if (!self.isInSession) {
-        if (![self startSession]) {
-            DDLogError(@"[%s] failed: No Session", __FUNCTION__);
-            return sdm_value;
-        }
-    }
-
-    sdm_value = SDMMD_AMDeviceCopyValue(self.rawDevice, (__bridge CFStringRef)domain, (__bridge CFStringRef)key);
-    if (sdm_value == NULL) {
-        DDLogError(@"[%s] failed: Copy Value Error", __FUNCTION__);
-
-        // stop session if any failure, then restart session later.
-        [self stopSession];
-    }
     return sdm_value;
 }
 
@@ -487,19 +448,6 @@
     }
 
     return searchedItem;
-}
-
-- (void)rebuildSelf
-{
-    self.rawDevice = [self findDeviceFromUDID:self.udid];
-
-    if ([self startConnection]) {
-        if ([self startSession]) {
-            CFTypeRef deviceType = SDMMD_AMDeviceCopyValue(_rawDevice, NULL, CFSTR(kProductType));
-            _deviceType = [NSString stringWithUTF8String:SDMMD_ResolveModelToName(deviceType)];
-            CFSafeRelease(deviceType);
-        }
-    }
 }
 
 - (SDMMD_AMDeviceRef)findDeviceFromUDID:(NSString *)udid
