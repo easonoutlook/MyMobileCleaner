@@ -160,8 +160,7 @@
 - (MCDeviceDiskUsage *)diskUsage
 {
     if (![self isConnectedDevice]) {
-        kern_return_t sdm_return = SDMMD_AMDeviceConnect(self.rawDevice);
-        if (!(SDM_MD_CallSuccessful(sdm_return))) {
+        if (![self startConnection]) {
             DDLogError(@"[%s] failed: No Connection", __FUNCTION__);
             return nil;
         }
@@ -232,8 +231,7 @@
     kern_return_t sdm_return;
 
     if (![self isConnectedDevice]) {
-        sdm_return = SDMMD_AMDeviceConnect(self.rawDevice);
-        if (!(SDM_MD_CallSuccessful(sdm_return))) {
+        if (![self startConnection]) {
             DDLogError(@"[%s] failed: No Connection", __FUNCTION__);
 
             if (failureBlock) {
@@ -340,8 +338,7 @@
     kern_return_t sdm_return;
 
     if (![self isConnectedDevice]) {
-        sdm_return = SDMMD_AMDeviceConnect(self.rawDevice);
-        if (!(SDM_MD_CallSuccessful(sdm_return))) {
+        if (![self startConnection]) {
             DDLogError(@"[%s] failed: No Connection", __FUNCTION__);
 
             if (failureBlock) {
@@ -425,8 +422,7 @@
     CFTypeRef sdm_value = NULL;
 
     if (![self isConnectedDevice]) {
-        kern_return_t sdm_return = SDMMD_AMDeviceConnect(self.rawDevice);
-        if (!(SDM_MD_CallSuccessful(sdm_return))) {
+        if (![self startConnection]) {
             DDLogError(@"[%s] failed: No Connection", __FUNCTION__);
             return sdm_value;
         }
@@ -491,6 +487,57 @@
     }
 
     return searchedItem;
+}
+
+- (void)rebuildSelf
+{
+    self.rawDevice = [self findDeviceFromUDID:self.udid];
+
+    if ([self startConnection]) {
+        if ([self startSession]) {
+            CFTypeRef deviceType = SDMMD_AMDeviceCopyValue(_rawDevice, NULL, CFSTR(kProductType));
+            _deviceType = [NSString stringWithUTF8String:SDMMD_ResolveModelToName(deviceType)];
+            CFSafeRelease(deviceType);
+        }
+    }
+}
+
+- (SDMMD_AMDeviceRef)findDeviceFromUDID:(NSString *)udid
+{
+    NSArray *devices = (__bridge_transfer NSArray *)(SDMMD_AMDCreateDeviceList());
+    SDMMD_AMDeviceRef device = NULL;
+
+    if (devices.count) {
+        BOOL foundDevice = NO;
+        NSString *foundDeviceId;
+
+        NSUInteger index;
+        for (index = 0; index < devices.count; ++index) {
+            SDMMD_AMDeviceRef device = (__bridge SDMMD_AMDeviceRef)(devices[index]);
+            CFStringRef deviceUDID = SDMMD_AMDeviceCopyUDID(device);
+            if (deviceUDID == NULL) {
+                deviceUDID = SDMMD_AMDeviceCopyValue(_rawDevice, NULL, CFSTR(kUniqueDeviceID));
+            }
+            if (deviceUDID) {
+                foundDeviceId = (__bridge_transfer NSString *)(deviceUDID);
+                if ([foundDeviceId isEqualToString:udid]) {
+                    foundDevice = YES;
+                    break;
+                }
+            }
+        }
+
+        if (foundDevice) {
+            device = SDMMD_AMDeviceCreateCopy((__bridge SDMMD_AMDeviceRef)(devices[index]));
+        } else {
+            DDLogError(@"[%s] failed: No device found with {UDID: %@}", __FUNCTION__, udid);
+        }
+
+    } else {
+        DDLogError(@"[%s] failed: No Devices", __FUNCTION__);
+    }
+    
+    return device;
 }
 
 @end
