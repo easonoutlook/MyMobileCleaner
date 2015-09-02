@@ -15,9 +15,6 @@ Settings -> Privacy -> Diagnostics & Usage -> Diagnostics & Usage Data
 
 With MyMobileCleaner, now it is not a problem.
 
-![1](screenshot/1.png)
-![2](screenshot/2.png)
-![3](screenshot/3.png)
-![4](screenshot/4.png)
+![screenshot](screenshot/screenshot.gif)
 
 The world is clear now ^_^
