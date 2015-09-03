@@ -56,6 +56,9 @@
                     <buttonCell key="cell" type="bevel" title="Scan" bezelStyle="regularSquare" image="button" imagePosition="overlaps" alignment="center" alternateImage="button_click" imageScaling="proportionallyDown" inset="2" id="SIo-wR-4Dl">
                         <behavior key="behavior" lightByContents="YES"/>
                         <font key="font" size="40" name="HelveticaNeue-Light"/>
+                        <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                     </buttonCell>
                     <connections>
                         <action selector="clickBtnScan:" target="-2" id="mhP-Yw-0sb"/>

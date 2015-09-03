@@ -53,6 +53,9 @@
                     <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="like" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="zna-cX-DUc" userLabel="done">
                         <behavior key="behavior" lightByContents="YES"/>
                         <font key="font" metaFont="system" size="40"/>
+                        <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                     </buttonCell>
                     <connections>
                         <action selector="clickBtnDone:" target="-2" id="ZG8-Ns-uTq"/>

@@ -44,7 +44,7 @@
                     </constraints>
                 </customView>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="XbA-4r-3ss" userLabel="clean">
-                    <rect key="frame" x="124.5" y="80.5" width="151" height="151"/>
+                    <rect key="frame" x="124" y="80" width="151" height="151"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="151" id="6DT-n0-BcF"/>
                         <constraint firstAttribute="height" constant="151" id="hq9-ce-UHl"/>
@@ -52,13 +52,16 @@
                     <buttonCell key="cell" type="bevel" title="Clean" bezelStyle="regularSquare" image="button" imagePosition="overlaps" alignment="center" alternateImage="button_click" imageScaling="proportionallyDown" inset="2" id="lG1-Na-9Vc">
                         <behavior key="behavior" lightByContents="YES"/>
                         <font key="font" size="40" name="HelveticaNeue-Light"/>
+                        <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                     </buttonCell>
                     <connections>
                         <action selector="clickBtnClean:" target="-2" id="CcG-nb-Dhm"/>
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ap-zu-aI9" userLabel="size">
-                    <rect key="frame" x="18" y="259.5" width="364" height="29"/>
+                    <rect key="frame" x="18" y="259" width="364" height="29"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="360" id="0R0-fp-7wj"/>
                     </constraints>
@@ -69,7 +72,7 @@
                     </textFieldCell>
                 </textField>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="6k3-rq-Uwf" userLabel="info">
-                    <rect key="frame" x="190.5" y="24" width="19" height="20"/>
+                    <rect key="frame" x="190" y="24" width="19" height="20"/>
                     <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="info" imagePosition="only" alignment="center" alternateImage="info.click" imageScaling="proportionallyDown" inset="2" id="6cD-YC-oKx">
                         <behavior key="behavior" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
@@ -114,7 +117,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView appearanceType="vibrantLight" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="25" rowSizeStyle="automatic" viewBased="YES" id="aJI-2F-ZSj">
-                                <rect key="frame" x="0.0" y="0.0" width="238" height="117"/>
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" red="0.0" green="0.41176470588235292" blue="0.85098039215686272" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -171,11 +174,11 @@
                         <constraint firstAttribute="height" constant="180" id="log-2z-1fc"/>
                         <constraint firstAttribute="width" constant="300" id="mNl-QE-lr8"/>
                     </constraints>
-                    <scroller key="horizontalScroller" hidden="YES" appearanceType="vibrantLight" verticalHuggingPriority="750" horizontal="YES" id="xvh-JY-YfN">
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="xvh-JY-YfN">
                         <rect key="frame" x="1" y="119" width="223" height="15"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" hidden="YES" appearanceType="vibrantLight" verticalHuggingPriority="750" horizontal="NO" id="tLY-fK-WAc">
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="tLY-fK-WAc">
                         <rect key="frame" x="224" y="17" width="15" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
