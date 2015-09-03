@@ -43,6 +43,7 @@
 		E57FAD6E1B84B33100ABF2D0 /* MCDeviceInfoHub.m in Sources */ = {isa = PBXBuildFile; fileRef = E57FAD6D1B84B33100ABF2D0 /* MCDeviceInfoHub.m */; };
 		E5B240301B89CB4400A2BC03 /* MyMobileCleaner.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5B240321B89CB4400A2BC03 /* MyMobileCleaner.strings */; };
 		E5C578DF1B916FC80035AE03 /* LogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C578DE1B916FC80035AE03 /* LogFormatter.m */; };
+		E5CB5F491B9813A8008FEA0C /* MCConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CB5F481B9813A8008FEA0C /* MCConfig.m */; };
 		E5E9E84A1B8CB49700FF39C4 /* MCFlashRingView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E9E8491B8CB49700FF39C4 /* MCFlashRingView.m */; };
 		E5E9E84D1B8CC5B800FF39C4 /* MCStageScanDonePopoverCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E9E84C1B8CC5B800FF39C4 /* MCStageScanDonePopoverCellView.m */; };
 /* End PBXBuildFile section */
@@ -122,6 +123,8 @@
 		E5B240341B89CF0800A2BC03 /* MyMobileCleaner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MyMobileCleaner.entitlements; sourceTree = "<group>"; };
 		E5C578DD1B916FC80035AE03 /* LogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogFormatter.h; sourceTree = "<group>"; };
 		E5C578DE1B916FC80035AE03 /* LogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogFormatter.m; sourceTree = "<group>"; };
+		E5CB5F471B9813A8008FEA0C /* MCConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCConfig.h; sourceTree = "<group>"; };
+		E5CB5F481B9813A8008FEA0C /* MCConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCConfig.m; sourceTree = "<group>"; };
 		E5E9E8481B8CB49700FF39C4 /* MCFlashRingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCFlashRingView.h; path = View/MCFlashRingView.h; sourceTree = "<group>"; };
 		E5E9E8491B8CB49700FF39C4 /* MCFlashRingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCFlashRingView.m; path = View/MCFlashRingView.m; sourceTree = "<group>"; };
 		E5E9E84B1B8CC5B800FF39C4 /* MCStageScanDonePopoverCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCStageScanDonePopoverCellView.h; path = View/MCStageScanDonePopoverCellView.h; sourceTree = "<group>"; };
@@ -237,6 +240,8 @@
 				84F03A9C1B82D79200FFFA28 /* AppDelegate.m */,
 				E5C578DD1B916FC80035AE03 /* LogFormatter.h */,
 				E5C578DE1B916FC80035AE03 /* LogFormatter.m */,
+				E5CB5F471B9813A8008FEA0C /* MCConfig.h */,
+				E5CB5F481B9813A8008FEA0C /* MCConfig.m */,
 				84F03AC01B82DAA200FFFA28 /* Core */,
 				84BEE15F1B85C379000F3DC1 /* ViewController */,
 				84BEE1901B86C869000F3DC1 /* View */,
@@ -430,6 +435,7 @@
 				84BEE1891B86C3FF000F3DC1 /* MCStageCleaningViewController.m in Sources */,
 				84BEE17A1B86C398000F3DC1 /* MCStageConnectedAndPairedViewController.m in Sources */,
 				84F03A9D1B82D79200FFFA28 /* AppDelegate.m in Sources */,
+				E5CB5F491B9813A8008FEA0C /* MCConfig.m in Sources */,
 				84BEE1A51B8749DD000F3DC1 /* MCCustomWindow.m in Sources */,
 				84BEE17F1B86C3BD000F3DC1 /* MCStageScanningViewController.m in Sources */,
 			);

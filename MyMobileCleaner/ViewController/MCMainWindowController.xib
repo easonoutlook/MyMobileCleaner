@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MCMainWindowController">
             <connections>
+                <outlet property="btnSound" destination="Q4H-7V-Tu1" id="vmC-aO-8JD"/>
                 <outlet property="cavas" destination="0rw-yj-frg" id="5Yr-8z-5FB"/>
                 <outlet property="labelInfo" destination="4Op-PH-Grg" id="vKK-jE-15t"/>
                 <outlet property="labelTitle" destination="NEl-lZ-5md" id="oQu-CY-Gc2"/>
@@ -17,9 +18,8 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" visibleAtLaunch="NO" animationBehavior="default" id="F0z-JX-Cv5" customClass="MCCustomWindow">
             <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
-            <windowPositionMask key="initialPositionMask" topStrut="YES"/>
-            <rect key="contentRect" x="196" y="480" width="400" height="400"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="contentRect" x="196" y="377" width="400" height="400"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <value key="minSize" type="size" width="400" height="400"/>
             <view key="contentView" id="se5-gp-TjO" customClass="MCColorBackgroundView">
                 <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
@@ -61,6 +61,20 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="Q4H-7V-Tu1" userLabel="sound">
+                        <rect key="frame" x="368" y="368" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="BmR-3x-ERz"/>
+                            <constraint firstAttribute="width" constant="16" id="Vdi-C2-4T3"/>
+                        </constraints>
+                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="dYv-Io-uW1">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clickBtnSound:" target="-2" id="itP-bx-zOm"/>
+                        </connections>
+                    </button>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="M4c-IF-Mqd" customClass="MCCustomWindowButtonBar">
                         <rect key="frame" x="16" y="344" width="20" height="40"/>
                         <constraints>
@@ -78,8 +92,10 @@
                     <constraint firstAttribute="centerX" secondItem="NEl-lZ-5md" secondAttribute="centerX" id="TVI-Rg-soL"/>
                     <constraint firstItem="LTs-Dv-qEp" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="16" id="TX3-Cf-xyb"/>
                     <constraint firstAttribute="trailing" secondItem="0rw-yj-frg" secondAttribute="trailing" id="UqZ-pD-JKg"/>
+                    <constraint firstAttribute="trailing" secondItem="Q4H-7V-Tu1" secondAttribute="trailing" constant="16" id="ar4-hO-6VN"/>
                     <constraint firstItem="4Op-PH-Grg" firstAttribute="top" secondItem="NEl-lZ-5md" secondAttribute="bottom" constant="8" symbolic="YES" id="ehX-oS-t6g"/>
                     <constraint firstItem="M4c-IF-Mqd" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="16" id="l74-O7-xzx"/>
+                    <constraint firstItem="Q4H-7V-Tu1" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="16" id="sVZ-uJ-kmK"/>
                     <constraint firstItem="LTs-Dv-qEp" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="96" id="wa9-7d-Nm7"/>
                     <constraint firstAttribute="bottom" secondItem="0rw-yj-frg" secondAttribute="bottom" id="xNI-Mk-aoQ"/>
                     <constraint firstAttribute="centerX" secondItem="4Op-PH-Grg" secondAttribute="centerX" id="zUZ-2s-Qdd"/>

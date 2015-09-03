@@ -7,6 +7,7 @@
 //
 
 #import "MCMainWindowController.h"
+#import "MCConfig.h"
 #import "MCCustomWindowButtonBar.h"
 #import "MCStageNoConnectionViewController.h"
 #import "MCStageConnectedButUnPairedViewController.h"
@@ -22,6 +23,7 @@
 @property (weak) IBOutlet NSView *cavas;
 @property (weak) IBOutlet NSTextField *labelTitle;
 @property (weak) IBOutlet NSTextField *labelInfo;
+@property (weak) IBOutlet NSButton *btnSound;
 
 @property (nonatomic, assign) MCStageViewControllerUIStage currentUIStage;
 @property (nonatomic, strong) MCStageViewController *currentUIStageViewController;
@@ -56,6 +58,8 @@
     // !!! important, or else the subviews in contentView maybe abnormal.
     // !!! because the contentView implements [drawRect:] to draw by itself.
     [self.window.contentView setWantsLayer:YES];
+
+    [self updateUIStatus];
 
     self.currentUIStage = -1;
     [self showDefaultDisConnectStatus];
@@ -195,6 +199,21 @@
                                                                           multiplier:1
                                                                             constant:16]]];
     [self.windowButtonBar layoutButtonsVertical:YES];
+}
+
+- (void)updateUIStatus
+{
+    self.btnSound.toolTip = [MCConfig isSoundEffectDisabled] ? NSLocalizedStringFromTable(@"main.tip.soundeffect.switchon", @"MyMobileCleaner", @"tip") : NSLocalizedStringFromTable(@"main.tip.soundeffect.switchoff", @"MyMobileCleaner", @"tip");
+
+    self.btnSound.image = [MCConfig isSoundEffectDisabled] ? [NSImage imageNamed:@"soundoff"] : [NSImage imageNamed:@"soundon"];
+    self.btnSound.alternateImage = self.btnSound.image;
+}
+
+- (IBAction)clickBtnSound:(id)sender
+{
+    [MCConfig setSoundEffectDisabled:![MCConfig isSoundEffectDisabled]];
+
+    [self updateUIStatus];
 }
 
 #pragma mark - MCStageViewControllerManager

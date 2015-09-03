@@ -6,6 +6,9 @@
   Copyright (c) 2015 GoKuStudio. All rights reserved.
 */
 
+"main.tip.soundeffect.switchon" = "Turn on sound effect";
+"main.tip.soundeffect.switchoff" = "Turn off sound effect";
+
 "to.connect.title" = "No Connected Device";
 "to.connect.info" = "Please connect your device with USB.";
 

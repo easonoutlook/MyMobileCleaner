@@ -9,6 +9,7 @@
 #import "MCStageCleaningViewController.h"
 #import "MCMainWindowController.h"
 #import "SoundManager.h"
+#import "MCConfig.h"
 
 @interface MCStageCleaningViewController ()
 
@@ -47,7 +48,9 @@
                                                                           dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kDefaultWaitDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                                                                               [self.progress stopAnimation:self];
 
-                                                                              [[Sound soundNamed:@"clean.mp3"] play];
+                                                                              if (![MCConfig isSoundEffectDisabled]) {
+                                                                                  [[Sound soundNamed:@"clean.mp3"] play];
+                                                                              }
                                                                               [self.manager gotoNextStage];
                                                                           });
 
