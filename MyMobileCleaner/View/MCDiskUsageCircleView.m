@@ -120,10 +120,6 @@ static CGFloat barSpace = 0.03;
 {
     CGFloat delay = 1;
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [[Sound soundNamed:@"bubbles.mp3"] play];
-    });
-
     for (NSUInteger i = 0; i < self.barLayers.count; ++i) {
         CAShapeLayer *rainbowLayer = self.barLayers[i];
 
@@ -134,7 +130,9 @@ static CGFloat barSpace = 0.03;
         animation.autoreverses = YES;
         animation.fillMode = kCAFillModeForwards;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((delay+i*0.12) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[Sound soundNamed:@"bubbles.mp3"] play];
             [rainbowLayer addAnimation:animation forKey:@"pop"];
+
             if (self.updateWithAnimation) {
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
                     self.updateWithAnimation(i);
