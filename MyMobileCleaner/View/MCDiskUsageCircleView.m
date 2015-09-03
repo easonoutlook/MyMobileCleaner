@@ -8,7 +8,6 @@
 
 #import "MCDiskUsageCircleView.h"
 #import <QuartzCore/QuartzCore.h>
-#import "SoundManager.h"
 
 static CGFloat barSpace = 0.03;
 
@@ -130,7 +129,6 @@ static CGFloat barSpace = 0.03;
         animation.autoreverses = YES;
         animation.fillMode = kCAFillModeForwards;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((delay+i*0.12) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [[Sound soundNamed:@"bubbles.mp3"] play];
             [rainbowLayer addAnimation:animation forKey:@"pop"];
 
             if (self.updateWithAnimation) {

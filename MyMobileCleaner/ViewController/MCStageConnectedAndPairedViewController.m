@@ -9,6 +9,7 @@
 #import "MCStageConnectedAndPairedViewController.h"
 #import "MCMainWindowController.h"
 #import "MCDiskUsageCircleView.h"
+#import "SoundManager.h"
 
 @interface MCStageConnectedAndPairedViewController ()
 
@@ -68,6 +69,8 @@
                                           [NSColor greenColor]]
                                animation:^(NSUInteger dataIndex) {
                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                       [[Sound soundNamed:@"bubbles.mp3"] play];
+
                                        if (dataIndex == 0) {
                                            self.boxUsed.hidden = NO;
                                        } else if (dataIndex == 1) {
